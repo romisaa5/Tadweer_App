@@ -8,8 +8,18 @@ class Styles {
       TextStyle(fontSize: 20.sp, fontWeight: FontWeight.normal);
   static final textStyle14 =
       TextStyle(fontSize: 14.sp, fontWeight: FontWeight.normal);
-  static final textStyle16 =
-      TextStyle(fontSize: 16.sp,fontFamily: 'Lato');
   static final textStyle32 = TextStyle(
-      fontSize: 32.sp, fontWeight: FontWeight.bold, fontFamily: 'Lato');
+    fontSize: 32.sp,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Lato',
+    color: Colors.white,
+    decoration: TextDecoration.none,
+  );
+
+  static final textStyle16 = TextStyle(
+    fontSize: 16.sp,
+    fontFamily: 'Lato',
+    color: Colors.grey[300],
+    decoration: TextDecoration.none,
+  );
 }

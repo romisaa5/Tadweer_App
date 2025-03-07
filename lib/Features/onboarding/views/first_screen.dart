@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:toda_app/Features/onboarding/views/widgets/custom_button.dart';
+import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/Features/onboarding/views/widgets/custom_indecetor.dart';
-import 'package:toda_app/Features/onboarding/views/second_screen.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/utils/styles.dart';
 
@@ -37,11 +36,12 @@ class FirstScreen extends StatelessWidget {
                 text: 'Next',
                 color: Color(0xff8875FF),
                 onTap: () {
-                  GoRouter.of(context).push(AppRouter.onboardingscreen1);
+                  GoRouter.of(context).go(AppRouter.secondScreen);
                 },
               )
             ],
-          ),Spacer()
+          ),
+          Spacer()
         ],
       ),
     );

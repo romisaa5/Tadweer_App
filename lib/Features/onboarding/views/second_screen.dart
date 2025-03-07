@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:toda_app/Features/onboarding/views/widgets/custom_button.dart';
+import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/Features/onboarding/views/widgets/custom_indecetor.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/utils/styles.dart';
@@ -11,27 +11,32 @@ class SecondScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   return Padding(
-     padding: const EdgeInsets.symmetric(horizontal: 30.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: Column(
         spacing: 25,
-        mainAxisAlignment:  MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-         Spacer(),
+          Spacer(),
           Image.asset('assets/images/onboard2.png'),
           CustomIndecetor(isActive: true),
-          Text('Create daily routine',style: Styles.textStyle32),
-          Text('In Uptodo  you can create your personalized routine to stay productive',style: Styles.textStyle16,textAlign: TextAlign.center,),
+          Text('Create daily routine', style: Styles.textStyle32),
+          Text(
+            'In Uptodo  you can create your personalized routine to stay productive',
+            style: Styles.textStyle16,
+            textAlign: TextAlign.center,
+          ),
           Spacer(),
-           Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [CustomButton(
-              width: 90.w,
+            children: [
+              CustomButton(
+                width: 90.w,
                 text: 'Back',
-                color: Color(0xff),
+                color: Color(0xff000000),
                 onTap: () {
-                  GoRouter.of(context).push(AppRouter.onboardingscreen1);
+                  GoRouter.of(context).go(AppRouter.thirdScreen);
                 },
               ),
               CustomButton(
@@ -39,13 +44,14 @@ class SecondScreen extends StatelessWidget {
                 text: 'Next',
                 color: Color(0xff8875FF),
                 onTap: () {
-                  GoRouter.of(context).push(AppRouter.onboardingscreen2);
+                  GoRouter.of(context).go(AppRouter.firstScreen);
                 },
               ),
-         
+            ],
+          ),
+          Spacer()
         ],
       ),
-      Spacer()
-   ]));
+    );
   }
 }
