@@ -1,6 +1,6 @@
 flutter_native_splash:
   color: "#000000"  # خلفية التطبيق
-  image: assets/images/splash_screen.png  # صورة السبلاتش
+  background_image: assets/images/splash_screen.png  # صورة السبلاتش
   fullscreen: true
 
   android_12:

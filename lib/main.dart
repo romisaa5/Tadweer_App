@@ -15,8 +15,9 @@ class MyApp extends StatelessWidget {
         designSize: const Size(360, 690),
         minTextAdapt: true,
         splitScreenMode: true,
-        builder: (context, child) {
+        builder: (context, child) { 
           return MaterialApp(
+            theme: ThemeData.dark(),
               debugShowCheckedModeBanner: false, home: Scaffold());
         });
   }
