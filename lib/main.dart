@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, child) {
           return MaterialApp(
-              home: );
+              debugShowCheckedModeBanner: false, home: Scaffold());
         });
   }
 }

@@ -1,0 +1,10 @@
+flutter_native_splash:
+  color: "#000000"  # خلفية التطبيق
+  image: assets/images/splash_screen.png  # صورة السبلاتش
+  fullscreen: true
+
+  android_12:
+    image: assets/images/splash_screen.png
+    icon_background_color: "#000000"  # خلفية الرمز الأسود
+
+   
