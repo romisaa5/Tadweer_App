@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toda_app/Features/onboarding/views/onboarding_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) { 
           return MaterialApp(
             theme: ThemeData.dark(),
-              debugShowCheckedModeBanner: false, home: Scaffold());
+              debugShowCheckedModeBanner: false, home: OnboardingView());
         });
   }
 }
