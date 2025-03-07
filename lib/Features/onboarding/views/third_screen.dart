@@ -36,7 +36,7 @@ class ThirdScreen extends StatelessWidget {
                 text: 'Back',
                 color: Color(0xff),
                 onTap: () {
-                  GoRouter.of(context).go(AppRouter.secondScreen);
+                  GoRouter.of(context).push(AppRouter.secondScreen);
                 },
               ),
               CustomButton(
@@ -44,7 +44,7 @@ class ThirdScreen extends StatelessWidget {
                 text: 'GETSTATED',
                 color: Color(0xff8875FF),
                 onTap: () {
-                  GoRouter.of(context).go(AppRouter.welcomeView);
+                  GoRouter.of(context).push(AppRouter.welcomeView);
                 },
               )
             ],

@@ -22,7 +22,7 @@ class CustomButton extends StatelessWidget {
           child: Center(
             child: Text(
               text,
-              style: Styles.textStyle16,
+              style: Styles.textStyle16.copyWith(color: Colors.white),
               textAlign: TextAlign.center,
             ),
           ),
