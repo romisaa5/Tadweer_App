@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:toda_app/Features/onboarding/views/onboarding_view.dart';
-import 'package:toda_app/Features/onboarding/views/widgets/second_screen.dart';
-import 'package:toda_app/Features/onboarding/views/widgets/third_screen.dart';
+import 'package:toda_app/Features/onboarding/views/second_screen.dart';
+import 'package:toda_app/Features/onboarding/views/third_screen.dart';
 
 abstract class AppRouter {
   static final onboardingscreen1 = 'onboardingscreen1';

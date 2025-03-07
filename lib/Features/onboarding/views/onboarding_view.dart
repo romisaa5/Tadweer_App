@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toda_app/Features/onboarding/views/first_screen.dart';
-import 'package:toda_app/Features/onboarding/views/widgets/second_screen.dart';
-import 'package:toda_app/Features/onboarding/views/widgets/third_screen.dart';
+import 'package:toda_app/Features/onboarding/views/second_screen.dart';
+import 'package:toda_app/Features/onboarding/views/third_screen.dart';
 
 class OnboardingView extends StatefulWidget {
   const OnboardingView({super.key});
