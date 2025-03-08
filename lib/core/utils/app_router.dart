@@ -5,10 +5,10 @@ import 'package:toda_app/Features/Forget%20password/presentation/views/verificat
 import 'package:toda_app/Features/Forget%20password/presentation/views/forget_password.dart';
 import 'package:toda_app/Features/Login/presentation/views/login_view.dart';
 import 'package:toda_app/Features/Register/presentation/views/register_view.dart';
-import 'package:toda_app/Features/onboarding/views/first_screen.dart';
-import 'package:toda_app/Features/onboarding/views/second_screen.dart';
-import 'package:toda_app/Features/onboarding/views/third_screen.dart';
-import 'package:toda_app/Features/onboarding/views/welcome_view.dart';
+import 'package:toda_app/Features/onboarding/presentation/views/first_screen.dart';
+import 'package:toda_app/Features/onboarding/presentation/views/second_screen.dart';
+import 'package:toda_app/Features/onboarding/presentation/views/third_screen.dart';
+import 'package:toda_app/Features/onboarding/presentation/views/welcome_view.dart';
 
 abstract class AppRouter {
   static final firstScreen = '/onboardingscreen1';
