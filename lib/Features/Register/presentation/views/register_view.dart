@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:icons_plus/icons_plus.dart';
 import 'package:toda_app/Features/Login/presentation/views/widgets/custom_devider.dart';
 import 'package:toda_app/Features/Login/presentation/views/widgets/custom_textfield_for_password.dart';
 import 'package:toda_app/Features/Login/presentation/views/widgets/custom_textfield_for_username.dart';
@@ -45,17 +47,19 @@ class RegisterView extends StatelessWidget {
             ),
             CustomTextfieldforPassword(),
               CustomButton(
-                text: 'Login',
+                text: 'Register',
                 color: Color(0xff8875FF),
                 width: MediaQuery.of(context).size.width),
                   SizedBox(height: 5.h),
             CustomDevider(),
               SizedBox(height: 5.h),
             CustomButton(
+            icon:FontAwesomeIcons.google,
                 text: 'Register with Google',
                 color: Color(0xff000000),
                 width: MediaQuery.of(context).size.width),
             CustomButton(
+              icon: FontAwesomeIcons.facebook,
                 text: 'Register with Facebook',
                 color: Color(0xff000000),
                 width: MediaQuery.of(context).size.width),
@@ -78,6 +82,7 @@ class RegisterView extends StatelessWidget {
               height: 10.h,
             )
               ]),
-        ));
+        ),
+        );
   }
 }
