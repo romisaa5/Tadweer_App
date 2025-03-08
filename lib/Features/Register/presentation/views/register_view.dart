@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:toda_app/Features/login&register/presentation/views/widgets/custom_devider.dart';
-import 'package:toda_app/Features/login&register/presentation/views/widgets/custom_textfield_for_password.dart';
-import 'package:toda_app/Features/login&register/presentation/views/widgets/custom_textfield_for_username.dart';
+import 'package:toda_app/Features/Login/presentation/views/widgets/custom_devider.dart';
+import 'package:toda_app/Features/Login/presentation/views/widgets/custom_textfield_for_password.dart';
+import 'package:toda_app/Features/Login/presentation/views/widgets/custom_textfield_for_username.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/utils/styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
