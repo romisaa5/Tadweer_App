@@ -36,7 +36,7 @@ class FirstScreen extends StatelessWidget {
                 text: 'Next',
                 color: Color(0xff8875FF),
                 onTap: () {
-                  GoRouter.of(context).go(AppRouter.secondScreen);
+                  GoRouter.of(context).push(AppRouter.secondScreen);
                 },
               )
             ],

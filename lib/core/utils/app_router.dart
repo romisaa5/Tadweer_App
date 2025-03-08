@@ -1,4 +1,8 @@
 import 'package:go_router/go_router.dart';
+import 'package:toda_app/Features/login&register/presentation/views/password_reset.dart';
+import 'package:toda_app/Features/login&register/presentation/views/set_new_password.dart';
+import 'package:toda_app/Features/login&register/presentation/views/verificationScreen.dart';
+import 'package:toda_app/Features/login&register/presentation/views/forget_password.dart';
 import 'package:toda_app/Features/login&register/presentation/views/login_view.dart';
 import 'package:toda_app/Features/login&register/presentation/views/register_view.dart';
 import 'package:toda_app/Features/onboarding/views/first_screen.dart';
@@ -7,13 +11,16 @@ import 'package:toda_app/Features/onboarding/views/third_screen.dart';
 import 'package:toda_app/Features/onboarding/views/welcome_view.dart';
 
 abstract class AppRouter {
-    static final firstScreen = '/onboardingscreen1';
+  static final firstScreen = '/onboardingscreen1';
   static final thirdScreen = '/onboardingscreen3';
   static final secondScreen = '/onboardingscreen2';
   static final welcomeView = '/welcomeview';
   static final loginView = '/loginview';
   static final registerView = '/registerview';
-
+  static final forgetpasssword = '/forgetpassword';
+  static final verificationScreen = '/verificationScreen';
+  static final passwordreset = '/passwordreset';
+  static final setnewpassword = '/setnewpassword';
   static final router = GoRouter(
     initialLocation: firstScreen,
     routes: [
@@ -40,6 +47,22 @@ abstract class AppRouter {
       GoRoute(
         path: registerView,
         builder: (context, state) => RegisterView(),
+      ),
+      GoRoute(
+        path: forgetpasssword,
+        builder: (context, state) => ForgetPassword(),
+      ),
+      GoRoute(
+        path: verificationScreen,
+        builder: (context, state) => VerificationScreen(),
+      ),
+      GoRoute(
+        path: passwordreset,
+        builder: (context, state) => PasswordReset(),
+      ),
+      GoRoute(
+        path: setnewpassword,
+        builder: (context, state) => SetNewPassword(),
       ),
     ],
   );

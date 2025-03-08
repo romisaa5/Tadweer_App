@@ -21,7 +21,7 @@ class LoginView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: 9,
+          spacing: 8,
           children: [
             Spacer(),
             Text(
@@ -39,12 +39,24 @@ class LoginView extends StatelessWidget {
               style: Styles.textStyle14,
             ),
             CustomTextfieldforPassword(),
-              SizedBox(height: 20.h),
+       
+               TextButton(
+                    onPressed: () {
+                      GoRouter.of(context).push(AppRouter.forgetpasssword);
+                    },
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Text(
+                        'Forget Passsword ?',
+                        style: Styles.textStyle12.copyWith(color:Color(0xff8875FF) ),
+                      ),
+                    )),
+
             CustomButton(
                 text: 'Login',
                 color: Color(0xff8875FF),
                 width: MediaQuery.of(context).size.width),
-                  SizedBox(height: 15.h),
+                  SizedBox(height: 10.h),
             CustomDevider(),
               SizedBox(height: 10.h),
             CustomButton(
@@ -58,14 +70,14 @@ class LoginView extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Don't have an acount?",style: Styles.textStyle14,),
+                Text("Don't have an acount?",style: Styles.textStyle12,),
                 TextButton(
                     onPressed: () {
                       GoRouter.of(context).push(AppRouter.registerView);
                     },
                     child: Text(
                       '   Register',
-                      style: Styles.textStyle14.copyWith(color:Color(0xff8875FF) )
+                      style: Styles.textStyle12.copyWith(color:Color(0xff8875FF) )
                     )),
 
               ],

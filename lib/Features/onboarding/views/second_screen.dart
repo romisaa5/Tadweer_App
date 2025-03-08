@@ -36,7 +36,7 @@ class SecondScreen extends StatelessWidget {
                 text: 'Back',
                 color: Color(0xff000000),
                 onTap: () {
-                  GoRouter.of(context).push(AppRouter.thirdScreen);
+                  GoRouter.of(context).push(AppRouter.firstScreen);
                 },
               ),
               CustomButton(
@@ -44,7 +44,7 @@ class SecondScreen extends StatelessWidget {
                 text: 'Next',
                 color: Color(0xff8875FF),
                 onTap: () {
-                  GoRouter.of(context).push(AppRouter.firstScreen);
+                  GoRouter.of(context).push(AppRouter.thirdScreen);
                 },
               ),
             ],

@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class Styles {
   static final textStyle18 =
       TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600);
-  static final textStyle20 =
-      TextStyle(fontSize: 20.sp, fontWeight: FontWeight.normal);
+  static final textStyle12 =
+      TextStyle(fontSize: 12.sp, fontWeight: FontWeight.normal);
   static final textStyle14 =
       TextStyle(fontSize: 14.sp, fontWeight: FontWeight.normal);
   static final textStyle32 = TextStyle(
