@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:toda_app/Features/onboarding/presentation/views/widgets/custom_pageIndicator.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
-import 'package:toda_app/Features/onboarding/presentation/views/widgets/custom_indecetor.dart';
+
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/utils/styles.dart';
 
-class FirstScreen extends StatelessWidget {
+class FirstScreen extends StatefulWidget {
   const FirstScreen({super.key});
+
+  @override
+  State<FirstScreen> createState() => _FirstScreenState();
+}
+
+class _FirstScreenState extends State<FirstScreen> {
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,7 @@ class FirstScreen extends StatelessWidget {
         children: [
           Spacer(),
           Image.asset('assets/images/onboard1.png'),
-          CustomIndecetor(isActive: true),
+           PageIndicator(currentIndex: 0, totalPages: 3),
           Text('Manage your tasks', style: Styles.textStyle32),
           Text(
             'You can easily manage all of your daily tasks in DoMe for free',
@@ -36,6 +43,7 @@ class FirstScreen extends StatelessWidget {
                 text: 'Next',
                 color: Color(0xff8875FF),
                 onTap: () {
+              
                   GoRouter.of(context).push(AppRouter.secondScreen);
                 },
               )

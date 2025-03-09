@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:toda_app/Features/onboarding/presentation/views/widgets/custom_pageIndicator.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/widgets/custom_indecetor.dart';
 import 'package:toda_app/core/utils/app_router.dart';
@@ -20,7 +21,7 @@ class ThirdScreen extends StatelessWidget {
         children: [
           Spacer(),
           Image.asset('assets/images/onboard3.png'),
-          CustomIndecetor(isActive: true),
+          PageIndicator(currentIndex: 2, totalPages: 3),
           Text('Orgonaize your tasks', style: Styles.textStyle32),
           Text(
             'You can organize your daily tasks by adding your tasks into separate categories',

@@ -8,6 +8,7 @@ import 'package:toda_app/Features/Login/presentation/views/widgets/custom_textfi
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/utils/styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
+import 'package:toda_app/core/widgets/custom_button_signup_login.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -59,12 +60,12 @@ class LoginView extends StatelessWidget {
             SizedBox(height: 10.h),
             CustomDevider(),
             SizedBox(height: 10.h),
-            CustomButton(
+            CustomButtonSignupLogin(
                 icon:FontAwesomeIcons.google,
                 text: 'Login with Google',
                 color: Color(0xff000000),
                 width: MediaQuery.of(context).size.width),
-            CustomButton(
+            CustomButtonSignupLogin(
                 icon: FontAwesomeIcons.facebook,
                 text: 'Login with Facebook',
                 color: Color(0xff000000),

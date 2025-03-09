@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:toda_app/Features/onboarding/presentation/views/widgets/custom_pageIndicator.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/widgets/custom_indecetor.dart';
 import 'package:toda_app/core/utils/app_router.dart';
@@ -20,7 +21,7 @@ class SecondScreen extends StatelessWidget {
         children: [
           Spacer(),
           Image.asset('assets/images/onboard2.png'),
-          CustomIndecetor(isActive: true),
+          PageIndicator(currentIndex: 1, totalPages: 3),
           Text('Create daily routine', style: Styles.textStyle32),
           Text(
             'In Uptodo  you can create your personalized routine to stay productive',

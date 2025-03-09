@@ -30,14 +30,14 @@ class WelcomeView extends StatelessWidget {
             Spacer(),
             CustomButton(
                 onTap: () {
-                  GoRouter.of(context).push(AppRouter.loginView);
+                  GoRouter.of(context).pushReplacement(AppRouter.loginView);
                 },
                 text: 'LOGIN',
                 color: Color(0xff8875FF),
                 width: MediaQuery.of(context).size.width),
             CustomButton(
                 onTap: () {
-                  GoRouter.of(context).push(AppRouter.registerView);
+                  GoRouter.of(context).pushReplacement(AppRouter.registerView);
                 },
                 text: 'CREATE ACOUNT',
                 color: Color(0xff000000),
