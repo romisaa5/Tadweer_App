@@ -5,9 +5,15 @@ import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/utils/styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
 
-class ForgetPassword extends StatelessWidget {
+class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
 
+  @override
+  State<ForgetPassword> createState() => _ForgetPasswordState();
+}
+
+class _ForgetPasswordState extends State<ForgetPassword> {
+   final TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +39,7 @@ class ForgetPassword extends StatelessWidget {
                   'Your Email ',
                   style: Styles.textStyle14,
                 ),
-                CustomTextfieldForEmail(),
+                CustomTextfieldForEmail(emailcontroller: emailController,),
                 CustomButton(
                   text: 'Reset Password',
                   color: Color(0xff8875FF),

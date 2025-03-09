@@ -10,9 +10,16 @@ import 'package:toda_app/core/utils/styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/core/widgets/custom_button_signup_login.dart';
 
-class LoginView extends StatelessWidget {
+class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
+ final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,12 +42,12 @@ class LoginView extends StatelessWidget {
               'User Name ',
               style: Styles.textStyle14,
             ),
-            CustomTextfieldForEmail(),
+            CustomTextfieldForEmail(emailcontroller: emailController,),
             Text(
               'Password',
               style: Styles.textStyle14,
             ),
-            CustomTextfieldforPassword(),
+            CustomTextfieldforPassword(passwordController: passwordController,),
             TextButton(
                 onPressed: () {
                   GoRouter.of(context).push(AppRouter.forgetpasssword);

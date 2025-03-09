@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CustomTextfieldForEmail extends StatefulWidget {
-  const CustomTextfieldForEmail({super.key});
-
+  final TextEditingController emailcontroller;
+  CustomTextfieldForEmail({super.key, required this.emailcontroller});
   @override
   State<CustomTextfieldForEmail> createState() =>
       _CustomTextfieldForEmailState();
 }
 
 class _CustomTextfieldForEmailState extends State<CustomTextfieldForEmail> {
-  final TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -19,7 +18,7 @@ class _CustomTextfieldForEmailState extends State<CustomTextfieldForEmail> {
         }
         return null;
       },
-      controller: emailController,
+      controller: widget.emailcontroller,
       decoration: InputDecoration(
         labelText: 'Email',
         border: OutlineInputBorder(

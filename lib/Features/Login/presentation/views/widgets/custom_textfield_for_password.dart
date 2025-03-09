@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomTextfieldforPassword extends StatefulWidget {
-  CustomTextfieldforPassword({super.key});
+  final TextEditingController passwordController;
+  CustomTextfieldforPassword({super.key, required this.passwordController});
 
   @override
   State<CustomTextfieldforPassword> createState() =>
@@ -10,18 +11,22 @@ class CustomTextfieldforPassword extends StatefulWidget {
 
 class _CustomTextfieldforPasswordState
     extends State<CustomTextfieldforPassword> {
-  final TextEditingController passwordController = TextEditingController();
+  
   bool isshown = false;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'the field is required';
+          return 'The field is required';
+        }
+        if (!RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+')
+            .hasMatch(value)) {
+          return 'Enter a valid email';
         }
         return null;
       },
-      controller: passwordController,
+      controller:widget.passwordController,
       obscureText: isshown,
       decoration: InputDecoration(
         suffixIcon: isshown

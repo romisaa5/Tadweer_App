@@ -4,9 +4,16 @@ import 'package:toda_app/Features/Login/presentation/views/widgets/custom_textfi
 import 'package:toda_app/core/utils/styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
 
-class SetNewPassword extends StatelessWidget {
+class SetNewPassword extends StatefulWidget {
   const SetNewPassword({super.key});
 
+  @override
+  State<SetNewPassword> createState() => _SetNewPasswordState();
+}
+
+class _SetNewPasswordState extends State<SetNewPassword> {
+   final TextEditingController confirmpasswordController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,12 +46,12 @@ class SetNewPassword extends StatelessWidget {
             'Password',
             style: Styles.textStyle14,
           ),
-          CustomTextfieldforPassword(),
+          CustomTextfieldforPassword(passwordController: passwordController,),
           Text(
             'Confirm Password',
             style: Styles.textStyle14,
           ),
-          CustomTextfieldforPassword(),
+          CustomTextfieldforPassword(passwordController:confirmpasswordController ,),
           SizedBox(height: 15,),
           CustomButton(
               text: 'Update Password',
