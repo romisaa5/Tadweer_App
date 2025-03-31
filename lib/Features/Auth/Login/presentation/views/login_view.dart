@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-import 'package:toda_app/Features/Auth/Login/presentation/views/widgets/custom_devider.dart';
-import 'package:toda_app/Features/Auth/Login/presentation/views/widgets/custom_textfield_for_password.dart';
-import 'package:toda_app/Features/Auth/Login/presentation/views/widgets/custom_textfield_for_username.dart';
+import 'package:toda_app/Features/Auth/widgets/custom_devider.dart';
+import 'package:toda_app/Features/Auth/widgets/custom_textfield_for_password.dart';
+import 'package:toda_app/Features/Auth/widgets/custom_textfield_for_username.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/utils/styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
@@ -47,13 +47,17 @@ class _LoginViewState extends State<LoginView> {
                 style: Styles.textStyle14,
               ),
               CustomTextfieldForEmail(
-                
-                emailController: emailController,),
+                passwordFocusNode: passwordFocusNode,
+                emailController: emailController,
+              ),
               Text(
                 'Password',
                 style: Styles.textStyle14,
               ),
-              CustomTextfieldforPassword(passwordController: passwordController,),
+              CustomTextfieldforPassword(
+                passwordFocusNode: passwordFocusNode,
+                passwordController: passwordController,
+              ),
               TextButton(
                   onPressed: () {
                     GoRouter.of(context).push(AppRouter.forgetpasssword);
@@ -74,7 +78,7 @@ class _LoginViewState extends State<LoginView> {
               CustomDevider(),
               SizedBox(height: 10.h),
               CustomButtonSignupLogin(
-                  icon:FontAwesomeIcons.google,
+                  icon: FontAwesomeIcons.google,
                   text: 'Login with Google',
                   color: Color(0xff000000),
                   width: MediaQuery.of(context).size.width),

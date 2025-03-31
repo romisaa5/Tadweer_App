@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-import 'package:toda_app/Features/Auth/Login/presentation/views/widgets/custom_devider.dart';
-import 'package:toda_app/Features/Auth/Login/presentation/views/widgets/custom_textfield_for_password.dart';
-import 'package:toda_app/Features/Auth/Login/presentation/views/widgets/custom_textfield_for_username.dart';
+import 'package:toda_app/Features/Auth/widgets/custom_devider.dart';
+import 'package:toda_app/Features/Auth/widgets/custom_textfield_for_password.dart';
+import 'package:toda_app/Features/Auth/widgets/custom_textfield_for_username.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/utils/styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
@@ -19,12 +19,14 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
-   final TextEditingController emailController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
-
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+  final passwordFocusNode = FocusNode();
+  final confirmpasswordFocusNode = FocusNode();
   final _formKey = GlobalKey<FormState>();
-   Future<void> registerUser() async {
+  Future<void> registerUser() async {
     if (_formKey.currentState!.validate()) {
       if (passwordController.text != confirmPasswordController.text) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -34,7 +36,8 @@ class _RegisterViewState extends State<RegisterView> {
       }
 
       try {
-        final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        final credential =
+            await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailController.text.trim(),
           password: passwordController.text.trim(),
         );
@@ -74,19 +77,29 @@ class _RegisterViewState extends State<RegisterView> {
                   'User Name ',
                   style: Styles.textStyle14,
                 ),
-                CustomTextfieldForEmail(emailController: emailController,),
+                CustomTextfieldForEmail(
+                  passwordFocusNode: passwordFocusNode,
+                  emailController: emailController,
+                ),
                 Text(
                   'Password',
                   style: Styles.textStyle14,
                 ),
-                CustomTextfieldforPassword(passwordController: passwordController,),
+                CustomTextfieldforPassword(
+                  confirmpasswordFocusNode: confirmpasswordFocusNode,
+                  passwordFocusNode: passwordFocusNode,
+                  passwordController: passwordController,
+                ),
                 Text(
                   'Confirm Password',
                   style: Styles.textStyle14,
                 ),
-                CustomTextfieldforPassword(passwordController: confirmPasswordController,),
+                CustomTextfieldforPassword(
+                  passwordController: confirmPasswordController,
+                  confirmpasswordFocusNode: confirmpasswordFocusNode,
+                ),
                 CustomButton(
-                    onTap:registerUser,
+                    onTap: registerUser,
                     text: 'Register',
                     color: Color(0xff8875FF),
                     width: MediaQuery.of(context).size.width),
@@ -111,12 +124,16 @@ class _RegisterViewState extends State<RegisterView> {
                       style: Styles.textStyle12,
                     ),
                     TextButton(
-                        onPressed: () {
-                          GoRouter.of(context).push(AppRouter.loginView);
-                        },
-                        child: Text('   Login',
-                            style: Styles.textStyle12
-                                .copyWith(color: Color(0xff8875FF)))),
+                      onPressed: () {
+                        GoRouter.of(context).push(AppRouter.loginView);
+                      },
+                      child: Text(
+                        '   Login',
+                        style: Styles.textStyle12.copyWith(
+                          color: Color(0xff8875FF),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(
