@@ -1,10 +1,10 @@
 import 'package:go_router/go_router.dart';
-import 'package:toda_app/Features/Forget%20password/presentation/views/password_reset.dart';
-import 'package:toda_app/Features/Forget%20password/presentation/views/set_new_password.dart';
-import 'package:toda_app/Features/Forget%20password/presentation/views/verificationScreen.dart';
-import 'package:toda_app/Features/Forget%20password/presentation/views/forget_password.dart';
-import 'package:toda_app/Features/Login/presentation/views/login_view.dart';
-import 'package:toda_app/Features/Register/presentation/views/register_view.dart';
+import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/password_reset.dart';
+import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/set_new_password.dart';
+import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/verificationScreen.dart';
+import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/forget_password.dart';
+import 'package:toda_app/Features/Auth/Login/presentation/views/login_view.dart';
+import 'package:toda_app/Features/Auth/Register/presentation/views/register_view.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/first_screen.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/second_screen.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/third_screen.dart';
