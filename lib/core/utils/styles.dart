@@ -15,6 +15,13 @@ class Styles {
     color: Colors.white,
     decoration: TextDecoration.none,
   );
+   static final textStyle20 = TextStyle(
+    fontSize: 20.sp,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Lato',
+    color: Colors.white,
+    decoration: TextDecoration.none,
+  );
 
   static final textStyle16 = TextStyle(
     fontSize: 16.sp,
