@@ -4,6 +4,7 @@ import 'package:toda_app/Features/home/presentation/views/calander_view.dart';
 import 'package:toda_app/Features/home/presentation/views/focus_view.dart';
 import 'package:toda_app/Features/home/presentation/views/index_view.dart';
 import 'package:toda_app/Features/home/presentation/views/profie_view.dart';
+import 'package:toda_app/Features/home/presentation/widgets/add_tasks_bottom_sheet.dart';
 import 'package:toda_app/constans.dart';
 
 class HomeView extends StatefulWidget {
@@ -24,7 +25,19 @@ class _HomeViewState extends State<HomeView> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         backgroundColor: kPrimaryColor,
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(16.0),
+              ),
+            ),
+            builder: (context) {
+              return AddTasksBottomSheet();
+        },
+          );
+        },
         shape: const StadiumBorder(),
         child: const Icon(
           Icons.add,
