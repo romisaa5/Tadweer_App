@@ -25,88 +25,95 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios),
-      ),
+    
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Form(
           key: _formkey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 8,
-            children: [
-              Spacer(),
-              Text(
-                'Login',
-                style: Styles.textStyle32,
-              ),
-              SizedBox(height: 15.h),
-              Text(
-                'User Name ',
-                style: Styles.textStyle14,
-              ),
-              CustomTextfieldForEmail(
-                passwordFocusNode: passwordFocusNode,
-                emailController: emailController,
-              ),
-              Text(
-                'Password',
-                style: Styles.textStyle14,
-              ),
-              CustomTextfieldforPassword(
-                passwordFocusNode: passwordFocusNode,
-                passwordController: passwordController,
-              ),
-              TextButton(
-                  onPressed: () {
-                    GoRouter.of(context).push(AppRouter.forgetpasssword);
+          child: SingleChildScrollView(
+            child: Column(
+            
+              crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: 8,
+              children: [
+            
+                SizedBox(
+                  height: 50.h,
+                ),
+                Text(
+                  'Login',
+                  style: Styles.textStyle32,
+                ),
+                SizedBox(height: 15.h),
+                Text(
+                  'User Name ',
+                  style: Styles.textStyle14,
+                ),
+                CustomTextfieldForEmail(
+                  passwordFocusNode: passwordFocusNode,
+                  emailController: emailController,
+                ),
+                Text(
+                  'Password',
+                  style: Styles.textStyle14,
+                ),
+                CustomTextfieldforPassword(
+                  passwordFocusNode: passwordFocusNode,
+                  passwordController: passwordController,
+                ),
+                TextButton(
+                    onPressed: () {
+                      GoRouter.of(context).push(AppRouter.forgetpasssword);
+                    },
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Text(
+                        'Forget Passsword ?',
+                        style:
+                            Styles.textStyle12.copyWith(color: Color(0xff8875FF)),
+                      ),
+                    )),
+                CustomButton(
+                  onTap: (){
+                    GoRouter.of(context).push(AppRouter.homeview);
                   },
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: Text(
-                      'Forget Passsword ?',
-                      style:
-                          Styles.textStyle12.copyWith(color: Color(0xff8875FF)),
+                    text: 'Login',
+                    color: Color(0xff8875FF),
+                    width: MediaQuery.of(context).size.width),
+                SizedBox(height: 10.h),
+                CustomDevider(),
+                SizedBox(height: 10.h),
+                CustomButtonSignupLogin(
+                    icon: FontAwesomeIcons.google,
+                    text: 'Login with Google',
+                    color: Color(0xff000000),
+                    width: MediaQuery.of(context).size.width),
+                CustomButtonSignupLogin(
+                    icon: FontAwesomeIcons.facebook,
+                    text: 'Login with Facebook',
+                    color: Color(0xff000000),
+                    width: MediaQuery.of(context).size.width),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Don't have an acount?",
+                      style: Styles.textStyle12,
                     ),
-                  )),
-              CustomButton(
-                  text: 'Login',
-                  color: Color(0xff8875FF),
-                  width: MediaQuery.of(context).size.width),
-              SizedBox(height: 10.h),
-              CustomDevider(),
-              SizedBox(height: 10.h),
-              CustomButtonSignupLogin(
-                  icon: FontAwesomeIcons.google,
-                  text: 'Login with Google',
-                  color: Color(0xff000000),
-                  width: MediaQuery.of(context).size.width),
-              CustomButtonSignupLogin(
-                  icon: FontAwesomeIcons.facebook,
-                  text: 'Login with Facebook',
-                  color: Color(0xff000000),
-                  width: MediaQuery.of(context).size.width),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have an acount?",
-                    style: Styles.textStyle12,
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        GoRouter.of(context).push(AppRouter.registerView);
-                      },
-                      child: Text('   Register',
-                          style: Styles.textStyle12
-                              .copyWith(color: Color(0xff8875FF)))),
-                ],
-              ),
-              SizedBox(
-                height: 15.h,
-              )
-            ],
+                    TextButton(
+                        onPressed: () {
+                          GoRouter.of(context).push(AppRouter.registerView);
+                        },
+                        child: Text('   Register',
+                            style: Styles.textStyle12
+                                .copyWith(color: Color(0xff8875FF)))),
+                  ],
+                ),
+                SizedBox(
+                  height: 15.h,
+                )
+              ],
+            ),
           ),
         ),
       ),

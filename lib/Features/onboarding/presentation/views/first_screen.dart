@@ -15,7 +15,6 @@ class FirstScreen extends StatefulWidget {
 }
 
 class _FirstScreenState extends State<FirstScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +27,7 @@ class _FirstScreenState extends State<FirstScreen> {
           children: [
             Spacer(),
             Image.asset('assets/images/onboard1.png'),
-             PageIndicator(currentIndex: 0, totalPages: 3),
+            PageIndicator(currentIndex: 0, totalPages: 3),
             Text('Manage your tasks', style: Styles.textStyle32),
             Text(
               'You can easily manage all of your daily tasks in DoMe for free',
@@ -37,14 +36,20 @@ class _FirstScreenState extends State<FirstScreen> {
             ),
             Spacer(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                CustomButton(
+                  onTap: () {
+                    GoRouter.of(context).pushReplacement(AppRouter.loginView);
+                  },
+                  text: 'Skip',
+                   color: Colors.black,
+                    width: 90.w),
                 CustomButton(
                   width: 90.w,
                   text: 'Next',
                   color: Color(0xff8875FF),
                   onTap: () {
-                
                     GoRouter.of(context).push(AppRouter.secondScreen);
                   },
                 )

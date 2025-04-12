@@ -57,89 +57,91 @@ class _RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios),
-      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Form(
           key: _formKey,
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 8,
-              children: [
-                Text(
-                  'Register',
-                  style: Styles.textStyle32,
-                ),
-                SizedBox(height: 5.h),
-                Text(
-                  'User Name ',
-                  style: Styles.textStyle14,
-                ),
-                CustomTextfieldForEmail(
-                  passwordFocusNode: passwordFocusNode,
-                  emailController: emailController,
-                ),
-                Text(
-                  'Password',
-                  style: Styles.textStyle14,
-                ),
-                CustomTextfieldforPassword(
-                  confirmpasswordFocusNode: confirmpasswordFocusNode,
-                  passwordFocusNode: passwordFocusNode,
-                  passwordController: passwordController,
-                ),
-                Text(
-                  'Confirm Password',
-                  style: Styles.textStyle14,
-                ),
-                CustomTextfieldforPassword(
-                  passwordController: confirmPasswordController,
-                  confirmpasswordFocusNode: confirmpasswordFocusNode,
-                ),
-                CustomButton(
-                    onTap: registerUser,
-                    text: 'Register',
-                    color: Color(0xff8875FF),
-                    width: MediaQuery.of(context).size.width),
-                SizedBox(height: 5.h),
-                CustomDevider(),
-                SizedBox(height: 5.h),
-                CustomButtonSignupLogin(
-                    icon: FontAwesomeIcons.google,
-                    text: 'Register with Google',
-                    color: Color(0xff000000),
-                    width: MediaQuery.of(context).size.width),
-                CustomButtonSignupLogin(
-                    icon: FontAwesomeIcons.facebook,
-                    text: 'Register with Facebook',
-                    color: Color(0xff000000),
-                    width: MediaQuery.of(context).size.width),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "already have an acount?",
-                      style: Styles.textStyle12,
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        GoRouter.of(context).push(AppRouter.loginView);
-                      },
-                      child: Text(
-                        '   Login',
-                        style: Styles.textStyle12.copyWith(
-                          color: Color(0xff8875FF),
+          child: SingleChildScrollView(
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 8.h,
+                children: [
+                  SizedBox(
+                    height: 50.h,
+                  ),
+                  Text(
+                    'Register',
+                    style: Styles.textStyle32,
+                  ),
+                  SizedBox(height: 5.h),
+                  Text(
+                    'User Name ',
+                    style: Styles.textStyle14,
+                  ),
+                  CustomTextfieldForEmail(
+                    passwordFocusNode: passwordFocusNode,
+                    emailController: emailController,
+                  ),
+                  Text(
+                    'Password',
+                    style: Styles.textStyle14,
+                  ),
+                  CustomTextfieldforPassword(
+                    confirmpasswordFocusNode: confirmpasswordFocusNode,
+                    passwordFocusNode: passwordFocusNode,
+                    passwordController: passwordController,
+                  ),
+                  Text(
+                    'Confirm Password',
+                    style: Styles.textStyle14,
+                  ),
+                  CustomTextfieldforPassword(
+                    passwordController: confirmPasswordController,
+                    confirmpasswordFocusNode: confirmpasswordFocusNode,
+                  ),
+                  CustomButton(
+                      onTap: registerUser,
+                      text: 'Register',
+                      color: Color(0xff8875FF),
+                      width: MediaQuery.of(context).size.width),
+                  SizedBox(height: 5.h),
+                  CustomDevider(),
+                  SizedBox(height: 5.h),
+                  CustomButtonSignupLogin(
+                      icon: FontAwesomeIcons.google,
+                      text: 'Register with Google',
+                      color: Color(0xff000000),
+                      width: MediaQuery.of(context).size.width),
+                  CustomButtonSignupLogin(
+                      icon: FontAwesomeIcons.facebook,
+                      text: 'Register with Facebook',
+                      color: Color(0xff000000),
+                      width: MediaQuery.of(context).size.width),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "already have an acount?",
+                        style: Styles.textStyle12,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          GoRouter.of(context).push(AppRouter.loginView);
+                        },
+                        child: Text(
+                          '   Login',
+                          style: Styles.textStyle12.copyWith(
+                            color: Color(0xff8875FF),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 10.h,
-                )
-              ]),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  )
+                ]),
+          ),
         ),
       ),
     );

@@ -5,6 +5,7 @@ import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/veri
 import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/forget_password.dart';
 import 'package:toda_app/Features/Auth/Login/presentation/views/login_view.dart';
 import 'package:toda_app/Features/Auth/Register/presentation/views/register_view.dart';
+import 'package:toda_app/Features/home/presentation/home_view.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/first_screen.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/second_screen.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/third_screen.dart';
@@ -21,6 +22,7 @@ abstract class AppRouter {
   static final verificationScreen = '/verificationScreen';
   static final passwordreset = '/passwordreset';
   static final setnewpassword = '/setnewpassword';
+  static final String homeview = '/homeview';
   static final router = GoRouter(
     initialLocation: firstScreen,
     routes: [
@@ -63,6 +65,10 @@ abstract class AppRouter {
       GoRoute(
         path: setnewpassword,
         builder: (context, state) => SetNewPassword(),
+      ),
+        GoRoute(
+        path: homeview,
+        builder: (context, state) => HomeView(),
       ),
     ],
   );
