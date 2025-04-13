@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toda_app/core/utils/app_router.dart';
-import 'package:toda_app/core/utils/styles.dart';
+import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
 
 void main() {

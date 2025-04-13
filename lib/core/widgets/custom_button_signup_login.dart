@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toda_app/core/utils/styles.dart';
+import 'package:toda_app/core/themes/text_styles.dart';
 
 class CustomButtonSignupLogin extends StatelessWidget {
   const CustomButtonSignupLogin({super.key, required this.text, required this.color, required this.width, this.icon, this.onTap});

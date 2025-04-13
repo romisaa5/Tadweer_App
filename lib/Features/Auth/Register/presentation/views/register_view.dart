@@ -7,7 +7,7 @@ import 'package:toda_app/Features/Auth/widgets/custom_devider.dart';
 import 'package:toda_app/Features/Auth/widgets/custom_textfield_for_password.dart';
 import 'package:toda_app/Features/Auth/widgets/custom_textfield_for_username.dart';
 import 'package:toda_app/core/utils/app_router.dart';
-import 'package:toda_app/core/utils/styles.dart';
+import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/core/widgets/custom_button_signup_login.dart';
 

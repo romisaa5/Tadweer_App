@@ -5,7 +5,7 @@ import 'package:toda_app/Features/home/presentation/views/focus_view.dart';
 import 'package:toda_app/Features/home/presentation/views/index_view.dart';
 import 'package:toda_app/Features/home/presentation/views/profie_view.dart';
 import 'package:toda_app/Features/home/presentation/widgets/add_tasks_bottom_sheet.dart';
-import 'package:toda_app/constans.dart';
+import 'package:toda_app/core/themes/colors.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -24,7 +24,7 @@ class _HomeViewState extends State<HomeView> {
       body: tabs[currentIndex],
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: kPrimaryColor,
+        backgroundColor: ColorsManger.kPrimaryColor,
         onPressed: () {
           showModalBottomSheet(
             context: context,
@@ -56,7 +56,7 @@ class _HomeViewState extends State<HomeView> {
               currentIndex = tappedIndex;
             });
           },
-          selectedItemColor: kPrimaryColor,
+          selectedItemColor: ColorsManger.kPrimaryColor,
           unselectedItemColor: const Color.fromARGB(255, 158, 157, 158),
           elevation: 0,
           showUnselectedLabels: true,

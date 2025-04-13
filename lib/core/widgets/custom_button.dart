@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:toda_app/core/utils/styles.dart';
+import 'package:toda_app/core/themes/text_styles.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton(

@@ -5,7 +5,7 @@ import 'package:toda_app/Features/onboarding/presentation/views/widgets/custom_p
 import 'package:toda_app/core/widgets/custom_button.dart';
 
 import 'package:toda_app/core/utils/app_router.dart';
-import 'package:toda_app/core/utils/styles.dart';
+import 'package:toda_app/core/themes/text_styles.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({super.key});

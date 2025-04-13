@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toda_app/constans.dart';
+import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
 
 class AddTasksBottomSheet extends StatelessWidget {
@@ -40,7 +40,7 @@ class AddTasksBottomSheet extends StatelessWidget {
               Navigator.pop(context);
             },
               text: 'Add Task',
-              color: kPrimaryColor,
+              color:ColorsManger.kPrimaryColor ,
               width: MediaQuery.of(context).size.width)
         ]));
   }
