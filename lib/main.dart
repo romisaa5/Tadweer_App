@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/firebase_options.dart';
 
@@ -44,7 +45,17 @@ class _MyAppState extends State<MyApp> {
           builder: (context) {
             return MaterialApp.router(
               routerConfig: AppRouter.router,
-              theme: ThemeData.dark(),
+              theme: ThemeData.dark().copyWith(
+                colorScheme: ColorScheme.dark(
+                  primary: ColorsManger.kPrimaryColor,
+                  onSurface: Colors.white,
+                ),
+                textButtonTheme: TextButtonThemeData(
+                  style: TextButton.styleFrom(
+                    foregroundColor: ColorsManger.kPrimaryColor,
+                  ),
+                ),
+              ),
               debugShowCheckedModeBanner: false,
             );
           },
