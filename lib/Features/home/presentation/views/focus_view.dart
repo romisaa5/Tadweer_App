@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:toda_app/Features/home/presentation/widgets/focus_stats_section.dart';
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 
@@ -57,50 +58,53 @@ class _FocusViewState extends State<FocusView> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20),
-          child: Column(
-            children: [
-              SizedBox(height: 10),
-              Text(
-                'Focus Mode',
-                style: Styles.textStyle24,
-              ),
-              SizedBox(height: 30.h),
-              CircularPercentIndicator(
-                radius: 110.0.r,
-                lineWidth: 10.0.r,
-                percent: percent,
-                center: Text(
-                  formatTime(remainingSeconds),
-                  style: TextStyle(color: Colors.white, fontSize: 32),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: 10),
+                Text(
+                  'Focus Mode',
+                  style: Styles.textStyle24,
                 ),
-                progressColor: ColorsManger.kPrimaryColor,
-                backgroundColor: Colors.grey.shade800,
-                circularStrokeCap: CircularStrokeCap.round,
-              ),
-              SizedBox(height: 20.h),
-              Text(
-                'While your focus mode is on, all of your notifications will be off',
-                style: Styles.textStyle16.copyWith(color: Colors.grey,),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 30.h),
-              ElevatedButton(
-                onPressed: toggleTimer,
-                style: ElevatedButton.styleFrom(
-                  
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                SizedBox(height: 30.h),
+                CircularPercentIndicator(
+                  radius: 110.0.r,
+                  lineWidth: 10.0.r,
+                  percent: percent,
+                  center: Text(
+                    formatTime(remainingSeconds),
+                    style: TextStyle(color: Colors.white, fontSize: 32),
                   ),
-                  backgroundColor:
-                      isRunning ? Colors.red : ColorsManger.kPrimaryColor,
-                  padding: EdgeInsets.symmetric(horizontal: 50.w, vertical: 15.h),
+                  progressColor: ColorsManger.kPrimaryColor,
+                  backgroundColor: Colors.grey.shade800,
+                  circularStrokeCap: CircularStrokeCap.round,
                 ),
-                child: Text(
-                  isRunning ? 'Pause' : 'Start',
-                  style: Styles.textStyle16,
+                SizedBox(height: 20.h),
+                Text(
+                  'While your focus mode is on, all of your notifications will be off',
+                  style: Styles.textStyle16.copyWith(color: Colors.grey,),
+                  textAlign: TextAlign.center,
                 ),
-              ),
-            ],
+                SizedBox(height: 30.h),
+                ElevatedButton(
+                  onPressed: toggleTimer,
+                  style: ElevatedButton.styleFrom(
+                    
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    backgroundColor:
+                        isRunning ? Colors.red : ColorsManger.kPrimaryColor,
+                    padding: EdgeInsets.symmetric(horizontal: 50.w, vertical: 15.h),
+                  ),
+                  child: Text(
+                    isRunning ? 'Pause' : 'Start',
+                    style: Styles.textStyle16,
+                  ),
+                ),
+                FocusStatsSection()
+              ],
+            ),
           ),
         ),
       ),
