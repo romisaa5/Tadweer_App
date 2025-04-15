@@ -13,7 +13,7 @@ class ProfieView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding:  EdgeInsets.only(left: 16.0.w,right: 16.w,top: 16.h),
+        padding: EdgeInsets.only(left: 16.0.w, right: 16.w, top: 16.h),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -24,7 +24,7 @@ class ProfieView extends StatelessWidget {
               ),
               Text(
                 'Profile',
-                style: Styles.textStyle18,
+                style: Styles.textStyle24,
               ),
               CircleAvatar(
                 radius: 42.r,
@@ -47,8 +47,10 @@ class ProfieView extends StatelessWidget {
                 ],
               ),
               Divider(
-                endIndent: 15,
-                indent: 15,
+                color: Colors.grey,
+                thickness: .5,
+                endIndent: 15.h,
+                indent: 15.h,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,8 +64,10 @@ class ProfieView extends StatelessWidget {
                       onPressed: () {},
                       icon: Icons.settings),
                   Divider(
-                    endIndent: 15,
-                    indent: 15,
+                    color: Colors.grey,
+                    thickness: .5,
+                    endIndent: 15.h,
+                    indent: 15.h,
                   ),
                   Text(
                     'Account',
@@ -83,8 +87,10 @@ class ProfieView extends StatelessWidget {
                       onPressed: () {},
                       icon: Icons.camera_alt_outlined),
                   Divider(
-                    endIndent: 15,
-                    indent: 15,
+                    color: Colors.grey,
+                    thickness: .5,
+                    endIndent: 15.h,
+                    indent: 15.h,
                   ),
                   ProfileListTile(
                     title: 'Log Out',

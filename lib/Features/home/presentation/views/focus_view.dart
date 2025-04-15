@@ -54,14 +54,13 @@ class _FocusViewState extends State<FocusView> {
     double percent = 1 - (remainingSeconds / totalSeconds);
 
     return Scaffold(
-      backgroundColor: Colors.black,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: 10),
+                SizedBox(height: 10.h),
                 Text(
                   'Focus Mode',
                   style: Styles.textStyle24,

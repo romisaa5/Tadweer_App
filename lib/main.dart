@@ -11,17 +11,17 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(const ToDoApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class ToDoApp extends StatefulWidget {
+  const ToDoApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<ToDoApp> createState() => _ToDoAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _ToDoAppState extends State<ToDoApp> {
   @override
   void initState() {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {

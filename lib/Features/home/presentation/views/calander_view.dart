@@ -24,8 +24,8 @@ class _CalanderViewState extends State<CalanderView> {
         automaticallyImplyLeading: false,
         backgroundColor: ColorsManger.kPrimaryColor,
         title: Text(
-          'Calander',
-          style: Styles.textStyle18.copyWith(color: Colors.white),
+          'Calender',
+          style: Styles.textStyle24.copyWith(color: Colors.white),
         ),
         centerTitle: true,
       ),
