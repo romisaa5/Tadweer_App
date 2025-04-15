@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toda_app/Features/home/presentation/widgets/focus_chart.dart';
 
 
@@ -10,15 +11,15 @@ class FocusStatsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 40),
+        SizedBox(height: 40.h),
           FocusChart(),
-        SizedBox(height: 30),
+        SizedBox(height: 30.h),
         Text(
           'Applications',
           style: TextStyle(color: Colors.white, fontSize: 18),
         ),
 
-        SizedBox(height: 10),
+        SizedBox(height: 10.h),
         _buildAppTile('Facebook', 'You spent 1h on Facebook today',
             Icons.facebook, Colors.blue),
         _buildAppTile('Telegram', 'You spent 30m on Telegram today',
