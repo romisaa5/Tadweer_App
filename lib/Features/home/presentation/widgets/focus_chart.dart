@@ -1,5 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toda_app/core/themes/colors.dart';
 
 class FocusChart extends StatelessWidget {
   const FocusChart({super.key});
@@ -35,9 +37,9 @@ class FocusChart extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 20),
-        Container(
-          height: 200,
+        SizedBox(height: 30.h),
+        SizedBox(
+          height: 200.h,
           child: BarChart(
             BarChartData(
               gridData: FlGridData(show: false),
@@ -53,11 +55,11 @@ class FocusChart extends StatelessWidget {
                       );
                     },
                     interval: 1,
-                    reservedSize: 30,
+                    reservedSize: 30.sp,
                   ),
                 ),
                 bottomTitles: AxisTitles(
-                  
+
                   sideTitles: SideTitles(
                     showTitles: true,
                     getTitlesWidget: (value, meta) {
@@ -95,12 +97,12 @@ class FocusChart extends StatelessWidget {
       barRods: [
         BarChartRodData(
           toY: y,
-          color: isSelected ? Colors.deepPurpleAccent : Colors.white70,
-          width: 30,
+          color: isSelected ? ColorsManger.kPrimaryColor: Colors.white70,
+          width: 30.w,
           borderRadius: BorderRadius.circular(4),
           backDrawRodData: BackgroundBarChartRodData(
             show: true,
-            toY: 6,
+            toY: 6.h,
             color: Colors.grey[800],
           ),
         ),

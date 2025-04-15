@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toda_app/Features/home/presentation/widgets/focus_chart.dart';
-import 'package:toda_app/core/themes/colors.dart';
+
 
 class FocusStatsSection extends StatelessWidget {
   const FocusStatsSection({super.key});
@@ -41,7 +41,7 @@ class FocusStatsSection extends StatelessWidget {
       color: Colors.grey[850],
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: color.withOpacity(0.2),
+          backgroundColor: color.withValues( alpha: .2),
           child: Icon(icon, color: color),
         ),
         title: Text(name, style: TextStyle(color: Colors.white)),
