@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toda_app/Features/Auth/widgets/custom_textfield_for_password.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
+import 'package:toda_app/core/widgets/custom_text_form_field.dart';
 
 class SetNewPassword extends StatefulWidget {
   const SetNewPassword({super.key});
@@ -46,12 +46,36 @@ class _SetNewPasswordState extends State<SetNewPassword> {
             'Password',
             style: Styles.textStyle14,
           ),
-          CustomTextfieldforPassword(passwordController: passwordController,),
+          AppTextFormField(hintText: 'Password',  validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'The field is required';
+                      }
+                      if (value.length < 8) {
+                        return 'Password must be at least 8 characters';
+                      }
+                      if (!RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$')
+                          .hasMatch(value)) {
+                        return 'Password must contain at least one letter and one number';
+                      }
+                      return null;
+                    }, ),
           Text(
             'Confirm Password',
             style: Styles.textStyle14,
           ),
-          CustomTextfieldforPassword(passwordController:confirmpasswordController ,),
+         AppTextFormField(hintText: 'Confirm Password', validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'The field is required';
+                      }
+                      if (value.length < 8) {
+                        return 'Password must be at least 8 characters';
+                      }
+                      if (!RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$')
+                          .hasMatch(value)) {
+                        return 'Password must contain at least one letter and one number';
+                      }
+                      return null;
+                    }, ),
           SizedBox(height: 15,),
           CustomButton(
               text: 'Update Password',

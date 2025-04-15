@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:toda_app/Features/Auth/widgets/custom_textfield_for_username.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
+import 'package:toda_app/core/widgets/custom_text_form_field.dart';
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
@@ -39,7 +39,16 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   'Your Email ',
                   style: Styles.textStyle14,
                 ),
-                CustomTextfieldForEmail(emailController: emailController,),
+              AppTextFormField(hintText: 'Email', validator:   (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'The field is required';
+                      }
+                      if (!RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+')
+                          .hasMatch(value)) {
+                        return 'Enter a valid email';
+                      }
+                      return null;
+                    },),
                 CustomButton(
                   text: 'Reset Password',
                   color: Color(0xff8875FF),

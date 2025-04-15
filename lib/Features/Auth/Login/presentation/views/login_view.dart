@@ -149,7 +149,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
                     TextButton(
                         onPressed: () {
-                          GoRouter.of(context).push(AppRouter.registerView);
+                          GoRouter.of(context).pushReplacement(AppRouter.registerView);
                         },
                         child: Text('   Register',
                             style: Styles.textStyle12
