@@ -1,15 +1,14 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toda_app/Features/Auth/widgets/custom_devider.dart';
-import 'package:toda_app/Features/Auth/widgets/custom_textfield_for_password.dart';
-import 'package:toda_app/Features/Auth/widgets/custom_textfield_for_username.dart';
+import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/core/widgets/custom_button_signup_login.dart';
+import 'package:toda_app/core/widgets/custom_text_form_field.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -26,34 +25,8 @@ class _RegisterViewState extends State<RegisterView> {
   final passwordFocusNode = FocusNode();
   final confirmpasswordFocusNode = FocusNode();
   final _formKey = GlobalKey<FormState>();
-  Future<void> registerUser() async {
-    if (_formKey.currentState!.validate()) {
-      if (passwordController.text != confirmPasswordController.text) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Passwords do not match!')),
-        );
-        return;
-      }
 
-      try {
-        final credential =
-            await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailController.text.trim(),
-          password: passwordController.text.trim(),
-        );
-        print('User registered: ${credential.user?.email}');
-      } on FirebaseAuthException catch (e) {
-        if (e.code == 'weak-password') {
-          print('The password provided is too weak.');
-        } else if (e.code == 'email-already-in-use') {
-          print('The account already exists for that email.');
-        }
-      } catch (e) {
-        print(e);
-      }
-    }
-  }
-
+  bool isshown = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,29 +51,133 @@ class _RegisterViewState extends State<RegisterView> {
                     'User Name ',
                     style: Styles.textStyle14,
                   ),
-                  CustomTextfieldForEmail(
-                    passwordFocusNode: passwordFocusNode,
-                    emailController: emailController,
+                  AppTextFormField(
+                    hintText: 'User Name',
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your username';
+                      }
+                      return null;
+                    },
+                    prefixIcon: Icon(
+                      FontAwesomeIcons.user,
+                      color: Color(0xff8875FF),
+                    ),
+                  ),
+                  Text(
+                    'Email',
+                    style: Styles.textStyle14,
+                  ),
+                  AppTextFormField(
+                    hintText: 'Email',
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'The field is required';
+                      }
+                      if (!RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+')
+                          .hasMatch(value)) {
+                        return 'Enter a valid email';
+                      }
+                      return null;
+                    },
+                    prefixIcon: Icon(
+                      Icons.email,
+                      size: 20.sp,
+                      color: ColorsManger.kPrimaryColor,
+                    ),
+                    focusNode: passwordFocusNode,
+                    controller: emailController,
                   ),
                   Text(
                     'Password',
                     style: Styles.textStyle14,
                   ),
-                  CustomTextfieldforPassword(
-                    confirmpasswordFocusNode: confirmpasswordFocusNode,
-                    passwordFocusNode: passwordFocusNode,
-                    passwordController: passwordController,
+                  AppTextFormField(
+                    hintText: 'Password',
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'The field is required';
+                      }
+                      if (value.length < 8) {
+                        return 'Password must be at least 8 characters';
+                      }
+                      if (!RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$')
+                          .hasMatch(value)) {
+                        return 'Password must contain at least one letter and one number';
+                      }
+                      return null;
+                    },
+                    suffixIcon: isshown
+                        ? IconButton(
+                            onPressed: () {
+                              setState(() {
+                                isshown = !isshown;
+                              });
+                            },
+                            icon: Icon(Icons.visibility))
+                        : IconButton(
+                            onPressed: () {
+                              setState(() {
+                                isshown = !isshown;
+                              });
+                            },
+                            icon: Icon(Icons.visibility_off)),
+                    prefixIcon: Icon(
+                      Icons.lock_outlined,
+                      size: 20.sp,
+                      color: ColorsManger.kPrimaryColor,
+                    ),
+                    focusNode: confirmpasswordFocusNode,
+                    controller: passwordController,
                   ),
                   Text(
                     'Confirm Password',
                     style: Styles.textStyle14,
                   ),
-                  CustomTextfieldforPassword(
-                    passwordController: confirmPasswordController,
-                    confirmpasswordFocusNode: confirmpasswordFocusNode,
+                  AppTextFormField(
+                    hintText: 'Confirm Password',
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'The field is required';
+                      }
+                      if (value.length < 8) {
+                        return 'Password must be at least 8 characters';
+                      }
+                      if (!RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$')
+                          .hasMatch(value)) {
+                        return 'Password must contain at least one letter and one number';
+                      }
+                      return null;
+                    },
+                    prefixIcon: Icon(
+                      Icons.lock_outlined,
+                      size: 20.sp,
+                      color: ColorsManger.kPrimaryColor,
+                    ),
+                    controller: confirmPasswordController,
+                    suffixIcon: isshown
+                        ? IconButton(
+                            onPressed: () {
+                              setState(() {
+                                isshown = !isshown;
+                              });
+                            },
+                            icon: Icon(Icons.visibility))
+                        : IconButton(
+                            onPressed: () {
+                              setState(() {
+                                isshown = !isshown;
+                              });
+                            },
+                            icon: Icon(Icons.visibility_off)),
+                  ),
+                  SizedBox(
+                    height: 10.h,
                   ),
                   CustomButton(
-                      onTap: registerUser,
+                      onTap: () {
+                        GoRouter.of(context).push(AppRouter.upLoadimage);
+                      },
                       text: 'Register',
                       color: Color(0xff8875FF),
                       width: MediaQuery.of(context).size.width),
@@ -108,12 +185,12 @@ class _RegisterViewState extends State<RegisterView> {
                   CustomDevider(),
                   SizedBox(height: 5.h),
                   CustomButtonSignupLogin(
-                      icon: FontAwesomeIcons.google,
+                      image: 'assets/images/google_icon.png',
                       text: 'Register with Google',
                       color: Color(0xff000000),
                       width: MediaQuery.of(context).size.width),
                   CustomButtonSignupLogin(
-                      icon: FontAwesomeIcons.facebook,
+                      image: 'assets/images/facebook_icon.png',
                       text: 'Register with Facebook',
                       color: Color(0xff000000),
                       width: MediaQuery.of(context).size.width),

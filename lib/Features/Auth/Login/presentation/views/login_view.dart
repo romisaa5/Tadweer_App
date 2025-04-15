@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toda_app/Features/Auth/widgets/custom_devider.dart';
-import 'package:toda_app/Features/Auth/widgets/custom_textfield_for_password.dart';
-import 'package:toda_app/Features/Auth/widgets/custom_textfield_for_username.dart';
+import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/core/widgets/custom_button_signup_login.dart';
+import 'package:toda_app/core/widgets/custom_text_form_field.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -22,21 +21,19 @@ class _LoginViewState extends State<LoginView> {
   final TextEditingController passwordController = TextEditingController();
   final _formkey = GlobalKey<FormState>();
   final passwordFocusNode = FocusNode();
+  bool isshown = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Form(
           key: _formkey,
           child: SingleChildScrollView(
             child: Column(
-            
               crossAxisAlignment: CrossAxisAlignment.start,
               spacing: 8,
               children: [
-            
                 SizedBox(
                   height: 50.h,
                 ),
@@ -46,20 +43,70 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 SizedBox(height: 15.h),
                 Text(
-                  'User Name ',
+                  'Email',
                   style: Styles.textStyle14,
                 ),
-                CustomTextfieldForEmail(
-                  passwordFocusNode: passwordFocusNode,
-                  emailController: emailController,
+                AppTextFormField(
+                  hintText: 'Email',
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'The field is required';
+                    }
+                    if (!RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+')
+                        .hasMatch(value)) {
+                      return 'Enter a valid email';
+                    }
+                    return null;
+                  },
+                  prefixIcon: Icon(
+                    Icons.email,
+                    size: 20,
+                    color: ColorsManger.kPrimaryColor,
+                  ),
+                  focusNode: passwordFocusNode,
+                  controller: emailController,
                 ),
                 Text(
                   'Password',
                   style: Styles.textStyle14,
                 ),
-                CustomTextfieldforPassword(
-                  passwordFocusNode: passwordFocusNode,
-                  passwordController: passwordController,
+                AppTextFormField(
+                  hintText: 'Password',
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'The field is required';
+                    }
+                    if (value.length < 8) {
+                      return 'Password must be at least 8 characters';
+                    }
+                    if (!RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$')
+                        .hasMatch(value)) {
+                      return 'Password must contain at least one letter and one number';
+                    }
+                    return null;
+                  },
+                  suffixIcon: isshown
+                      ? IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isshown = !isshown;
+                            });
+                          },
+                          icon: Icon(Icons.visibility))
+                      : IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isshown = !isshown;
+                            });
+                          },
+                          icon: Icon(Icons.visibility_off)),
+                  prefixIcon: Icon(
+                    
+                    Icons.lock_outlined,
+                    size: 20,
+                    color: ColorsManger.kPrimaryColor,
+                  ),
+                  controller: passwordController,
                 ),
                 TextButton(
                     onPressed: () {
@@ -69,14 +116,14 @@ class _LoginViewState extends State<LoginView> {
                       alignment: Alignment.topRight,
                       child: Text(
                         'Forget Passsword ?',
-                        style:
-                            Styles.textStyle12.copyWith(color: Color(0xff8875FF)),
+                        style: Styles.textStyle12
+                            .copyWith(color: Color(0xff8875FF)),
                       ),
                     )),
                 CustomButton(
-                  onTap: (){
-                    GoRouter.of(context).push(AppRouter.homeview);
-                  },
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.homeview);
+                    },
                     text: 'Login',
                     color: Color(0xff8875FF),
                     width: MediaQuery.of(context).size.width),
@@ -84,12 +131,12 @@ class _LoginViewState extends State<LoginView> {
                 CustomDevider(),
                 SizedBox(height: 10.h),
                 CustomButtonSignupLogin(
-                    icon: FontAwesomeIcons.google,
+                    image: 'assets/images/google_icon.png',
                     text: 'Login with Google',
                     color: Color(0xff000000),
                     width: MediaQuery.of(context).size.width),
                 CustomButtonSignupLogin(
-                    icon: FontAwesomeIcons.facebook,
+                    image: 'assets/images/facebook_icon.png',
                     text: 'Login with Facebook',
                     color: Color(0xff000000),
                     width: MediaQuery.of(context).size.width),

@@ -5,6 +5,7 @@ import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/veri
 import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/forget_password.dart';
 import 'package:toda_app/Features/Auth/Login/presentation/views/login_view.dart';
 import 'package:toda_app/Features/Auth/Register/presentation/views/register_view.dart';
+import 'package:toda_app/Features/Auth/Register/presentation/views/up_load_image_view.dart';
 import 'package:toda_app/Features/home/presentation/home_view.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/first_screen.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/second_screen.dart';
@@ -18,6 +19,7 @@ abstract class AppRouter {
   static final welcomeView = '/welcomeview';
   static final loginView = '/loginview';
   static final registerView = '/registerview';
+  static final upLoadimage= '/uploadimage';
   static final forgetpasssword = '/forgetpassword';
   static final verificationScreen = '/verificationScreen';
   static final passwordreset = '/passwordreset';
@@ -49,6 +51,10 @@ abstract class AppRouter {
       GoRoute(
         path: registerView,
         builder: (context, state) => RegisterView(),
+      ),
+      GoRoute(
+        path: upLoadimage,
+        builder: (context, state) => UploadImageView(),
       ),
       GoRoute(
         path: forgetpasssword,

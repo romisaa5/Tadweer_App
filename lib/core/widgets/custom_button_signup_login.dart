@@ -3,12 +3,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 
 class CustomButtonSignupLogin extends StatelessWidget {
-  const CustomButtonSignupLogin({super.key, required this.text, required this.color, required this.width, this.icon, this.onTap});
+  const CustomButtonSignupLogin(
+      {super.key,
+      required this.text,
+      required this.color,
+      required this.width,
+      this.onTap,
+      this.image});
   final String text;
   final Color color;
   final double width;
-  final IconData? icon;
-   final void Function()? onTap;
+  final String? image;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -24,10 +30,15 @@ class CustomButtonSignupLogin extends StatelessWidget {
               color: color),
           child: Center(
             child: Row(
-              spacing: 10,
-              mainAxisAlignment:MainAxisAlignment.center ,
+              spacing: 10.w,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(icon,size: 18,),
+                Image.asset(
+                  image ?? '',
+                  width: 20.w,
+                  height: 20.h,
+                  fit: BoxFit.fill,
+                ),
                 Text(
                   text,
                   style: Styles.textStyle16.copyWith(color: Colors.white),
