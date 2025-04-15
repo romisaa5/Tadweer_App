@@ -165,7 +165,7 @@ class _RegisterViewState extends State<RegisterView> {
                       if (value == null || value.isEmpty) {
                         return 'The field is required';
                       }
-                      if (value != passwordController.text) {
+                      if (value != password) {
                         return 'Passwords do not match';
                       }
                       if (value.length < 8) {
@@ -205,32 +205,37 @@ class _RegisterViewState extends State<RegisterView> {
                     height: 10.h,
                   ),
                   CustomButton(
-                      text: 'Register',
-                      color: ColorsManger.kPrimaryColor,
-                      width: MediaQuery.of(context).size.width,
-                      onTap: () async {
-                        if (_formKey.currentState!.validate()) {
-                          try {
-                            await FirebaseAuth.instance
-                                .createUserWithEmailAndPassword(
-                              email: email!.trim(),
-                              password: password!.trim(),
-                            );
-                            GoRouter.of(context).pushReplacement(AppRouter.upLoadimage);
-                          } on FirebaseAuthException catch (e) {
-                            String errorMessage =
-                                _getFirebaseErrorMessage(e.code);
+                    text: 'Register',
+                    color: ColorsManger.kPrimaryColor,
+                    width: MediaQuery.of(context).size.width,
+                    onTap: () async {
+                      if (_formKey.currentState!.validate()) {
+                        try {
+                          await FirebaseAuth.instance
+                              .createUserWithEmailAndPassword(
+                            email: email!.trim(),
+                            password: password!.trim(),
+                          );
 
-                            _showErrorDialog(context, errorMessage);
-                          } catch (e) {
-                            _showErrorDialog(context,
-                                'Something went wrong. Please try again later.');
-                          }
+                          if (!mounted) return;
 
-                         
-                          
+                          GoRouter.of(context)
+                              .pushReplacement(AppRouter.upLoadimage);
+                        } on FirebaseAuthException catch (e) {
+                          if (!mounted) return;
+
+                          String errorMessage =
+                              _getFirebaseErrorMessage(e.code);
+                          _showErrorDialog(context, errorMessage);
+                        } catch (e) {
+                          if (!mounted) return;
+
+                          _showErrorDialog(context,
+                              'Something went wrong. Please try again later.');
                         }
-                      }),
+                      }
+                    },
+                  ),
                   SizedBox(height: 5.h),
                   CustomDevider(),
                   SizedBox(height: 5.h),
@@ -253,7 +258,8 @@ class _RegisterViewState extends State<RegisterView> {
                       ),
                       TextButton(
                         onPressed: () {
-                          GoRouter.of(context).pushReplacement(AppRouter.loginView);
+                          GoRouter.of(context)
+                              .pushReplacement(AppRouter.loginView);
                         },
                         child: Text(
                           '   Login',
@@ -273,55 +279,55 @@ class _RegisterViewState extends State<RegisterView> {
       ),
     );
   }
-  String _getFirebaseErrorMessage(String errorCode) {
-  switch (errorCode) {
-    case 'weak-password':
-      return 'The password you entered is too weak. Please choose a stronger password.';
-    case 'email-already-in-use':
-      return 'This email is already associated with another account.';
-    case 'invalid-email':
-      return 'Please enter a valid email address.';
-    case 'operation-not-allowed':
-      return 'This operation is not allowed. Please contact support.';
-    default:
-      return 'An unexpected error occurred. Please try again.';
-  }
-}
 
-void _showErrorDialog(BuildContext context, String message) {
-  showDialog(
-    context: context,
-    builder: (context) => AlertDialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
-      title: Text(
-        ' Oops  ⚠',
-        style: Styles.textStyle20.copyWith(
-          color: ColorsManger.redColor,
-          fontWeight: FontWeight.bold,
-        ),  
-      ),
-      content: Text(
-        message,
-        style: Styles.textStyle14.copyWith(
-          color: ColorsManger.bgcolorLight,
+  String _getFirebaseErrorMessage(String errorCode) {
+    switch (errorCode) {
+      case 'weak-password':
+        return 'The password you entered is too weak. Please choose a stronger password.';
+      case 'email-already-in-use':
+        return 'This email is already associated with another account.';
+      case 'invalid-email':
+        return 'Please enter a valid email address.';
+      case 'operation-not-allowed':
+        return 'This operation is not allowed. Please contact support.';
+      default:
+        return 'An unexpected error occurred. Please try again.';
+    }
+  }
+
+  void _showErrorDialog(BuildContext context, String message) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
         ),
-      ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text(
-            'OK',
-            style: TextStyle(
-              color: ColorsManger.kPrimaryColor,
-              fontWeight: FontWeight.bold,
-            ),
+        title: Text(
+          ' Oops  ⚠',
+          style: Styles.textStyle20.copyWith(
+            color: ColorsManger.redColor,
+            fontWeight: FontWeight.bold,
           ),
         ),
-      ],
-    ),
-  );
-}
-
+        content: Text(
+          message,
+          style: Styles.textStyle14.copyWith(
+            color: ColorsManger.bgcolorLight,
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(
+              'OK',
+              style: TextStyle(
+                color: ColorsManger.kPrimaryColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }

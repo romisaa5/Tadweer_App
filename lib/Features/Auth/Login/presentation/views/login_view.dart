@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -21,6 +22,8 @@ class _LoginViewState extends State<LoginView> {
   final TextEditingController passwordController = TextEditingController();
   final _formkey = GlobalKey<FormState>();
   final passwordFocusNode = FocusNode();
+  String? email;
+  String? password;
   bool isshown = false;
   @override
   Widget build(BuildContext context) {
@@ -47,6 +50,9 @@ class _LoginViewState extends State<LoginView> {
                   style: Styles.textStyle14,
                 ),
                 AppTextFormField(
+                  onChanged: (value) {
+                    email = value;
+                  },
                   hintText: 'Email',
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -71,6 +77,9 @@ class _LoginViewState extends State<LoginView> {
                   style: Styles.textStyle14,
                 ),
                 AppTextFormField(
+                  onChanged: (value) {
+                    password = value;
+                  },
                   hintText: 'Password',
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -101,7 +110,6 @@ class _LoginViewState extends State<LoginView> {
                           },
                           icon: Icon(Icons.visibility_off)),
                   prefixIcon: Icon(
-                    
                     Icons.lock_outlined,
                     size: 20,
                     color: ColorsManger.kPrimaryColor,
@@ -121,8 +129,39 @@ class _LoginViewState extends State<LoginView> {
                       ),
                     )),
                 CustomButton(
-                    onTap: () {
-                      GoRouter.of(context).push(AppRouter.homeview);
+                    onTap: () async {
+                      if (_formkey.currentState!.validate()) {
+                        try {
+                          UserCredential user = await FirebaseAuth.instance
+                              .signInWithEmailAndPassword(
+                            email: email!.trim(),
+                            password: password!.trim(),
+                          );
+                          GoRouter.of(context)
+                              .pushReplacement(AppRouter.homeview);
+                        } on FirebaseAuthException catch (ex) {
+                          if (ex.code == 'user-not-found') {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('No user found for that email.'),
+                              ),
+                            );
+                          } else if (ex.code == 'wrong-password') {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Wrong password provided.'),
+                              ),
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                    'An error occurred. Please try again.'),
+                              ),
+                            );
+                          }
+                        }
+                      }
                     },
                     text: 'Login',
                     color: Color(0xff8875FF),
@@ -148,12 +187,17 @@ class _LoginViewState extends State<LoginView> {
                       style: Styles.textStyle12,
                     ),
                     TextButton(
-                        onPressed: () {
-                          GoRouter.of(context).pushReplacement(AppRouter.registerView);
-                        },
-                        child: Text('   Register',
-                            style: Styles.textStyle12
-                                .copyWith(color: Color(0xff8875FF)))),
+                      onPressed: () {
+                        GoRouter.of(context)
+                            .pushReplacement(AppRouter.registerView);
+                      },
+                      child: Text(
+                        '   Register',
+                        style: Styles.textStyle12.copyWith(
+                          color: Color(0xff8875FF),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(
