@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:toda_app/Features/home/presentation/widgets/focus_chart.dart';
+import 'package:toda_app/core/themes/colors.dart';
 
 class FocusStatsSection extends StatelessWidget {
   const FocusStatsSection({super.key});
@@ -9,19 +11,7 @@ class FocusStatsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 40),
-        Text(
-          'Overview',
-          style: TextStyle(color: Colors.white, fontSize: 18),
-        ),
-        SizedBox(height: 10),
-        Container(
-          height: 180,
-          width: double.infinity,
-          child: Placeholder( // هنبدله برسم بياني بعدين
-            color: Colors.deepPurpleAccent,
-            strokeWidth: 2,
-          ),
-        ),
+          FocusChart(),
         SizedBox(height: 30),
         Text(
           'Applications',
