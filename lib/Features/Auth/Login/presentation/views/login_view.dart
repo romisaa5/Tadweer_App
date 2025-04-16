@@ -24,7 +24,7 @@ class _LoginViewState extends State<LoginView> {
   final passwordFocusNode = FocusNode();
   String? email;
   String? password;
-  bool isshown = false;
+  bool isshown = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,6 +77,7 @@ class _LoginViewState extends State<LoginView> {
                   style: Styles.textStyle14,
                 ),
                 AppTextFormField(
+                  isObscureText: isshown,
                   onChanged: (value) {
                     password = value;
                   },

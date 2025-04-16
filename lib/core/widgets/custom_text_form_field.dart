@@ -40,8 +40,11 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      
       validator: validator,
       onChanged: onChanged,
+      controller: controller,
+      cursorColor: ColorsManger.kPrimaryColor,
       decoration: InputDecoration(
         isDense: true,
         contentPadding: contentPadding ??
@@ -77,12 +80,14 @@ class AppTextFormField extends StatelessWidget {
         hintStyle: hintStyle ?? Styles.textStyle14,
         hintText: hintText,
         suffixIcon: suffixIcon,
+        
         prefixIcon: prefixIcon,
         fillColor: backgroundColor ?? ColorsManger.bgcolorDark,
         filled: true,
       ),
+      
       focusNode: focusNode,
-      obscureText: isObscureText ?? false,
+      obscureText: isObscureText ?? true,
       style: Styles.textStyle16,
     );
   }

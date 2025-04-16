@@ -108,6 +108,7 @@ class _RegisterViewState extends State<RegisterView> {
                     style: Styles.textStyle14,
                   ),
                   AppTextFormField(
+                    isObscureText: isPasswordShown,
                     onChanged: (data) {
                       setState(() {
                         password = data;
@@ -155,6 +156,7 @@ class _RegisterViewState extends State<RegisterView> {
                     style: Styles.textStyle14,
                   ),
                   AppTextFormField(
+                    isObscureText: isConfirmPasswordShown,
                     onChanged: (data) {
                       setState(() {
                         confirmPassword = data;
