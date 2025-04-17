@@ -39,6 +39,7 @@ dependencies:
   fl_chart: ^0.70.2
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.1.0
   flutter_native_splash: ^2.4.4
   flutter_screenutil: ^5.9.3
   font_awesome_flutter: ^10.8.0
