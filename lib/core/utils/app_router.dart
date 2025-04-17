@@ -1,9 +1,12 @@
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/password_reset.dart';
 import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/set_new_password.dart';
 import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/verificationScreen.dart';
 import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/forget_password.dart';
 import 'package:toda_app/Features/Auth/Login/presentation/views/login_view.dart';
+import 'package:toda_app/Features/Auth/Register/presentation/views/email_verified_view.dart';
 import 'package:toda_app/Features/Auth/Register/presentation/views/register_view.dart';
 import 'package:toda_app/Features/Auth/Register/presentation/views/up_load_image_view.dart';
 import 'package:toda_app/Features/home/presentation/home_view.dart';
@@ -19,6 +22,7 @@ abstract class AppRouter {
   static final welcomeView = '/welcomeview';
   static final loginView = '/loginview';
   static final registerView = '/registerview';
+  static final emailVerifiedView = '/emailverifiedview';
   static final upLoadimage= '/uploadimage';
   static final forgetpasssword = '/forgetpassword';
   static final verificationScreen = '/verificationScreen';
@@ -30,7 +34,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: firstScreen,
-        builder: (context, state) => FirstScreen(),
+        builder: (context, state) => (FirebaseAuth.instance.currentUser!=null && FirebaseAuth.instance.currentUser!.emailVerified)?HomeView():FirstScreen(),
       ),
       GoRoute(
         path: secondScreen,
@@ -51,6 +55,10 @@ abstract class AppRouter {
       GoRoute(
         path: registerView,
         builder: (context, state) => RegisterView(),
+      ),
+        GoRoute(
+        path: emailVerifiedView,
+        builder: (context, state) => EmailVerifiedView(),
       ),
       GoRoute(
         path: upLoadimage,

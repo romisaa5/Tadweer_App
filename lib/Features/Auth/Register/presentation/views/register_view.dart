@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:toda_app/Features/Auth/Register/presentation/views/email_verified_view.dart';
 import 'package:toda_app/Features/Auth/widgets/custom_devider.dart';
 import 'package:toda_app/core/helper/show_error.dart';
 import 'package:toda_app/core/themes/colors.dart';
@@ -223,7 +224,7 @@ class _RegisterViewState extends State<RegisterView> {
                             if (!mounted) return;
 
                             GoRouter.of(context)
-                                .pushReplacement(AppRouter.upLoadimage);
+                                .pushReplacement(AppRouter.emailVerifiedView);
                           } on FirebaseAuthException catch (e) {
                             if (!mounted) return;
 
