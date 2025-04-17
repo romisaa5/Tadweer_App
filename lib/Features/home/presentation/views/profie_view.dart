@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:toda_app/Features/home/presentation/widgets/number_of_task_done_or_left.dart';
 import 'package:toda_app/Features/home/presentation/widgets/profile_list_tile.dart';
 import 'package:toda_app/core/themes/colors.dart';
@@ -166,6 +168,10 @@ class _ProfieViewState extends State<ProfieView> {
                             .pushReplacement(AppRouter.loginView);
                       }
                       await FirebaseAuth.instance.signOut();
+                      GoogleSignIn googleSignIn = GoogleSignIn();
+                      await googleSignIn.disconnect();
+                      FacebookAuth facebookAuth = FacebookAuth.instance;
+                      await facebookAuth.logOut();
                     },
                     icon: Icons.logout,
                   ),
