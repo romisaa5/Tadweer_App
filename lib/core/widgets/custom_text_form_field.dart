@@ -87,7 +87,7 @@ class AppTextFormField extends StatelessWidget {
       ),
       
       focusNode: focusNode,
-      obscureText: isObscureText ?? true,
+      obscureText: isObscureText ?? false,
       style: Styles.textStyle16,
     );
   }

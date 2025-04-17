@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:toda_app/Features/Auth/Login/data/cubit/login_cubit.dart';
+import 'package:toda_app/Features/Auth/Register/data/cubit/register_cubit.dart';
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/firebase_options.dart';
@@ -48,7 +49,7 @@ class _ToDoAppState extends State<ToDoApp> {
             return MultiBlocProvider(
               providers: [
                 BlocProvider(create: (context) => LoginCubit()),
-                
+                BlocProvider(create: (context) => RegisterCubit()),
               ],
               child: MaterialApp.router(
                 routerConfig: AppRouter.router,

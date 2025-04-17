@@ -1,13 +1,22 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toda_app/Features/home/presentation/widgets/number_of_task_done_or_left.dart';
 import 'package:toda_app/Features/home/presentation/widgets/profile_list_tile.dart';
+import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 
-class ProfieView extends StatelessWidget {
-  const ProfieView({super.key});
+class ProfieView extends StatefulWidget {
+  ProfieView({super.key});
+
+  @override
+  State<ProfieView> createState() => _ProfieViewState();
+}
+
+class _ProfieViewState extends State<ProfieView> {
+  String acountName = 'Romisaa Fadel';
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +45,7 @@ class ProfieView extends StatelessWidget {
                     )),
               ),
               Text(
-                'Romisaa Fadel',
+                acountName,
                 style: Styles.textStyle16,
               ),
               Row(
@@ -75,7 +84,36 @@ class ProfieView extends StatelessWidget {
                   ),
                   ProfileListTile(
                     title: 'Change account name',
-                    onPressed: () {},
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: Text('Change Account Name'),
+                          content: TextField(
+                            onChanged: (value) {
+                              setState(() {
+                                acountName = value;
+                              });
+                            },
+                            decoration: InputDecoration(hintText: 'New Name'),
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('Save'),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('Cancel'),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
                     icon: Icons.person_outlined,
                   ),
                   ProfileListTile(
@@ -94,8 +132,40 @@ class ProfieView extends StatelessWidget {
                   ),
                   ProfileListTile(
                     title: 'Log Out',
-                    onPressed: () {
-                      GoRouter.of(context).pushReplacement(AppRouter.loginView);
+                    onPressed: () async {
+                      final shouldLogout = await showDialog<bool>(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: Text(
+                            'Log Out',
+                            style: Styles.textStyle16.copyWith(
+                              color: ColorsManger.redColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          content: Text(
+                            'Are you sure you want to log out?',
+                            style: Styles.textStyle14.copyWith(
+                              color: ColorsManger.bgcolorLight,
+                            ),
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.of(context).pop(false),
+                              child: Text('Cancel'),
+                            ),
+                            TextButton(
+                              onPressed: () => Navigator.of(context).pop(true),
+                              child: Text('Log Out'),
+                            ),
+                          ],
+                        ),
+                      );
+                      if (shouldLogout == true) {
+                        GoRouter.of(context)
+                            .pushReplacement(AppRouter.loginView);
+                      }
+                      await FirebaseAuth.instance.signOut();
                     },
                     icon: Icons.logout,
                   ),

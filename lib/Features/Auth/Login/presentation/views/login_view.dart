@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toda_app/Features/Auth/widgets/custom_devider.dart';
+import 'package:toda_app/core/helper/show_error.dart';
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
@@ -142,24 +143,16 @@ class _LoginViewState extends State<LoginView> {
                               .pushReplacement(AppRouter.homeview);
                         } on FirebaseAuthException catch (ex) {
                           if (ex.code == 'user-not-found') {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text('No user found for that email.'),
-                              ),
-                            );
+                            showAwesomeDialog('No user found for that email.',
+                                'Error ', context);
                           } else if (ex.code == 'wrong-password') {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text('Wrong password provided.'),
-                              ),
-                            );
+                            showAwesomeDialog(
+                                'Wrong password provided.', 'Error ', context,                          );
                           } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                    'An error occurred. Please try again.'),
-                              ),
-                            );
+                            showAwesomeDialog(
+                                'An error occurred. Please try again.',
+                                'Error ',
+                                context);
                           }
                         }
                       }
