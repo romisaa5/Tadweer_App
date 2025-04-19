@@ -42,6 +42,8 @@ class AppTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final textTheme = theme.textTheme;
+    final isDarkMode = theme.brightness == Brightness.dark;
 
     return TextFormField(
       validator: validator,
@@ -60,7 +62,7 @@ class AppTextFormField extends StatelessWidget {
         enabledBorder: enabledBorder ??
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(4.r),
-              borderSide: BorderSide(color: colorScheme.outline, width: 1.w),
+              borderSide: BorderSide(color: const Color.fromARGB(255, 201, 200, 200), width: 1.w),
             ),
         errorBorder: errorBorder ??
             OutlineInputBorder(
@@ -68,7 +70,7 @@ class AppTextFormField extends StatelessWidget {
               borderSide: BorderSide(
                 color: colorScheme.error,
                 width: 1.w,
-                
+
               ),
             ),
         focusedErrorBorder: errorBorder ??
@@ -79,7 +81,7 @@ class AppTextFormField extends StatelessWidget {
                 width: 1.w,
               ),
             ),
-        hintStyle: hintStyle ?? Styles.textStyle14.copyWith(color: colorScheme.onSurface.withOpacity(0.6)),
+        hintStyle: hintStyle ??  Styles.textStyle14.copyWith(color: isDarkMode ? Colors.white : const Color.fromARGB(255, 132, 129, 129)),
         hintText: hintText,
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,

@@ -36,6 +36,9 @@ class _RegisterViewState extends State<RegisterView> {
   String? userName;
   @override
   Widget build(BuildContext context) {
+        final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final textTheme = theme.textTheme;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -51,7 +54,9 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
                   Text(
                     'Register',
-                    style: Styles.textStyle32,
+              style: Styles.textStyle32.copyWith(
+                  color: textTheme.bodyLarge!.color,
+                  )
                   ),
                   SizedBox(height: 5.h),
                   Text(

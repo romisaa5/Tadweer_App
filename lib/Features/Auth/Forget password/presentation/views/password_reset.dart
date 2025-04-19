@@ -10,11 +10,15 @@ class PasswordReset extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          onPressed: () {},
+          icon: Icon(Icons.arrow_back_ios, color: textTheme.bodyLarge!.color),
+          onPressed: () {
+            GoRouter.of(context).pushReplacement(AppRouter.verificationScreen);
+          },
         ),
       ),
       body: Padding(
@@ -26,14 +30,18 @@ class PasswordReset extends StatelessWidget {
           children: [
             Text(
               "Password reset",
-              style: Styles.textStyle32,
+              style: Styles.textStyle32.copyWith(
+                color: textTheme.bodyLarge!.color,
+              ),
             ),
             SizedBox(
               height: 5.h,
             ),
             Text(
               "Your password has been successfully reset. click confirm to set a new password",
-              style: Styles.textStyle14.copyWith(color: Colors.grey),
+              style: Styles.textStyle14.copyWith(
+                color: textTheme.bodyMedium?.color?.withOpacity(0.7),
+              ),
             ),
             SizedBox(
               height: 20.h,

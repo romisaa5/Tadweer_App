@@ -88,12 +88,13 @@ class AppTheme {
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        backgroundColor: ColorsManger.kPrimaryColor,
-        foregroundColor: Colors.white,
+        
+        foregroundColor: ColorsManger.kPrimaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
       ),
     ),
+    
   );
 }

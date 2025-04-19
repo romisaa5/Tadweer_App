@@ -32,6 +32,7 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final textTheme = theme.textTheme;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -47,7 +48,9 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 Text(
                   'Login',
-                style: Styles.textStyle32.copyWith(color: colorScheme.onBackground)
+                style: Styles.textStyle32.copyWith(
+                  color: textTheme.bodyLarge!.color,
+                )
                 ),
                 SizedBox(height: 15.h),
                 Text(
@@ -76,6 +79,7 @@ class _LoginViewState extends State<LoginView> {
                   ),
                   focusNode: passwordFocusNode,
                   controller: emailController,
+                  backgroundColor: colorScheme.background,
                 ),
                 Text(
                   'Password',

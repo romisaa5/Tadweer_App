@@ -21,11 +21,17 @@ class _VerificationScreenState extends State<VerificationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+    final isDarkMode = theme.brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          onPressed: () {},
+          icon: Icon(Icons.arrow_back_ios,
+              color: textTheme.bodyLarge!.color),
+          onPressed: () {
+            GoRouter.of(context).pushReplacement(AppRouter.forgetpasssword);
+          },
         ),
       ),
       body: Padding(
@@ -36,12 +42,15 @@ class _VerificationScreenState extends State<VerificationScreen> {
           children: [
             Text(
               "Check your email",
-              style: Styles.textStyle32,
+              style: Styles.textStyle32.copyWith(
+                color: textTheme.bodyLarge!.color,
+              ),
             ),
             SizedBox(height: 10),
             Text(
               "We sent a reset link to contact@dscode...com\nEnter 5 digit code mentioned in the email",
-              style: Styles.textStyle14.copyWith(color: Colors.grey),
+              style: Styles.textStyle14
+                  .copyWith(color: textTheme.bodyMedium?.color?.withOpacity(0.7),),
             ),
             SizedBox(height: 20),
             Row(
@@ -56,8 +65,19 @@ class _VerificationScreenState extends State<VerificationScreen> {
                     maxLength: 1,
                     decoration: InputDecoration(
                       counterText: "",
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: isDarkMode ? Colors.white : Colors.grey,
+                          width: 1.5,
+                        ),
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Color(0xff8875FF),
+                          width: 1.5,
+                        ),
                       ),
                     ),
                     onChanged: (value) {

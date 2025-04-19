@@ -70,6 +70,13 @@ class _LanguageThemeSelectionViewState
                          ),
                        ),
              ),
+             Center(
+               child: Image.asset('assets/images/splash12.png'
+             ,
+                 width: 200.w,
+                 height: 200.h,
+               ),
+             ),
             SizedBox(height: 30.h),
             Text('Select Language : ',
                 style: Styles.textStyle16.copyWith(
@@ -89,6 +96,7 @@ class _LanguageThemeSelectionViewState
                 groupValue: selectedLanguage,
                 onChanged: (val) => setState(() => selectedLanguage = val!),
                 activeColor: colorScheme.primary,
+                fillColor: MaterialStateProperty.all(isDarkMode? ColorsManger.bgcolorLight : ColorsManger.bgcolorDark),
               ),
             ),
             ListTile(
