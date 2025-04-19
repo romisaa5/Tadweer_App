@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toda_app/Features/Auth/widgets/custom_devider.dart';
+import 'package:toda_app/core/helper/login_methods.dart';
 import 'package:toda_app/core/helper/show_error.dart';
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/utils/app_router.dart';
@@ -10,8 +11,6 @@ import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/core/widgets/custom_button_signup_login.dart';
 import 'package:toda_app/core/widgets/custom_text_form_field.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -28,63 +27,6 @@ class _LoginViewState extends State<LoginView> {
   String? email;
   String? password;
   bool isshown = true;
-
-  Future<UserCredential> signInWithGoogle() async {
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-      if (googleUser == null) {
-
-        showAwesomeDialog(
-            'Google sign-in was cancelled.', 'Cancelled', context);
-        return Future.error('User cancelled Google Sign-In');
-      }
-    
-
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser.authentication;
-
-    if (googleAuth.accessToken == null || googleAuth.idToken == null) {
-      showAwesomeDialog(
-          'Google sign-in failed. Missing token.', 'Error', context);
-      throw FirebaseAuthException(
-        code: 'missing-google-token',
-        message: 'Missing Google auth token',
-      );
-    }
-
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-
-    UserCredential userCredential =
-        await FirebaseAuth.instance.signInWithCredential(credential);
-
-    GoRouter.of(context).pushReplacement(AppRouter.homeview);
-    return userCredential;
-  }
-
-  Future<UserCredential> signInWithFacebook() async {
-    final LoginResult loginResult = await FacebookAuth.instance.login();
-
-    if (loginResult.status == LoginStatus.success &&
-        loginResult.accessToken != null) {
-      final OAuthCredential facebookAuthCredential =
-          FacebookAuthProvider.credential(loginResult.accessToken!.tokenString);
-
-      UserCredential userCredential = await FirebaseAuth.instance
-          .signInWithCredential(facebookAuthCredential);
-
-      GoRouter.of(context).pushReplacement(AppRouter.homeview);
-      return userCredential;
-    } else {
-      showAwesomeDialog('Facebook login failed.', 'Error', context);
-      throw FirebaseAuthException(
-        code: 'facebook-login-failed',
-        message: loginResult.message ?? 'Unknown error occurred',
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -228,7 +170,7 @@ class _LoginViewState extends State<LoginView> {
                 SizedBox(height: 10.h),
                 CustomButtonSignupLogin(
                     onTap: () async {
-                      signInWithGoogle();
+                      LoginMethods.signInWithGoogle(context);
                     },
                     image: 'assets/images/google_icon.png',
                     text: 'Login with Google',
@@ -236,7 +178,7 @@ class _LoginViewState extends State<LoginView> {
                     width: MediaQuery.of(context).size.width),
                 CustomButtonSignupLogin(
                     onTap: () async {
-                      signInWithFacebook();
+                      LoginMethods.signInWithFacebook(context);
                     },
                     image: 'assets/images/facebook_icon.png',
                     text: 'Login with Facebook',
