@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-import 'package:toda_app/Features/Auth/Register/presentation/views/email_verified_view.dart';
 import 'package:toda_app/Features/Auth/widgets/custom_devider.dart';
 import 'package:toda_app/core/helper/show_error.dart';
 import 'package:toda_app/core/themes/colors.dart';
@@ -36,8 +35,8 @@ class _RegisterViewState extends State<RegisterView> {
   String? userName;
   @override
   Widget build(BuildContext context) {
-        final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
+    final theme = Theme.of(context);
+
     final textTheme = theme.textTheme;
     return Scaffold(
       body: Padding(
@@ -52,12 +51,10 @@ class _RegisterViewState extends State<RegisterView> {
                   SizedBox(
                     height: 50.h,
                   ),
-                  Text(
-                    'Register',
-              style: Styles.textStyle32.copyWith(
-                  color: textTheme.bodyLarge!.color,
-                  )
-                  ),
+                  Text('Register',
+                      style: Styles.textStyle32.copyWith(
+                        color: textTheme.bodyLarge!.color,
+                      )),
                   SizedBox(height: 5.h),
                   Text(
                     'User Name ',

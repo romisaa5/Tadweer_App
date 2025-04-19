@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
@@ -39,26 +40,30 @@ class _EmailVerifiedViewState extends State<EmailVerifiedView> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(
-          'Email Verification',
-          style: Styles.textStyle24,
-        ),
-        centerTitle: true,
-      ),
       body: Center(
         child: Column(
           spacing: 10,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const SizedBox(height: 50),
-            const Icon(Icons.check_circle, size: 100, color: ColorsManger.kPrimaryColor),
-            const SizedBox(height: 20),
-            const Text('Please verify your email address.', style: TextStyle(fontSize: 16)),
-            const Text('A verification link has been sent to your email.', style: TextStyle(fontSize: 16)),
-            const SizedBox(height: 20),
+            SizedBox(height: 50.h),
+            Text(
+              'Email Verification',
+              style: Styles.textStyle24.copyWith(
+                color: textTheme.bodyLarge!.color,
+              ),
+            ),
+            SizedBox(height: 20.h),
+            const Icon(Icons.check_circle,
+                size: 100, color: ColorsManger.kPrimaryColor),
+            SizedBox(height: 20.h),
+            const Text('Please verify your email address.',
+                style: TextStyle(fontSize: 16)),
+            const Text('A verification link has been sent to your email.',
+                style: TextStyle(fontSize: 16)),
+            SizedBox(height: 20.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -67,18 +72,21 @@ class _EmailVerifiedViewState extends State<EmailVerifiedView> {
                   height: 50,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
                       backgroundColor: ColorsManger.kPrimaryColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
                     onPressed: () {
-                      FirebaseAuth.instance.currentUser!.sendEmailVerification();
+                      FirebaseAuth.instance.currentUser!
+                          .sendEmailVerification();
                     },
                     child: Text(
                       'Resend Email',
-                      style: Styles.textStyle14.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+                      style: Styles.textStyle14.copyWith(
+                          color: Colors.white, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -87,7 +95,8 @@ class _EmailVerifiedViewState extends State<EmailVerifiedView> {
                   height: 50,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
                       backgroundColor: ColorsManger.kPrimaryColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -98,7 +107,8 @@ class _EmailVerifiedViewState extends State<EmailVerifiedView> {
                     },
                     child: Text(
                       'Go to Login',
-                      style: Styles.textStyle14.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+                      style: Styles.textStyle14.copyWith(
+                          color: Colors.white, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),

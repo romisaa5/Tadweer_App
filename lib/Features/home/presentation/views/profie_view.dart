@@ -11,7 +11,7 @@ import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 
 class ProfieView extends StatefulWidget {
-  ProfieView({super.key});
+  const ProfieView({super.key});
 
   @override
   State<ProfieView> createState() => _ProfieViewState();
@@ -22,6 +22,10 @@ class _ProfieViewState extends State<ProfieView> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    final colorScheme = theme.colorScheme;
+
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.only(left: 16.0.w, right: 16.w, top: 16.h),
@@ -35,7 +39,8 @@ class _ProfieViewState extends State<ProfieView> {
               ),
               Text(
                 'Profile',
-                style: Styles.textStyle24,
+                style:
+                    Styles.textStyle24.copyWith(color: colorScheme.secondary),
               ),
               CircleAvatar(
                 radius: 42.r,
@@ -48,7 +53,9 @@ class _ProfieViewState extends State<ProfieView> {
               ),
               Text(
                 acountName,
-                style: Styles.textStyle16,
+                style: Styles.textStyle16.copyWith(
+                  color: colorScheme.secondary,
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -68,11 +75,15 @@ class _ProfieViewState extends State<ProfieView> {
                 children: [
                   Text(
                     'Settings',
-                    style: Styles.textStyle16,
+                    style: Styles.textStyle16.copyWith(
+                        color: colorScheme.secondary,
+                        fontWeight: FontWeight.w600),
                   ),
                   ProfileListTile(
                       title: 'App Settings',
-                      onPressed: () {},
+                      onPressed: () {
+                        GoRouter.of(context).push(AppRouter.appSetting);
+                      },
                       icon: Icons.settings),
                   Divider(
                     color: Colors.grey,
@@ -82,7 +93,9 @@ class _ProfieViewState extends State<ProfieView> {
                   ),
                   Text(
                     'Account',
-                    style: Styles.textStyle16,
+                    style: Styles.textStyle16.copyWith(
+                        color: colorScheme.secondary,
+                        fontWeight: FontWeight.w600),
                   ),
                   ProfileListTile(
                     title: 'Change account name',
@@ -121,7 +134,7 @@ class _ProfieViewState extends State<ProfieView> {
                   ProfileListTile(
                       title: 'Change account password',
                       onPressed: () {},
-                      icon: Icons.key_outlined),
+                      icon: Icons.lock_outline),
                   ProfileListTile(
                       title: 'Change account Image',
                       onPressed: () {},

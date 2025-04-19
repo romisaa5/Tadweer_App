@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -39,13 +40,13 @@ class _LanguageThemeSelectionViewState
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('language', selectedLanguage);
     await prefs.setBool('isDarkMode', isDarkMode);
-    
-    // تحديث الـ Theme بناءً على الاختيار
-    Provider.of<ThemeProvider>(context, listen: false)
-        .toggleTheme(isDarkMode);
 
-    
-    GoRouter.of(context).push(AppRouter.firstScreen);
+    Provider.of<ThemeProvider>(context, listen: false).toggleTheme(isDarkMode);
+
+    (FirebaseAuth.instance.currentUser != null &&
+            FirebaseAuth.instance.currentUser!.emailVerified)
+        ? GoRouter.of(context).push(AppRouter.homeview)
+        : GoRouter.of(context).push(AppRouter.firstScreen);
   }
 
   @override
@@ -54,57 +55,62 @@ class _LanguageThemeSelectionViewState
     final colorScheme = theme.colorScheme;
 
     return Scaffold(
-      
-  
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 40.h),
-             Center(
-               child: Text(
-                         'Select Language & Theme',
-                         style: Styles.textStyle20.copyWith(
-                           color: isDarkMode ? colorScheme.onBackground : ColorsManger.bgcolorDark,
-                         ),
-                       ),
-             ),
-             Center(
-               child: Image.asset('assets/images/splash12.png'
-             ,
-                 width: 200.w,
-                 height: 200.h,
-               ),
-             ),
+            Center(
+              child: Text(
+                'Select Language & Theme',
+                style: Styles.textStyle20.copyWith(
+                  color: isDarkMode
+                      ? colorScheme.onBackground
+                      : ColorsManger.bgcolorDark,
+                ),
+              ),
+            ),
+            Center(
+              child: Image.asset(
+                'assets/images/splash12.png',
+                width: 200.w,
+                height: 200.h,
+              ),
+            ),
             SizedBox(height: 30.h),
             Text('Select Language : ',
                 style: Styles.textStyle16.copyWith(
-                  color:isDarkMode? colorScheme.onBackground: ColorsManger.bgcolorDark
-                   ,fontWeight: FontWeight.bold
-                )),
+                    color: isDarkMode
+                        ? colorScheme.onBackground
+                        : ColorsManger.bgcolorDark,
+                    fontWeight: FontWeight.bold)),
             SizedBox(height: 20.h),
             ListTile(
               title: Text(
                 'English',
-                   style: Styles.textStyle16.copyWith(
-                  color:isDarkMode? colorScheme.onBackground: ColorsManger.bgcolorDark
-                ),
+                style: Styles.textStyle16.copyWith(
+                    color: isDarkMode
+                        ? colorScheme.onBackground
+                        : ColorsManger.bgcolorDark),
               ),
               leading: Radio<String>(
                 value: 'en',
                 groupValue: selectedLanguage,
                 onChanged: (val) => setState(() => selectedLanguage = val!),
                 activeColor: colorScheme.primary,
-                fillColor: MaterialStateProperty.all(isDarkMode? ColorsManger.bgcolorLight : ColorsManger.bgcolorDark),
+                fillColor: MaterialStateProperty.all(isDarkMode
+                    ? ColorsManger.bgcolorLight
+                    : ColorsManger.bgcolorDark),
               ),
             ),
             ListTile(
               title: Text(
                 'عربي',
-                   style: Styles.textStyle16.copyWith(
-                  color:isDarkMode? colorScheme.onBackground: ColorsManger.bgcolorDark
-                ),
+                style: Styles.textStyle16.copyWith(
+                    color: isDarkMode
+                        ? colorScheme.onBackground
+                        : ColorsManger.bgcolorDark),
               ),
               leading: Radio<String>(
                 value: 'ar',
@@ -116,23 +122,25 @@ class _LanguageThemeSelectionViewState
             SizedBox(height: 20.h),
             Text('Select Theme',
                 style: Styles.textStyle16.copyWith(
-                  color:isDarkMode? colorScheme.onBackground: ColorsManger.bgcolorDark
-                   ,fontWeight: FontWeight.bold
-                )),
+                    color: isDarkMode
+                        ? colorScheme.onBackground
+                        : ColorsManger.bgcolorDark,
+                    fontWeight: FontWeight.bold)),
             SizedBox(height: 20.h),
             SwitchListTile(
               title: Text(
                 'Dark Mode',
                 style: Styles.textStyle16.copyWith(
-                  color:isDarkMode? colorScheme.onBackground: ColorsManger.bgcolorDark
-                ),
+                    color: isDarkMode
+                        ? colorScheme.onBackground
+                        : ColorsManger.bgcolorDark),
               ),
               value: isDarkMode,
               onChanged: (val) {
                 setState(() {
                   isDarkMode = val;
                 });
-        
+
                 Provider.of<ThemeProvider>(context, listen: false)
                     .toggleTheme(isDarkMode);
               },
@@ -140,11 +148,10 @@ class _LanguageThemeSelectionViewState
                 isDarkMode ? Icons.dark_mode : Icons.light_mode,
                 color: isDarkMode ? Colors.grey : Colors.amber,
               ),
-              activeColor:    ColorsManger.kPrimaryColor,
+              activeColor: ColorsManger.kPrimaryColor,
               inactiveTrackColor: Colors.grey,
               inactiveThumbColor: Colors.black,
-                ),
-            
+            ),
             SizedBox(height: 20),
             Spacer(),
             SizedBox(
@@ -165,9 +172,8 @@ class _LanguageThemeSelectionViewState
                   ),
                 ),
               ),
-
             ),
-               SizedBox(height: 20.h),
+            SizedBox(height: 20.h),
           ],
         ),
       ),

@@ -16,9 +16,13 @@ class CalanderView extends StatefulWidget {
 
 class _CalanderViewState extends State<CalanderView> {
   DateTime selectedDate = DateTime.now();
-  EasyDatePickerController? controller=EasyDatePickerController();
+  EasyDatePickerController? controller = EasyDatePickerController();
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    final colorScheme = theme.colorScheme;
+
     return CustomScaffoldBg(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -32,10 +36,9 @@ class _CalanderViewState extends State<CalanderView> {
       body: Column(
         children: [
           EasyDateTimeLinePicker.itemBuilder(
-            controller:controller ,
+            controller: controller,
             firstDate: DateTime(2025, 1, 1),
-            currentDate: DateTime.now(
-            ),
+            currentDate: DateTime.now(),
             lastDate: DateTime(2030, 3, 18),
             focusedDate: selectedDate,
             itemExtent: 70.0.h,
@@ -50,16 +53,14 @@ class _CalanderViewState extends State<CalanderView> {
                     color:
                         isSelected ? ColorsManger.kPrimaryColor : Colors.white,
                     borderRadius: BorderRadius.circular(8.0),
-                    border: isSelected
-                        ? Border.all(color: ColorsManger.bgcolorLight)
-                        : null,
+                    border:
+                        Border.all(color: colorScheme.secondary, width: 1.0),
                   ),
                   child: Column(
                     spacing: 8.0.h,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                   
-                         Text(DateFormat.MMM().format(date),
+                      Text(DateFormat.MMM().format(date),
                           style: TextStyle(
                             color: isSelected ? Colors.white : Colors.black,
                           )),
@@ -67,12 +68,10 @@ class _CalanderViewState extends State<CalanderView> {
                           style: TextStyle(
                             color: isSelected ? Colors.white : Colors.black,
                           )),
-                  
-                           Text(DateFormat.E().format(date),
-                        style: TextStyle(
-                          color: isSelected ? Colors.white : Colors.black,
-                        )),
-                     
+                      Text(DateFormat.E().format(date),
+                          style: TextStyle(
+                            color: isSelected ? Colors.white : Colors.black,
+                          )),
                     ],
                   ),
                 ),
@@ -84,7 +83,7 @@ class _CalanderViewState extends State<CalanderView> {
               });
             },
           ),
-        SizedBox(
+          SizedBox(
             height: 20.h,
           ),
           Expanded(

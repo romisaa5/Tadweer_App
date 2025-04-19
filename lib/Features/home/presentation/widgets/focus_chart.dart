@@ -2,12 +2,16 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toda_app/core/themes/colors.dart';
+import 'package:toda_app/core/themes/text_styles.dart';
 
 class FocusChart extends StatelessWidget {
   const FocusChart({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -17,7 +21,8 @@ class FocusChart extends StatelessWidget {
           children: [
             Text(
               'Overview',
-              style: TextStyle(color: Colors.white, fontSize: 18),
+              style: Styles.textStyle16.copyWith(
+                  color: colorScheme.secondary, fontWeight: FontWeight.w600),
             ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -51,7 +56,9 @@ class FocusChart extends StatelessWidget {
                     getTitlesWidget: (value, meta) {
                       return Text(
                         value.toInt().toString() + 'h',
-                        style: TextStyle(color: Colors.white60, fontSize: 12),
+                        style: Styles.textStyle14.copyWith(
+                          color: colorScheme.secondary.withValues(alpha: 0.5),
+                        ),
                       );
                     },
                     interval: 1,
@@ -59,20 +66,33 @@ class FocusChart extends StatelessWidget {
                   ),
                 ),
                 bottomTitles: AxisTitles(
-
                   sideTitles: SideTitles(
                     showTitles: true,
                     getTitlesWidget: (value, meta) {
-                      const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+                      const days = [
+                        'SUN',
+                        'MON',
+                        'TUE',
+                        'WED',
+                        'THU',
+                        'FRI',
+                        'SAT'
+                      ];
                       return Text(
                         days[value.toInt()],
-                        style: TextStyle(color: value.toInt() == 0 || value.toInt() == 6 ? Colors.red : Colors.white60, fontSize: 12),
+                        style: TextStyle(
+                          color: value.toInt() == 0 || value.toInt() == 6
+                              ? Colors.red
+                              : colorScheme.secondary.withValues(alpha: 0.5),
+                        ),
                       );
                     },
                   ),
                 ),
-                rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                rightTitles:
+                    AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                topTitles:
+                    AxisTitles(sideTitles: SideTitles(showTitles: false)),
               ),
               barGroups: [
                 makeGroupData(0, 2.5),
@@ -97,7 +117,7 @@ class FocusChart extends StatelessWidget {
       barRods: [
         BarChartRodData(
           toY: y,
-          color: isSelected ? ColorsManger.kPrimaryColor: Colors.white70,
+          color: isSelected ? ColorsManger.kPrimaryColor : Colors.white70,
           width: 30.w,
           borderRadius: BorderRadius.circular(4),
           backDrawRodData: BackgroundBarChartRodData(

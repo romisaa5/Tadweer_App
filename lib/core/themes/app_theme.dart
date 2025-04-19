@@ -11,7 +11,7 @@ class AppTheme {
         selectedItemColor: ColorsManger.kPrimaryColor,
         unselectedItemColor: Colors.grey),
     appBarTheme: AppBarTheme(
-   backgroundColor: Colors.white,
+      backgroundColor: Colors.white,
       elevation: 0,
       titleTextStyle: Styles.textStyle20.copyWith(
         color: ColorsManger.bgcolorDark,
@@ -30,7 +30,7 @@ class AppTheme {
     ),
     colorScheme: ColorScheme.fromSwatch().copyWith(
       primary: ColorsManger.kPrimaryColor,
-      secondary: ColorsManger.kPrimaryColor,
+      secondary: ColorsManger.bgcolorDark,
       background: Colors.white,
       surface: Colors.white,
       error: Colors.red,
@@ -40,16 +40,21 @@ class AppTheme {
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-  
         foregroundColor: ColorsManger.kPrimaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
       ),
     ),
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius:
+            BorderRadius.vertical(top: Radius.circular(20)), // الزوايا
+      ),
+      elevation: 10,
+    ),
   );
-
-
 
   static ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: ColorsManger.bgcolorDark,
@@ -78,7 +83,7 @@ class AppTheme {
     ),
     colorScheme: ColorScheme.fromSwatch().copyWith(
       primary: ColorsManger.kPrimaryColor,
-      secondary: ColorsManger.kPrimaryColor,
+      secondary: ColorsManger.bgcolorLight,
       background: ColorsManger.bgcolorDark,
       surface: ColorsManger.bgcolorDark,
       error: Colors.red,
@@ -88,13 +93,18 @@ class AppTheme {
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        
         foregroundColor: ColorsManger.kPrimaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
       ),
     ),
-    
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: ColorsManger.bgcolorDark,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      elevation: 10,
+    ),
   );
 }

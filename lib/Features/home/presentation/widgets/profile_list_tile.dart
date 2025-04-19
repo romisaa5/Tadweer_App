@@ -9,17 +9,25 @@ class ProfileListTile extends StatelessWidget {
   final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
     return ListTile(
       contentPadding: EdgeInsets.zero,
-      leading: Icon(icon),
+      leading: Icon(icon,
+          color: colorScheme.secondary.withValues(alpha: 0.8),
+          size: 24,
+        ),
       title: Text(
         title,
-        style: Styles.textStyle14,
+        style: Styles.textStyle14.copyWith(
+          color: colorScheme.secondary.withValues(alpha: 0.8),
+        ),
       ),
       trailing: IconButton(
         onPressed: onPressed,
-        icon: Icon(Icons.arrow_forward_ios_outlined),
+        icon: Icon(Icons.arrow_forward_ios_outlined,
+            color: colorScheme.secondary,
       ),
-    );
+    ));
   }
 }

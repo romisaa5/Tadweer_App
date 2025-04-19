@@ -31,7 +31,7 @@ class ThirdScreen extends StatelessWidget {
             ),
             Text(
               'You can organize your daily tasks by adding your tasks into separate categories',
-              style: Styles.textStyle16!.copyWith(color: textTheme.bodyMedium!.color),
+              style: Styles.textStyle16.copyWith(color: textTheme.bodyMedium!.color),
               textAlign: TextAlign.center,
             ),
             const Spacer(),

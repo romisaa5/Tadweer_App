@@ -30,6 +30,7 @@ abstract class AppRouter {
   static final passwordreset = '/passwordreset';
   static final setnewpassword = '/setnewpassword';
   static final String homeview = '/homeview';
+  static const String appSetting= '/appSetting';
   static final router = GoRouter(
     initialLocation: langaugethemeselection,
     routes: [
@@ -41,6 +42,7 @@ abstract class AppRouter {
                 ? HomeView()
                 : LanguageThemeSelectionView(),
       ),
+
       GoRoute(path: firstScreen, builder: (context, state) => FirstScreen()),
       GoRoute(
         path: secondScreen,
@@ -85,6 +87,10 @@ abstract class AppRouter {
       GoRoute(
         path: setnewpassword,
         builder: (context, state) => SetNewPassword(),
+      ),
+         GoRoute(
+        path: appSetting,
+        builder: (context, state) => LanguageThemeSelectionView(),
       ),
       GoRoute(
         path: homeview,

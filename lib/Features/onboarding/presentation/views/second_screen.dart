@@ -31,7 +31,7 @@ class SecondScreen extends StatelessWidget {
             ),
             Text(
               'In Uptodo  you can create your personalized routine to stay productive',
-              style: Styles.textStyle16!.copyWith(color: textTheme.bodyMedium!.color),
+              style: Styles.textStyle16.copyWith(color: textTheme.bodyMedium!.color),
               textAlign: TextAlign.center,
             ),
             const Spacer(),

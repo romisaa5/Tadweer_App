@@ -26,7 +26,7 @@ class WelcomeView extends StatelessWidget {
             ),
             Text(
               'Please login to your account or create new account to continue',
-              style: Styles.textStyle16!.copyWith(color: textTheme.bodyMedium!.color),
+              style: Styles.textStyle16.copyWith(color: textTheme.bodyMedium!.color),
               textAlign: TextAlign.center,
             ),
             const Spacer(),

@@ -7,6 +7,8 @@ class IndexView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Scaffold(
@@ -14,7 +16,10 @@ class IndexView extends StatelessWidget {
           automaticallyImplyLeading: false,
           title: Text(
             'Hi, Romisaa',
-            style: Styles.textStyle18,
+            style: Styles.textStyle18
+            .copyWith(
+              color: textTheme.bodyLarge!.color,
+            ),
           ),
           actions: [
             CircleAvatar(
@@ -27,13 +32,20 @@ class IndexView extends StatelessWidget {
         ),
         body: Center(
           child: Column(
-            spacing: 10,
+            spacing: 10.h,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [Image.asset('assets/images/home_image.png')
             ,
-            Text('What do you want to do today?',style: Styles.textStyle20.copyWith(fontWeight: FontWeight.w400),)
+            Text('What do you want to do today?',style: Styles.textStyle20.copyWith(
+              color: textTheme.bodyLarge!.color,
+            ),)
             ,
-            Text('Tap + to add your tasks',style: Styles.textStyle16.copyWith(fontWeight: FontWeight.w400),)
+            Text('Tap + to add your tasks',style: Styles.textStyle16.copyWith(
+              color: textTheme.bodyMedium?.color?.withOpacity(0.7),
+            ),)
+            
+            
+            
             ],
           
           ),

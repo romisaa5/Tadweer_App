@@ -61,11 +61,18 @@ class _UploadImageViewState extends State<UploadImageView> {
                       backgroundImage: FileImage(_selectedImage!),
                     )
                   : CircleAvatar(
+                      backgroundColor: ColorsManger.kPrimaryColor,
                       radius: 60,
-                      child: Icon(Icons.person, size: 60),
+                      child: Icon(Icons.person, size: 60,),
                     ),
               SizedBox(height: 20),
               ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                 
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                ),
                 onPressed: _pickImage,
                 icon: Icon(Icons.photo),
                 label: Text("Pick from Gallery"),

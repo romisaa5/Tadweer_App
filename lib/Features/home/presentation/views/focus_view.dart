@@ -52,18 +52,23 @@ class _FocusViewState extends State<FocusView> {
   @override
   Widget build(BuildContext context) {
     double percent = 1 - (remainingSeconds / totalSeconds);
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+    final colorScheme = theme.colorScheme;
 
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20),
+          padding: const EdgeInsets.only(right: 25.0,left: 25, top:  20),
           child: SingleChildScrollView(
             child: Column(
               children: [
                 SizedBox(height: 10.h),
                 Text(
                   'Focus Mode',
-                  style: Styles.textStyle24,
+                  style: Styles.textStyle24.copyWith(
+                    color: textTheme.bodyLarge!.color,
+                  ),
                 ),
                 SizedBox(height: 30.h),
                 CircularPercentIndicator(
@@ -72,7 +77,7 @@ class _FocusViewState extends State<FocusView> {
                   percent: percent,
                   center: Text(
                     formatTime(remainingSeconds),
-                    style: TextStyle(color: Colors.white, fontSize: 32),
+                    style: TextStyle(color:colorScheme.secondary, fontSize: 32),
                   ),
                   progressColor: ColorsManger.kPrimaryColor,
                   backgroundColor: Colors.grey.shade800,
@@ -81,7 +86,9 @@ class _FocusViewState extends State<FocusView> {
                 SizedBox(height: 20.h),
                 Text(
                   'While your focus mode is on, all of your notifications will be off',
-                  style: Styles.textStyle16.copyWith(color: Colors.grey,),
+                  style: Styles.textStyle16.copyWith(
+                    color: textTheme.bodyLarge!.color!.withOpacity(0.6),
+                  ),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 30.h),
@@ -98,7 +105,10 @@ class _FocusViewState extends State<FocusView> {
                   ),
                   child: Text(
                     isRunning ? 'Pause' : 'Start',
-                    style: Styles.textStyle16,
+                    style: Styles.textStyle16.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
                 FocusStatsSection()

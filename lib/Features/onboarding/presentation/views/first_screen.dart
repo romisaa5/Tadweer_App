@@ -18,7 +18,7 @@ class _FirstScreenState extends State<FirstScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-    final isDark = theme.brightness == Brightness.dark;
+
 
     return Scaffold(
       body: Padding(
@@ -34,7 +34,7 @@ class _FirstScreenState extends State<FirstScreen> {
             Text('Manage your tasks', style: Styles.textStyle32.copyWith(color: textTheme.bodyLarge!.color)),
             Text(
               'You can easily manage all of your daily tasks in DoMe for free',
-              style: Styles.textStyle16!.copyWith(color: textTheme.bodyMedium!.color),
+              style: Styles.textStyle16.copyWith(color: textTheme.bodyMedium!.color),
               textAlign: TextAlign.center,
             ),
             const Spacer(),
