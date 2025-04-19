@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 
 class AppTextFormField extends StatelessWidget {
@@ -19,6 +18,7 @@ class AppTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
   final InputBorder? errorBorder;
+
   const AppTextFormField({
     super.key,
     this.contentPadding,
@@ -34,61 +34,61 @@ class AppTextFormField extends StatelessWidget {
     required this.validator,
     this.prefixIcon,
     this.focusNode,
-    this.onChanged, this.errorBorder,
+    this.onChanged,
+    this.errorBorder,
   });
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return TextFormField(
-      
       validator: validator,
       onChanged: onChanged,
       controller: controller,
-      cursorColor: ColorsManger.kPrimaryColor,
+      cursorColor: colorScheme.primary,
       decoration: InputDecoration(
         isDense: true,
-        contentPadding: contentPadding ??
-            EdgeInsets.symmetric(horizontal: 10.w, vertical: 14.h),
+        contentPadding:
+            contentPadding ?? EdgeInsets.symmetric(horizontal: 10.w, vertical: 14.h),
         focusedBorder: focusedBorder ??
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(4.r),
-              borderSide:
-                  BorderSide(color: ColorsManger.kPrimaryColor, width: 1.3.w),
+              borderSide: BorderSide(color: colorScheme.primary, width: 1.3.w),
             ),
         enabledBorder: enabledBorder ??
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(4.r),
+              borderSide: BorderSide(color: colorScheme.outline, width: 1.w),
+            ),
+        errorBorder: errorBorder ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(4.r),
               borderSide: BorderSide(
-                color: ColorsManger.bgcolorLight,
+                color: colorScheme.error,
+                width: 1.w,
+                
+              ),
+            ),
+        focusedErrorBorder: errorBorder ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(4.r),
+              borderSide: BorderSide(
+                color: colorScheme.error,
                 width: 1.w,
               ),
             ),
-            errorBorder: errorBorder?? OutlineInputBorder(
-              borderRadius: BorderRadius.circular(4.r),
-              borderSide: BorderSide(
-                color: const Color.fromARGB(255, 244, 121, 123),
-                width: 1.w,
-              ),
-            ) ,
-        focusedErrorBorder: errorBorder?? OutlineInputBorder(
-              borderRadius: BorderRadius.circular(4.r),
-              borderSide: BorderSide(
-                color: const Color.fromARGB(255, 244, 121, 123),
-                width: 1.w,
-              ),
-            ),
-        hintStyle: hintStyle ?? Styles.textStyle14,
+        hintStyle: hintStyle ?? Styles.textStyle14.copyWith(color: colorScheme.onSurface.withOpacity(0.6)),
         hintText: hintText,
         suffixIcon: suffixIcon,
-        
         prefixIcon: prefixIcon,
-        fillColor: backgroundColor ?? ColorsManger.bgcolorDark,
+        fillColor: backgroundColor ?? colorScheme.surface,
         filled: true,
       ),
-      
       focusNode: focusNode,
       obscureText: isObscureText ?? false,
-      style: Styles.textStyle16,
+      style: inputTextStyle ?? Styles.textStyle16.copyWith(color: colorScheme.onSurface),
     );
   }
 }

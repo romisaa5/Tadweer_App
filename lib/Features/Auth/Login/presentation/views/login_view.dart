@@ -30,6 +30,8 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -45,7 +47,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 Text(
                   'Login',
-                  style: Styles.textStyle32,
+                style: Styles.textStyle32.copyWith(color: colorScheme.onBackground)
                 ),
                 SizedBox(height: 15.h),
                 Text(

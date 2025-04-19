@@ -11,6 +11,9 @@ class ThirdScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30.0),
@@ -19,38 +22,41 @@ class ThirdScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Spacer(),
+            const Spacer(),
             Image.asset('assets/images/onboard3.png'),
-            PageIndicator(currentIndex: 2, totalPages: 3),
-            Text('Orgonaize your tasks', style: Styles.textStyle32),
+            const PageIndicator(currentIndex: 2, totalPages: 3),
+            Text(
+              'Orgonaize your tasks',
+              style: Styles.textStyle32.copyWith(color: textTheme.bodyLarge!.color),
+            ),
             Text(
               'You can organize your daily tasks by adding your tasks into separate categories',
-              style: Styles.textStyle16,
+              style: Styles.textStyle16!.copyWith(color: textTheme.bodyMedium!.color),
               textAlign: TextAlign.center,
             ),
-            Spacer(),
+            const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomButton(
                   width: 90.w,
                   text: 'Back',
-                  color: Color(0xff),
+                  color: Colors.black,
                   onTap: () {
                     GoRouter.of(context).push(AppRouter.secondScreen);
                   },
                 ),
                 CustomButton(
                   width: 151.w,
-                  text: 'GETSTATED',
-                  color: Color(0xff8875FF),
+                  text: 'GET STARTED',
+                  color: theme.colorScheme.primary,
                   onTap: () {
                     GoRouter.of(context).push(AppRouter.welcomeView);
                   },
                 )
               ],
             ),
-            Spacer()
+            const Spacer()
           ],
         ),
       ),

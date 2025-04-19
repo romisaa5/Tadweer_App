@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/password_reset.dart';
@@ -10,12 +9,14 @@ import 'package:toda_app/Features/Auth/Register/presentation/views/email_verifie
 import 'package:toda_app/Features/Auth/Register/presentation/views/register_view.dart';
 import 'package:toda_app/Features/Auth/Register/presentation/views/up_load_image_view.dart';
 import 'package:toda_app/Features/home/presentation/home_view.dart';
+import 'package:toda_app/Features/onboarding/presentation/views/Language_Theme_Selection_view.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/first_screen.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/second_screen.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/third_screen.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/welcome_view.dart';
 
 abstract class AppRouter {
+  static const String langaugethemeselection = '/langaugethemeselection';
   static final firstScreen = '/onboardingscreen1';
   static final thirdScreen = '/onboardingscreen3';
   static final secondScreen = '/onboardingscreen2';
@@ -23,19 +24,24 @@ abstract class AppRouter {
   static final loginView = '/loginview';
   static final registerView = '/registerview';
   static final emailVerifiedView = '/emailverifiedview';
-  static final upLoadimage= '/uploadimage';
+  static final upLoadimage = '/uploadimage';
   static final forgetpasssword = '/forgetpassword';
   static final verificationScreen = '/verificationScreen';
   static final passwordreset = '/passwordreset';
   static final setnewpassword = '/setnewpassword';
   static final String homeview = '/homeview';
   static final router = GoRouter(
-    initialLocation: firstScreen,
+    initialLocation: langaugethemeselection,
     routes: [
       GoRoute(
-        path: firstScreen,
-        builder: (context, state) => (FirebaseAuth.instance.currentUser!=null && FirebaseAuth.instance.currentUser!.emailVerified)?HomeView():FirstScreen(),
+        path: langaugethemeselection,
+        builder: (context, state) =>
+            (FirebaseAuth.instance.currentUser != null &&
+                    FirebaseAuth.instance.currentUser!.emailVerified)
+                ? HomeView()
+                : LanguageThemeSelectionView(),
       ),
+      GoRoute(path: firstScreen, builder: (context, state) => FirstScreen()),
       GoRoute(
         path: secondScreen,
         builder: (context, state) => SecondScreen(),
@@ -56,7 +62,7 @@ abstract class AppRouter {
         path: registerView,
         builder: (context, state) => RegisterView(),
       ),
-        GoRoute(
+      GoRoute(
         path: emailVerifiedView,
         builder: (context, state) => EmailVerifiedView(),
       ),
@@ -80,7 +86,7 @@ abstract class AppRouter {
         path: setnewpassword,
         builder: (context, state) => SetNewPassword(),
       ),
-        GoRoute(
+      GoRoute(
         path: homeview,
         builder: (context, state) => HomeView(),
       ),

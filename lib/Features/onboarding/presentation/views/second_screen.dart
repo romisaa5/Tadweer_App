@@ -11,6 +11,9 @@ class SecondScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30.0),
@@ -19,23 +22,26 @@ class SecondScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Spacer(),
+            const Spacer(),
             Image.asset('assets/images/onboard2.png'),
-            PageIndicator(currentIndex: 1, totalPages: 3),
-            Text('Create daily routine', style: Styles.textStyle32),
+            const PageIndicator(currentIndex: 1, totalPages: 3),
+            Text(
+              'Create daily routine',
+              style: Styles.textStyle32.copyWith(color: textTheme.bodyLarge!.color),
+            ),
             Text(
               'In Uptodo  you can create your personalized routine to stay productive',
-              style: Styles.textStyle16,
+              style: Styles.textStyle16!.copyWith(color: textTheme.bodyMedium!.color),
               textAlign: TextAlign.center,
             ),
-            Spacer(),
+            const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomButton(
                   width: 90.w,
                   text: 'Back',
-                  color: Color(0xff000000),
+                  color: Colors.black,
                   onTap: () {
                     GoRouter.of(context).push(AppRouter.firstScreen);
                   },
@@ -43,14 +49,14 @@ class SecondScreen extends StatelessWidget {
                 CustomButton(
                   width: 90.w,
                   text: 'Next',
-                  color: Color(0xff8875FF),
+                  color: theme.colorScheme.primary,
                   onTap: () {
                     GoRouter.of(context).push(AppRouter.thirdScreen);
                   },
                 ),
               ],
             ),
-            Spacer()
+            const Spacer()
           ],
         ),
       ),

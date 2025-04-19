@@ -10,39 +10,43 @@ class WelcomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
           spacing: 15.h,
           children: [
-            SizedBox(
-              height: 30.h,
-            ),
+            SizedBox(height: 30.h),
             Text(
               'Welcome to UpTodo',
-              style: Styles.textStyle32,
+              style: Styles.textStyle32.copyWith(color: textTheme.bodyLarge!.color),
             ),
             Text(
               'Please login to your account or create new account to continue',
-              style: Styles.textStyle16,
+              style: Styles.textStyle16!.copyWith(color: textTheme.bodyMedium!.color),
               textAlign: TextAlign.center,
             ),
-            Spacer(),
+            const Spacer(),
             CustomButton(
-                onTap: () {
-                  GoRouter.of(context).pushReplacement(AppRouter.loginView);
-                },
-                text: 'LOGIN',
-                color: Color(0xff8875FF),
-                width: MediaQuery.of(context).size.width),
+              onTap: () {
+                GoRouter.of(context).pushReplacement(AppRouter.loginView);
+              },
+              text: 'LOGIN',
+              color: theme.colorScheme.primary,
+              width: MediaQuery.of(context).size.width,
+            ),
+          
             CustomButton(
-                onTap: () {
-                  GoRouter.of(context).pushReplacement(AppRouter.registerView);
-                },
-                text: 'CREATE ACOUNT',
-                color: Color(0xff000000),
-                width: MediaQuery.of(context).size.width)
+              onTap: () {
+                GoRouter.of(context).pushReplacement(AppRouter.registerView);
+              },
+              text: 'CREATE ACCOUNT',
+              color: Colors.black,
+              width: MediaQuery.of(context).size.width,
+            ),
           ],
         ),
       ),
