@@ -38,6 +38,7 @@ class _RegisterViewState extends State<RegisterView> {
     final theme = Theme.of(context);
 
     final textTheme = theme.textTheme;
+    final colorScheme = theme.colorScheme;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -139,14 +140,16 @@ class _RegisterViewState extends State<RegisterView> {
                                 isPasswordShown = !isPasswordShown;
                               });
                             },
-                            icon: Icon(Icons.visibility))
+                            icon: Icon(Icons.visibility,
+                                color: colorScheme.secondary))
                         : IconButton(
                             onPressed: () {
                               setState(() {
                                 isPasswordShown = !isPasswordShown;
                               });
                             },
-                            icon: Icon(Icons.visibility_off)),
+                            icon: Icon(Icons.visibility_off,
+                                color: colorScheme.secondary)),
                     prefixIcon: Icon(
                       Icons.lock_outlined,
                       size: 20.sp,
@@ -197,7 +200,8 @@ class _RegisterViewState extends State<RegisterView> {
                                     !isConfirmPasswordShown;
                               });
                             },
-                            icon: Icon(Icons.visibility))
+                            icon: Icon(Icons.visibility,
+                                color: colorScheme.secondary))
                         : IconButton(
                             onPressed: () {
                               setState(() {
@@ -205,7 +209,8 @@ class _RegisterViewState extends State<RegisterView> {
                                     !isConfirmPasswordShown;
                               });
                             },
-                            icon: Icon(Icons.visibility_off)),
+                            icon: Icon(Icons.visibility_off,
+                                color:colorScheme.secondary )),
                   ),
                   SizedBox(
                     height: 10.h,

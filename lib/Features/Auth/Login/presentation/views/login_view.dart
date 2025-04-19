@@ -111,14 +111,16 @@ class _LoginViewState extends State<LoginView> {
                               isshown = !isshown;
                             });
                           },
-                          icon: Icon(Icons.visibility))
+                          icon: Icon(Icons.visibility,
+                              color: colorScheme.secondary))
                       : IconButton(
                           onPressed: () {
                             setState(() {
                               isshown = !isshown;
                             });
                           },
-                          icon: Icon(Icons.visibility_off)),
+                          icon: Icon(Icons.visibility_off,
+                              color: colorScheme.secondary)),
                   prefixIcon: Icon(
                     Icons.lock_outlined,
                     size: 20,

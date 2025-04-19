@@ -42,8 +42,7 @@ class AppTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    final textTheme = theme.textTheme;
-    final isDarkMode = theme.brightness == Brightness.dark;
+
 
     return TextFormField(
       validator: validator,
@@ -81,7 +80,7 @@ class AppTextFormField extends StatelessWidget {
                 width: 1.w,
               ),
             ),
-        hintStyle: hintStyle ??  Styles.textStyle14.copyWith(color: isDarkMode ? Colors.white : const Color.fromARGB(255, 132, 129, 129)),
+        hintStyle: hintStyle ??  Styles.textStyle14.copyWith(color: colorScheme.secondary.withValues(alpha: .5)),
         hintText: hintText,
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
@@ -90,7 +89,7 @@ class AppTextFormField extends StatelessWidget {
       ),
       focusNode: focusNode,
       obscureText: isObscureText ?? false,
-      style: inputTextStyle ?? Styles.textStyle16.copyWith(color: colorScheme.onSurface),
+      style: inputTextStyle ?? Styles.textStyle16.copyWith(color: colorScheme.secondary),
     );
   }
 }

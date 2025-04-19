@@ -103,14 +103,37 @@ class _ProfieViewState extends State<ProfieView> {
                       showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                          title: Text('Change Account Name'),
+                          title: Text('Change Account Name',
+                              style: Styles.textStyle16.copyWith(
+                                color: colorScheme.secondary,
+                                fontWeight: FontWeight.bold,
+                              )),
                           content: TextField(
                             onChanged: (value) {
                               setState(() {
                                 acountName = value;
                               });
                             },
-                            decoration: InputDecoration(hintText: 'New Name'),
+                            decoration: InputDecoration(
+                                hintText: 'New Name',
+                                hintStyle: Styles.textStyle14.copyWith(
+                                  color: colorScheme.secondary,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8.r),
+                                  borderSide: BorderSide(
+                                    color: colorScheme.primary,
+                                    width: 1.5,
+                                  ),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8.r),
+                                  borderSide: BorderSide(
+                                    color: colorScheme.secondary
+                                        .withValues(alpha: .7),
+                                    width: 1.5,
+                                  ),
+                                )),
                           ),
                           actions: [
                             TextButton(
@@ -161,7 +184,7 @@ class _ProfieViewState extends State<ProfieView> {
                           content: Text(
                             'Are you sure you want to log out?',
                             style: Styles.textStyle14.copyWith(
-                              color: ColorsManger.bgcolorLight,
+                              color:colorScheme.secondary
                             ),
                           ),
                           actions: [
