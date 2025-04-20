@@ -21,5 +21,19 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "Arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+    "Email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "English": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+    "Login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "OR": MessageLookupByLibrary.simpleMessage("أو"),
+    "Password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "Register": MessageLookupByLibrary.simpleMessage("تسجيل"),
+    "back": MessageLookupByLibrary.simpleMessage("رجوع"),
+    "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
+    "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "selectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة :"),
+    "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+    "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
+  };
 }
