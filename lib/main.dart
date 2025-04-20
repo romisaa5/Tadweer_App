@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:toda_app/Features/Auth/Login/data/cubit/login_cubit.dart';
 import 'package:toda_app/Features/Auth/Register/data/cubit/register_cubit.dart';
+import 'package:toda_app/core/helper/localizition_method.dart';
 import 'package:toda_app/core/themes/Theme_Provider.dart';
 import 'package:toda_app/core/themes/app_theme.dart';
 import 'package:toda_app/core/utils/app_router.dart';
@@ -19,7 +20,12 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-      ChangeNotifierProvider(create: (_) => ThemeProvider(), child: ToDoApp()));
+      MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => ThemeProvider()),
+      ChangeNotifierProvider(create: (_) => LanguageProvider()), 
+    ],
+    child: const ToDoApp(),),);
 }
 
 class ToDoApp extends StatefulWidget {
@@ -45,6 +51,7 @@ class _ToDoAppState extends State<ToDoApp> {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
+    final languageProvider = Provider.of<LanguageProvider>(context);
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
@@ -58,6 +65,7 @@ class _ToDoAppState extends State<ToDoApp> {
                 BlocProvider(create: (context) => RegisterCubit()),
               ],
               child: MaterialApp.router(
+                locale: languageProvider.locale,
                 localizationsDelegates: [
                   S.delegate,
                   GlobalMaterialLocalizations.delegate,

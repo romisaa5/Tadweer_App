@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toda_app/core/helper/localizition_method.dart';
 import 'package:toda_app/core/themes/Theme_Provider.dart';
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
@@ -37,10 +38,11 @@ class _LanguageThemeSelectionViewState
   }
 
   void saveSettings() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('language', selectedLanguage);
-    await prefs.setBool('isDarkMode', isDarkMode);
+    await Provider.of<LanguageProvider>(context, listen: false)
+        .setLocale(selectedLanguage);
 
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isDarkMode', isDarkMode);
     Provider.of<ThemeProvider>(context, listen: false).toggleTheme(isDarkMode);
 
     (FirebaseAuth.instance.currentUser != null &&
