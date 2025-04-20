@@ -54,6 +54,8 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  // skipped getter for the 'selectLanguage & theme' key
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

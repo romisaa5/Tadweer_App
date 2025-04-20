@@ -1,3 +1,15 @@
 {
+    "selectLanguage & theme": "Select Language & Theme",
+    "selectLanguage": "Select Language :",
+    "English": "English",
+    "Arabic": "Arabic",
+    "Select Theme": "Select Theme :",
+    "dark mode": "Dark Mode",
+    "light mode": "Light Mode",
+    "Save and continue": "Save and continue",
+    "Manage your tasks": "Manage your tasks",
     
+    "skip": "Skip",
+    "next": "Next",
+
 }
