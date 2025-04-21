@@ -5,6 +5,7 @@ import 'package:toda_app/Features/onboarding/presentation/views/widgets/custom_p
 import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({super.key});
@@ -26,11 +27,11 @@ class SecondScreen extends StatelessWidget {
             Image.asset('assets/images/onboard2.png'),
             const PageIndicator(currentIndex: 1, totalPages: 3),
             Text(
-              'Create daily routine',
+              S.of(context).createdailyroutines,
               style: Styles.textStyle32.copyWith(color: textTheme.bodyLarge!.color),
             ),
             Text(
-              'In Uptodo  you can create your personalized routine to stay productive',
+             S.of(context).inUptodoyoucancreateyourpersonalizedroutinetostayproductive,
               style: Styles.textStyle16.copyWith(color: textTheme.bodyMedium!.color),
               textAlign: TextAlign.center,
             ),
@@ -40,7 +41,7 @@ class SecondScreen extends StatelessWidget {
               children: [
                 CustomButton(
                   width: 90.w,
-                  text: 'Back',
+                  text: S.of(context).back,
                   color: Colors.black,
                   onTap: () {
                     GoRouter.of(context).push(AppRouter.firstScreen);
@@ -48,7 +49,7 @@ class SecondScreen extends StatelessWidget {
                 ),
                 CustomButton(
                   width: 90.w,
-                  text: 'Next',
+                  text: S.of(context).next,
                   color: theme.colorScheme.primary,
                   onTap: () {
                     GoRouter.of(context).push(AppRouter.thirdScreen);

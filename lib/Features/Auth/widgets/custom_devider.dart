@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class CustomDevider extends StatelessWidget {
   const CustomDevider({super.key});
@@ -16,7 +17,7 @@ class CustomDevider extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 8.0),
           child: Text(
-            "  OR  ",
+            "  ${S.of(context).or}  ",
             style: TextStyle(fontSize: 16),
           ),
         ),

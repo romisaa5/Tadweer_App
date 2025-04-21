@@ -22,18 +22,123 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "AnerroroccurredPleasetryagain": MessageLookupByLibrary.simpleMessage(
+      "An error occurred. Please try again.",
+    ),
     "Arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
-    "Email": MessageLookupByLibrary.simpleMessage("Email"),
     "English": MessageLookupByLibrary.simpleMessage("English"),
-    "Login": MessageLookupByLibrary.simpleMessage("Login"),
-    "OR": MessageLookupByLibrary.simpleMessage("OR"),
-    "Password": MessageLookupByLibrary.simpleMessage("Password"),
-    "Register": MessageLookupByLibrary.simpleMessage("Register"),
+    "Enteravalidemail": MessageLookupByLibrary.simpleMessage(
+      "Enter a valid email",
+    ),
+    "Error": MessageLookupByLibrary.simpleMessage("Error"),
+    "Nouserfoundforthatemail": MessageLookupByLibrary.simpleMessage(
+      "No user found for that email.",
+    ),
+    "Passwordmustbeatleast8characters": MessageLookupByLibrary.simpleMessage(
+      "Password must be at least 8 characters",
+    ),
+    "Passwordmustcontainatleastoneletterandonenumber":
+        MessageLookupByLibrary.simpleMessage(
+          "Password must contain at least one letter and one number",
+        ),
+    "Passwordsdonotmatch": MessageLookupByLibrary.simpleMessage(
+      "Passwords do not match",
+    ),
+    "Pleaseenteryourusername": MessageLookupByLibrary.simpleMessage(
+      "Please enter your username",
+    ),
+    "Thefieldisrequired": MessageLookupByLibrary.simpleMessage(
+      "The field is required",
+    ),
+    "Wrongpasswordprovidedforthatuser": MessageLookupByLibrary.simpleMessage(
+      "Wrong password provided for that user.",
+    ),
+    "alreadyhaveanaccount": MessageLookupByLibrary.simpleMessage(
+      "Already have an account?",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
+    "checkyouremail": MessageLookupByLibrary.simpleMessage("Check your email"),
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+    "confirmpassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
+    "createaccount": MessageLookupByLibrary.simpleMessage("CREATE ACCOUNT"),
+    "createdailyroutines": MessageLookupByLibrary.simpleMessage(
+      "Create daily routines",
+    ),
+    "createyouraccount": MessageLookupByLibrary.simpleMessage(
+      "Create your account",
+    ),
+    "darkmode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
+    "donthaveanaccount": MessageLookupByLibrary.simpleMessage(
+      "Don\'t have an account?",
+    ),
+    "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "enteryouremailaddressandwewillsendyoualinktoresetyourpassword":
+        MessageLookupByLibrary.simpleMessage(
+          "Enter your email address and we will send you a link to reset your password",
+        ),
+    "forgotpassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
+    "getStarted": MessageLookupByLibrary.simpleMessage("GET STARTED"),
+    "inUptodoyoucancreateyourpersonalizedroutinetostayproductive":
+        MessageLookupByLibrary.simpleMessage(
+          "In Uptodo  you can create your personalized routine to stay productive",
+        ),
+    "lightmode": MessageLookupByLibrary.simpleMessage("Light Mode"),
+    "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "loginwithFacebook": MessageLookupByLibrary.simpleMessage(
+      "login with Facebook",
+    ),
+    "loginwithGoogle": MessageLookupByLibrary.simpleMessage(
+      "login with Google",
+    ),
+    "manageyourtasks": MessageLookupByLibrary.simpleMessage(
+      "Manage your tasks",
+    ),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "or": MessageLookupByLibrary.simpleMessage("OR"),
+    "orgonaizeyourtasks": MessageLookupByLibrary.simpleMessage(
+      "Orgonaize your tasks",
+    ),
+    "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordreset": MessageLookupByLibrary.simpleMessage("Password Reset"),
+    "pleaselogintoyouraccountorcreatenewaccounttocontinue":
+        MessageLookupByLibrary.simpleMessage(
+          "Please login to your account or create new account to continue",
+        ),
+    "register": MessageLookupByLibrary.simpleMessage("Register"),
+    "registerwithFacebook": MessageLookupByLibrary.simpleMessage(
+      "register with Facebook",
+    ),
+    "registerwithGoogle": MessageLookupByLibrary.simpleMessage(
+      "register with Google",
+    ),
+    "resendcode": MessageLookupByLibrary.simpleMessage("Resend Code"),
+    "resetpassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
+    "saveandcontinue": MessageLookupByLibrary.simpleMessage(
+      "Save and continue",
+    ),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("Select Language :"),
+    "selectLanguageandtheme": MessageLookupByLibrary.simpleMessage(
+      "Select Language & Theme",
+    ),
+    "selectTheme": MessageLookupByLibrary.simpleMessage("Select Theme :"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+    "updatepassword": MessageLookupByLibrary.simpleMessage("Update Password"),
     "username": MessageLookupByLibrary.simpleMessage("User Name"),
+    "verifycode": MessageLookupByLibrary.simpleMessage("Verify Code"),
+    "wehavesentyouanemailwithalinktoresetyourpassword":
+        MessageLookupByLibrary.simpleMessage(
+          "We have sent you an email with a link to reset your password",
+        ),
+    "welcometoUpTodo": MessageLookupByLibrary.simpleMessage(
+      "Welcome to UpTodo",
+    ),
+    "youcaneasilymanageallofyourdailytasksinDoMeforfree":
+        MessageLookupByLibrary.simpleMessage(
+          "You can easily manage all of your daily tasks in DoMe for free",
+        ),
+    "youcanorganizeyourdailytasksbyaddingyourtasksintoseparatecategories":
+        MessageLookupByLibrary.simpleMessage(
+          "You can organize your daily tasks by adding your tasks into separate categories",
+        ),
   };
 }

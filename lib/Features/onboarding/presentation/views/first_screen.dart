@@ -5,6 +5,7 @@ import 'package:toda_app/Features/onboarding/presentation/views/widgets/custom_p
 import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({super.key});
@@ -31,9 +32,9 @@ class _FirstScreenState extends State<FirstScreen> {
             const Spacer(),
             Image.asset('assets/images/onboard1.png'),
             const PageIndicator(currentIndex: 0, totalPages: 3),
-            Text('Manage your tasks', style: Styles.textStyle32.copyWith(color: textTheme.bodyLarge!.color)),
+            Text(S.of(context).manageyourtasks, style: Styles.textStyle32.copyWith(color: textTheme.bodyLarge!.color)),
             Text(
-              'You can easily manage all of your daily tasks in DoMe for free',
+              S.of(context).youcaneasilymanageallofyourdailytasksinDoMeforfree,
               style: Styles.textStyle16.copyWith(color: textTheme.bodyMedium!.color),
               textAlign: TextAlign.center,
             ),
@@ -45,13 +46,13 @@ class _FirstScreenState extends State<FirstScreen> {
                   onTap: () {
                     GoRouter.of(context).pushReplacement(AppRouter.loginView);
                   },
-                  text: 'Skip',
+                  text: S.of(context).skip,
                   color:Colors.black,
                   width: 90.w,
                 ),
                 CustomButton(
                   width: 90.w,
-                  text: 'Next',
+                  text: S.of(context).next,
                   color: theme.colorScheme.primary,
                   onTap: () {
                     GoRouter.of(context).push(AppRouter.secondScreen);

@@ -5,6 +5,7 @@ import 'package:toda_app/Features/onboarding/presentation/views/widgets/custom_p
 import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class ThirdScreen extends StatelessWidget {
   const ThirdScreen({super.key});
@@ -26,11 +27,11 @@ class ThirdScreen extends StatelessWidget {
             Image.asset('assets/images/onboard3.png'),
             const PageIndicator(currentIndex: 2, totalPages: 3),
             Text(
-              'Orgonaize your tasks',
+              S.of(context).orgonaizeyourtasks,
               style: Styles.textStyle32.copyWith(color: textTheme.bodyLarge!.color),
             ),
             Text(
-              'You can organize your daily tasks by adding your tasks into separate categories',
+              S.of(context).youcanorganizeyourdailytasksbyaddingyourtasksintoseparatecategories,
               style: Styles.textStyle16.copyWith(color: textTheme.bodyMedium!.color),
               textAlign: TextAlign.center,
             ),
@@ -40,7 +41,7 @@ class ThirdScreen extends StatelessWidget {
               children: [
                 CustomButton(
                   width: 90.w,
-                  text: 'Back',
+                  text: S.of(context).back,
                   color: Colors.black,
                   onTap: () {
                     GoRouter.of(context).push(AppRouter.secondScreen);
@@ -48,7 +49,7 @@ class ThirdScreen extends StatelessWidget {
                 ),
                 CustomButton(
                   width: 151.w,
-                  text: 'GET STARTED',
+                  text: S.of(context).getStarted,
                   color: theme.colorScheme.primary,
                   onTap: () {
                     GoRouter.of(context).push(AppRouter.welcomeView);

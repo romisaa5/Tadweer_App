@@ -9,6 +9,7 @@ import 'package:toda_app/core/themes/Theme_Provider.dart';
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/utils/app_router.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class LanguageThemeSelectionView extends StatefulWidget {
   const LanguageThemeSelectionView({super.key});
@@ -62,10 +63,10 @@ class _LanguageThemeSelectionViewState
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 40.h),
+            SizedBox(height: 30.h),
             Center(
               child: Text(
-                'Select Language & Theme',
+                S.of(context).selectLanguageandtheme,
                 style: Styles.textStyle20.copyWith(
                   color: isDarkMode
                       ? colorScheme.onBackground
@@ -81,7 +82,7 @@ class _LanguageThemeSelectionViewState
               ),
             ),
             SizedBox(height: 30.h),
-            Text('Select Language : ',
+            Text(S.of(context).selectLanguage,
                 style: Styles.textStyle16.copyWith(
                     color: isDarkMode
                         ? colorScheme.onBackground
@@ -90,7 +91,7 @@ class _LanguageThemeSelectionViewState
             SizedBox(height: 20.h),
             ListTile(
               title: Text(
-                'English',
+                S.of(context).English,
                 style: Styles.textStyle16.copyWith(
                     color: isDarkMode
                         ? colorScheme.onBackground
@@ -99,16 +100,24 @@ class _LanguageThemeSelectionViewState
               leading: Radio<String>(
                 value: 'en',
                 groupValue: selectedLanguage,
-                onChanged: (val) => setState(() => selectedLanguage = val!),
-                activeColor: colorScheme.primary,
-                fillColor: MaterialStateProperty.all(isDarkMode
-                    ? ColorsManger.bgcolorLight
-                    : ColorsManger.bgcolorDark),
+                onChanged: (val) {
+                  setState(() {
+                    selectedLanguage = val!;
+                  });
+                  Provider.of<LanguageProvider>(context, listen: false)
+                      .setLocale(val!);
+                },
+                activeColor: ColorsManger.kPrimaryColor,
+                fillColor: MaterialStateProperty.all(
+                  isDarkMode
+                      ? ColorsManger.bgcolorLight
+                      : ColorsManger.bgcolorDark,
+                ),
               ),
             ),
             ListTile(
               title: Text(
-                'عربي',
+                S.of(context).Arabic,
                 style: Styles.textStyle16.copyWith(
                     color: isDarkMode
                         ? colorScheme.onBackground
@@ -117,12 +126,18 @@ class _LanguageThemeSelectionViewState
               leading: Radio<String>(
                 value: 'ar',
                 groupValue: selectedLanguage,
-                onChanged: (val) => setState(() => selectedLanguage = val!),
+                onChanged: (val) {
+                  setState(() {
+                    selectedLanguage = val!;
+                  });
+                  Provider.of<LanguageProvider>(context, listen: false)
+                      .setLocale(val!);
+                },
                 activeColor: colorScheme.primary,
               ),
             ),
             SizedBox(height: 20.h),
-            Text('Select Theme',
+            Text(S.of(context).selectTheme,
                 style: Styles.textStyle16.copyWith(
                     color: isDarkMode
                         ? colorScheme.onBackground
@@ -131,7 +146,7 @@ class _LanguageThemeSelectionViewState
             SizedBox(height: 20.h),
             SwitchListTile(
               title: Text(
-                'Dark Mode',
+                S.of(context).darkmode,
                 style: Styles.textStyle16.copyWith(
                     color: isDarkMode
                         ? colorScheme.onBackground
@@ -142,7 +157,7 @@ class _LanguageThemeSelectionViewState
                 setState(() {
                   isDarkMode = val;
                 });
-
+        
                 Provider.of<ThemeProvider>(context, listen: false)
                     .toggleTheme(isDarkMode);
               },
@@ -168,7 +183,7 @@ class _LanguageThemeSelectionViewState
                   padding: EdgeInsets.symmetric(vertical: 14, horizontal: 30),
                 ),
                 child: Text(
-                  'Save and Continue',
+                  S.of(context).saveandcontinue,
                   style: Styles.textStyle16.copyWith(
                     color: Colors.white,
                   ),

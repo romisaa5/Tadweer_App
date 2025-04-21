@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({super.key});
@@ -21,11 +22,11 @@ class WelcomeView extends StatelessWidget {
           children: [
             SizedBox(height: 30.h),
             Text(
-              'Welcome to UpTodo',
+                S.of(context).welcometoUpTodo,
               style: Styles.textStyle32.copyWith(color: textTheme.bodyLarge!.color),
             ),
             Text(
-              'Please login to your account or create new account to continue',
+              S.of(context).pleaselogintoyouraccountorcreatenewaccounttocontinue,
               style: Styles.textStyle16.copyWith(color: textTheme.bodyMedium!.color),
               textAlign: TextAlign.center,
             ),
@@ -34,7 +35,7 @@ class WelcomeView extends StatelessWidget {
               onTap: () {
                 GoRouter.of(context).pushReplacement(AppRouter.loginView);
               },
-              text: 'LOGIN',
+              text: S.of(context).login,
               color: theme.colorScheme.primary,
               width: MediaQuery.of(context).size.width,
             ),
@@ -43,7 +44,7 @@ class WelcomeView extends StatelessWidget {
               onTap: () {
                 GoRouter.of(context).pushReplacement(AppRouter.registerView);
               },
-              text: 'CREATE ACCOUNT',
+              text: S.of(context).createaccount,
               color: Colors.black,
               width: MediaQuery.of(context).size.width,
             ),

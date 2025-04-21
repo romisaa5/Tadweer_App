@@ -55,7 +55,15 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  // skipped getter for the 'selectLanguage & theme' key
+  /// `Select Language & Theme`
+  String get selectLanguageandtheme {
+    return Intl.message(
+      'Select Language & Theme',
+      name: 'selectLanguageandtheme',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Select Language :`
   String get selectLanguage {
@@ -77,25 +85,97 @@ class S {
     return Intl.message('Arabic', name: 'Arabic', desc: '', args: []);
   }
 
-  // skipped getter for the 'Select Theme' key
+  /// `Select Theme :`
+  String get selectTheme {
+    return Intl.message(
+      'Select Theme :',
+      name: 'selectTheme',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'dark mode' key
+  /// `Dark Mode`
+  String get darkmode {
+    return Intl.message('Dark Mode', name: 'darkmode', desc: '', args: []);
+  }
 
-  // skipped getter for the 'light mode' key
+  /// `Light Mode`
+  String get lightmode {
+    return Intl.message('Light Mode', name: 'lightmode', desc: '', args: []);
+  }
 
-  // skipped getter for the 'Save and continue' key
+  /// `Save and continue`
+  String get saveandcontinue {
+    return Intl.message(
+      'Save and continue',
+      name: 'saveandcontinue',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'Manage your tasks' key
+  /// `Manage your tasks`
+  String get manageyourtasks {
+    return Intl.message(
+      'Manage your tasks',
+      name: 'manageyourtasks',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'You can easily manage all of your daily tasks in DoMe for free' key
+  /// `You can easily manage all of your daily tasks in DoMe for free`
+  String get youcaneasilymanageallofyourdailytasksinDoMeforfree {
+    return Intl.message(
+      'You can easily manage all of your daily tasks in DoMe for free',
+      name: 'youcaneasilymanageallofyourdailytasksinDoMeforfree',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'Create daily routines' key
+  /// `Create daily routines`
+  String get createdailyroutines {
+    return Intl.message(
+      'Create daily routines',
+      name: 'createdailyroutines',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'In Uptodo  you can create your personalized routine to stay productive' key
+  /// `In Uptodo  you can create your personalized routine to stay productive`
+  String get inUptodoyoucancreateyourpersonalizedroutinetostayproductive {
+    return Intl.message(
+      'In Uptodo  you can create your personalized routine to stay productive',
+      name: 'inUptodoyoucancreateyourpersonalizedroutinetostayproductive',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'Orgonaize your tasks' key
+  /// `Orgonaize your tasks`
+  String get orgonaizeyourtasks {
+    return Intl.message(
+      'Orgonaize your tasks',
+      name: 'orgonaizeyourtasks',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'You can organize your daily tasks by adding your tasks into separate categories' key
+  /// `You can organize your daily tasks by adding your tasks into separate categories`
+  String
+  get youcanorganizeyourdailytasksbyaddingyourtasksintoseparatecategories {
+    return Intl.message(
+      'You can organize your daily tasks by adding your tasks into separate categories',
+      name:
+          'youcanorganizeyourdailytasksbyaddingyourtasksintoseparatecategories',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Skip`
   String get skip {
@@ -112,27 +192,54 @@ class S {
     return Intl.message('Back', name: 'back', desc: '', args: []);
   }
 
-  // skipped getter for the 'Get Started' key
-
-  // skipped getter for the 'Welcome to UpTodo' key
-
-  // skipped getter for the 'Please login to your account or create new account to continue' key
-
-  /// `Login`
-  String get Login {
-    return Intl.message('Login', name: 'Login', desc: '', args: []);
+  /// `GET STARTED`
+  String get getStarted {
+    return Intl.message('GET STARTED', name: 'getStarted', desc: '', args: []);
   }
 
-  // skipped getter for the 'Create account' key
+  /// `Welcome to UpTodo`
+  String get welcometoUpTodo {
+    return Intl.message(
+      'Welcome to UpTodo',
+      name: 'welcometoUpTodo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please login to your account or create new account to continue`
+  String get pleaselogintoyouraccountorcreatenewaccounttocontinue {
+    return Intl.message(
+      'Please login to your account or create new account to continue',
+      name: 'pleaselogintoyouraccountorcreatenewaccounttocontinue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message('Login', name: 'login', desc: '', args: []);
+  }
+
+  /// `CREATE ACCOUNT`
+  String get createaccount {
+    return Intl.message(
+      'CREATE ACCOUNT',
+      name: 'createaccount',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Email`
-  String get Email {
-    return Intl.message('Email', name: 'Email', desc: '', args: []);
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
   }
 
   /// `Password`
-  String get Password {
-    return Intl.message('Password', name: 'Password', desc: '', args: []);
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
   }
 
   /// `User Name`
@@ -140,60 +247,281 @@ class S {
     return Intl.message('User Name', name: 'username', desc: '', args: []);
   }
 
-  // skipped getter for the 'Forgot password?' key
+  /// `Please enter your username`
+  String get Pleaseenteryourusername {
+    return Intl.message(
+      'Please enter your username',
+      name: 'Pleaseenteryourusername',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'Don\'t have an account?' key
+  /// `The field is required`
+  String get Thefieldisrequired {
+    return Intl.message(
+      'The field is required',
+      name: 'Thefieldisrequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter a valid email`
+  String get Enteravalidemail {
+    return Intl.message(
+      'Enter a valid email',
+      name: 'Enteravalidemail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be at least 8 characters`
+  String get Passwordmustbeatleast8characters {
+    return Intl.message(
+      'Password must be at least 8 characters',
+      name: 'Passwordmustbeatleast8characters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain at least one letter and one number`
+  String get Passwordmustcontainatleastoneletterandonenumber {
+    return Intl.message(
+      'Password must contain at least one letter and one number',
+      name: 'Passwordmustcontainatleastoneletterandonenumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords do not match`
+  String get Passwordsdonotmatch {
+    return Intl.message(
+      'Passwords do not match',
+      name: 'Passwordsdonotmatch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get Error {
+    return Intl.message('Error', name: 'Error', desc: '', args: []);
+  }
+
+  /// `An error occurred. Please try again.`
+  String get AnerroroccurredPleasetryagain {
+    return Intl.message(
+      'An error occurred. Please try again.',
+      name: 'AnerroroccurredPleasetryagain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  // skipped getter for the 'forgotpassword?' key
+
+  /// `Don't have an account?`
+  String get donthaveanaccount {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'donthaveanaccount',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Register`
-  String get Register {
-    return Intl.message('Register', name: 'Register', desc: '', args: []);
+  String get register {
+    return Intl.message('Register', name: 'register', desc: '', args: []);
   }
 
-  // skipped getter for the 'Already have an account?' key
+  /// `Already have an account?`
+  String get alreadyhaveanaccount {
+    return Intl.message(
+      'Already have an account?',
+      name: 'alreadyhaveanaccount',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'Create your account' key
+  /// `Create your account`
+  String get createyouraccount {
+    return Intl.message(
+      'Create your account',
+      name: 'createyouraccount',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'Confirm Password' key
+  /// `Confirm Password`
+  String get confirmpassword {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirmpassword',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'register with Google' key
+  /// `register with Google`
+  String get registerwithGoogle {
+    return Intl.message(
+      'register with Google',
+      name: 'registerwithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'register with Facebook' key
+  /// `register with Facebook`
+  String get registerwithFacebook {
+    return Intl.message(
+      'register with Facebook',
+      name: 'registerwithFacebook',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'login with Google' key
+  /// `No user found for that email.`
+  String get Nouserfoundforthatemail {
+    return Intl.message(
+      'No user found for that email.',
+      name: 'Nouserfoundforthatemail',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'login with Facebook' key
+  /// `Wrong password provided for that user.`
+  String get Wrongpasswordprovidedforthatuser {
+    return Intl.message(
+      'Wrong password provided for that user.',
+      name: 'Wrongpasswordprovidedforthatuser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `login with Google`
+  String get loginwithGoogle {
+    return Intl.message(
+      'login with Google',
+      name: 'loginwithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `login with Facebook`
+  String get loginwithFacebook {
+    return Intl.message(
+      'login with Facebook',
+      name: 'loginwithFacebook',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `OR`
-  String get OR {
-    return Intl.message('OR', name: 'OR', desc: '', args: []);
+  String get or {
+    return Intl.message('OR', name: 'or', desc: '', args: []);
   }
 
-  // skipped getter for the 'forgot password' key
+  /// `Forgot Password`
+  String get forgotpassword {
+    return Intl.message(
+      'Forgot Password',
+      name: 'forgotpassword',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'Enter your email address and we will send you a link to reset your password' key
+  /// `Enter your email address and we will send you a link to reset your password`
+  String get enteryouremailaddressandwewillsendyoualinktoresetyourpassword {
+    return Intl.message(
+      'Enter your email address and we will send you a link to reset your password',
+      name: 'enteryouremailaddressandwewillsendyoualinktoresetyourpassword',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'reset password' key
+  /// `Reset Password`
+  String get resetpassword {
+    return Intl.message(
+      'Reset Password',
+      name: 'resetpassword',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'check your email' key
+  /// `Check your email`
+  String get checkyouremail {
+    return Intl.message(
+      'Check your email',
+      name: 'checkyouremail',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'We have sent you an email with a link to reset your password' key
+  /// `We have sent you an email with a link to reset your password`
+  String get wehavesentyouanemailwithalinktoresetyourpassword {
+    return Intl.message(
+      'We have sent you an email with a link to reset your password',
+      name: 'wehavesentyouanemailwithalinktoresetyourpassword',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'verify code' key
+  /// `Verify Code`
+  String get verifycode {
+    return Intl.message('Verify Code', name: 'verifycode', desc: '', args: []);
+  }
 
-  // skipped getter for the 'have not received the code?' key
+  // skipped getter for the 'havenotreceivedthecode?' key
 
-  // skipped getter for the 'resend code' key
+  /// `Resend Code`
+  String get resendcode {
+    return Intl.message('Resend Code', name: 'resendcode', desc: '', args: []);
+  }
 
-  // skipped getter for the 'password reset' key
+  /// `Password Reset`
+  String get passwordreset {
+    return Intl.message(
+      'Password Reset',
+      name: 'passwordreset',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Confirm`
   String get confirm {
     return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
   }
 
-  // skipped getter for the 'your password has been successfully reset . click confirm to set a nem password' key
+  // skipped getter for the 'yourpasswordhasbeensuccessfullyreset.clickconfirmtosetanewpassword' key
 
-  // skipped getter for the 'update password' key
+  /// `Update Password`
+  String get updatepassword {
+    return Intl.message(
+      'Update Password',
+      name: 'updatepassword',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

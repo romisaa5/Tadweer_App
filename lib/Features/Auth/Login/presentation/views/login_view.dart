@@ -11,6 +11,7 @@ import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/core/widgets/custom_button_signup_login.dart';
 import 'package:toda_app/core/widgets/custom_text_form_field.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -46,29 +47,27 @@ class _LoginViewState extends State<LoginView> {
                 SizedBox(
                   height: 50.h,
                 ),
-                Text(
-                  'Login',
-                style: Styles.textStyle32.copyWith(
-                  color: textTheme.bodyLarge!.color,
-                )
-                ),
+                Text(S.of(context).login,
+                    style: Styles.textStyle32.copyWith(
+                      color: textTheme.bodyLarge!.color,
+                    )),
                 SizedBox(height: 15.h),
                 Text(
-                  'Email',
+                  S.of(context).email,
                   style: Styles.textStyle14,
                 ),
                 AppTextFormField(
                   onChanged: (value) {
                     email = value;
                   },
-                  hintText: 'Email',
+                  hintText: S.of(context).email,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'The field is required';
+                      return S.of(context).Thefieldisrequired;
                     }
                     if (!RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+')
                         .hasMatch(value)) {
-                      return 'Enter a valid email';
+                      return S.of(context).Enteravalidemail;
                     }
                     return null;
                   },
@@ -82,7 +81,7 @@ class _LoginViewState extends State<LoginView> {
                   backgroundColor: colorScheme.background,
                 ),
                 Text(
-                  'Password',
+                  S.of(context).password,
                   style: Styles.textStyle14,
                 ),
                 AppTextFormField(
@@ -90,17 +89,19 @@ class _LoginViewState extends State<LoginView> {
                   onChanged: (value) {
                     password = value;
                   },
-                  hintText: 'Password',
+                  hintText: S.of(context).password,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'The field is required';
+                      return S.of(context).Thefieldisrequired;
                     }
                     if (value.length < 8) {
-                      return 'Password must be at least 8 characters';
+                      return S.of(context).Passwordmustbeatleast8characters;
                     }
                     if (!RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$')
                         .hasMatch(value)) {
-                      return 'Password must contain at least one letter and one number';
+                      return S
+                          .of(context)
+                          .Passwordmustcontainatleastoneletterandonenumber;
                     }
                     return null;
                   },
@@ -135,7 +136,7 @@ class _LoginViewState extends State<LoginView> {
                     child: Align(
                       alignment: Alignment.topRight,
                       child: Text(
-                        'Forget Passsword ?',
+                        S.of(context).forgotpassword,
                         style: Styles.textStyle12
                             .copyWith(color: Color(0xff8875FF)),
                       ),
@@ -153,24 +154,24 @@ class _LoginViewState extends State<LoginView> {
                               .pushReplacement(AppRouter.homeview);
                         } on FirebaseAuthException catch (ex) {
                           if (ex.code == 'user-not-found') {
-                            showAwesomeDialog('No user found for that email.',
-                                'Error ', context);
+                            showAwesomeDialog(S.of(context).Nouserfoundforthatemail,
+                                S.of(context).Error, context);
                           } else if (ex.code == 'wrong-password') {
                             showAwesomeDialog(
-                              'Wrong password provided.',
-                              'Error ',
-                              context,
-                            );
+                                S.of(context).Wrongpasswordprovidedforthatuser,
+                                S.of(context).Error, context);
+                           
+                            
                           } else {
                             showAwesomeDialog(
-                                'An error occurred. Please try again.',
-                                'Error ',
-                                context);
+                                S.of(context).AnerroroccurredPleasetryagain,
+                                S.of(context).Error, context);
+                             
                           }
                         }
                       }
                     },
-                    text: 'Login',
+                    text: S.of(context).login,
                     color: Color(0xff8875FF),
                     width: MediaQuery.of(context).size.width),
                 SizedBox(height: 10.h),
@@ -181,7 +182,7 @@ class _LoginViewState extends State<LoginView> {
                       LoginMethods.signInWithGoogle(context);
                     },
                     image: 'assets/images/google_icon.png',
-                    text: 'Login with Google',
+                    text: S.of(context).loginwithGoogle,
                     color: Color(0xff000000),
                     width: MediaQuery.of(context).size.width),
                 CustomButtonSignupLogin(
@@ -189,14 +190,14 @@ class _LoginViewState extends State<LoginView> {
                       LoginMethods.signInWithFacebook(context);
                     },
                     image: 'assets/images/facebook_icon.png',
-                    text: 'Login with Facebook',
+                    text: S.of(context).loginwithFacebook,
                     color: Color(0xff000000),
                     width: MediaQuery.of(context).size.width),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Don't have an acount?",
+                      S.of(context).donthaveanaccount,
                       style: Styles.textStyle12,
                     ),
                     TextButton(
@@ -205,7 +206,7 @@ class _LoginViewState extends State<LoginView> {
                             .pushReplacement(AppRouter.registerView);
                       },
                       child: Text(
-                        '   Register',
+                        '   ${S.of(context).register}',
                         style: Styles.textStyle12.copyWith(
                           color: Color(0xff8875FF),
                         ),

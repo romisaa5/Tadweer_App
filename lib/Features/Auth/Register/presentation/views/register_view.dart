@@ -11,6 +11,7 @@ import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/core/widgets/custom_button_signup_login.dart';
 import 'package:toda_app/core/widgets/custom_text_form_field.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -52,13 +53,13 @@ class _RegisterViewState extends State<RegisterView> {
                   SizedBox(
                     height: 50.h,
                   ),
-                  Text('Register',
+                  Text(S.of(context).register,
                       style: Styles.textStyle32.copyWith(
                         color: textTheme.bodyLarge!.color,
                       )),
                   SizedBox(height: 5.h),
                   Text(
-                    'User Name ',
+                    S.of(context).username,
                     style: Styles.textStyle14,
                   ),
                   AppTextFormField(
@@ -67,10 +68,10 @@ class _RegisterViewState extends State<RegisterView> {
                         this.userName = userName;
                       });
                     },
-                    hintText: 'User Name',
+                    hintText: S.of(context).username,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your username';
+                        return S.of(context).Pleaseenteryourusername;
                       }
                       return null;
                     },
@@ -80,7 +81,7 @@ class _RegisterViewState extends State<RegisterView> {
                     ),
                   ),
                   Text(
-                    'Email',
+                    S.of(context).email,
                     style: Styles.textStyle14,
                   ),
                   AppTextFormField(
@@ -89,14 +90,14 @@ class _RegisterViewState extends State<RegisterView> {
                         email = data;
                       });
                     },
-                    hintText: 'Email',
+                    hintText: S.of(context).email,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'The field is required';
                       }
                       if (!RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+')
                           .hasMatch(value)) {
-                        return 'Enter a valid email';
+                        return S.of(context).Enteravalidemail;
                       }
                       return null;
                     },
@@ -109,7 +110,7 @@ class _RegisterViewState extends State<RegisterView> {
                     controller: emailController,
                   ),
                   Text(
-                    'Password',
+                    S.of(context).password,
                     style: Styles.textStyle14,
                   ),
                   AppTextFormField(
@@ -119,17 +120,19 @@ class _RegisterViewState extends State<RegisterView> {
                         password = data;
                       });
                     },
-                    hintText: 'Password',
+                    hintText: S.of(context).password,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'The field is required';
+                        return S.of(context).Thefieldisrequired;
                       }
                       if (value.length < 8) {
-                        return 'Password must be at least 8 characters';
+                        return S.of(context).Passwordmustbeatleast8characters;
                       }
                       if (!RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$')
                           .hasMatch(value)) {
-                        return 'Password must contain at least one letter and one number';
+                        return S
+                            .of(context)
+                            .Passwordmustcontainatleastoneletterandonenumber;
                       }
                       return null;
                     },
@@ -159,7 +162,7 @@ class _RegisterViewState extends State<RegisterView> {
                     controller: passwordController,
                   ),
                   Text(
-                    'Confirm Password',
+                   S.of(context).confirmpassword,
                     style: Styles.textStyle14,
                   ),
                   AppTextFormField(
@@ -169,20 +172,23 @@ class _RegisterViewState extends State<RegisterView> {
                         confirmPassword = data;
                       });
                     },
-                    hintText: 'Confirm Password',
+                    hintText: S.of(context).confirmpassword,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'The field is required';
+                        return S.of(context).Thefieldisrequired;
+      
                       }
                       if (value != password) {
-                        return 'Passwords do not match';
+                        return S.of(context).Passwordsdonotmatch;
                       }
                       if (value.length < 8) {
-                        return 'Password must be at least 8 characters';
+                        return S.of(context).Passwordmustbeatleast8characters;
                       }
                       if (!RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$')
                           .hasMatch(value)) {
-                        return 'Password must contain at least one letter and one number';
+                        return S
+                            .of(context)
+                            .Passwordmustcontainatleastoneletterandonenumber;
                       }
                       return null;
                     },
@@ -210,13 +216,13 @@ class _RegisterViewState extends State<RegisterView> {
                               });
                             },
                             icon: Icon(Icons.visibility_off,
-                                color:colorScheme.secondary )),
+                                color: colorScheme.secondary)),
                   ),
                   SizedBox(
                     height: 10.h,
                   ),
                   CustomButton(
-                      text: 'Register',
+                      text: S.of(context).register,
                       color: ColorsManger.kPrimaryColor,
                       width: MediaQuery.of(context).size.width,
                       onTap: () async {
@@ -237,13 +243,13 @@ class _RegisterViewState extends State<RegisterView> {
 
                             String errorMessage =
                                 getFirebaseErrorMessage(e.code);
-                            showAwesomeDialog(errorMessage, 'Error', context);
+                            showAwesomeDialog(errorMessage, S.of(context).Error, context);
                           } catch (e) {
                             if (!mounted) return;
 
                             showAwesomeDialog(
-                                'Error',
-                                'An error occurred. Please try again.',
+                               S.of(context).Error,
+                                S.of(context).AnerroroccurredPleasetryagain,
                                 context);
                           }
                         }
@@ -253,19 +259,19 @@ class _RegisterViewState extends State<RegisterView> {
                   SizedBox(height: 5.h),
                   CustomButtonSignupLogin(
                       image: 'assets/images/google_icon.png',
-                      text: 'Register with Google',
+                      text: S.of(context).registerwithGoogle,
                       color: Color(0xff000000),
                       width: MediaQuery.of(context).size.width),
                   CustomButtonSignupLogin(
                       image: 'assets/images/facebook_icon.png',
-                      text: 'Register with Facebook',
+                      text: S.of(context).registerwithFacebook,
                       color: Color(0xff000000),
                       width: MediaQuery.of(context).size.width),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "already have an acount?",
+                        S.of(context).alreadyhaveanaccount,
                         style: Styles.textStyle12,
                       ),
                       TextButton(
@@ -274,7 +280,7 @@ class _RegisterViewState extends State<RegisterView> {
                               .pushReplacement(AppRouter.loginView);
                         },
                         child: Text(
-                          '   Login',
+                          '   ${S.of(context).login}',
                           style: Styles.textStyle12.copyWith(
                             color: Color(0xff8875FF),
                           ),
