@@ -6,6 +6,7 @@ import 'package:toda_app/Features/home/presentation/views/index_view.dart';
 import 'package:toda_app/Features/home/presentation/views/profie_view.dart';
 import 'package:toda_app/Features/home/presentation/widgets/add_tasks_bottom_sheet.dart';
 import 'package:toda_app/core/themes/colors.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -68,14 +69,14 @@ class _HomeViewState extends State<HomeView> {
                 Icons.home_outlined,
                 size: 24,
               ),
-              label: "Index",
+              label: S.of(context).Index,
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.calendar_month_outlined,
                 size: 24,
               ),
-              label: "Calender",
+              label: S.of(context).Calendar,
             ),
             BottomNavigationBarItem(
               icon: SizedBox(width: 8.w),
@@ -86,14 +87,14 @@ class _HomeViewState extends State<HomeView> {
                 Icons.access_time_outlined,
                 size: 24,
               ),
-              label: "Focus",
+              label: S.of(context).Focus,
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.person_outline,
                 size: 24,
               ),
-              label: "Profile",
+              label: S.of(context).Profile,
             ),
           ],
         ),

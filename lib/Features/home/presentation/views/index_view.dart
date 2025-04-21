@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class IndexView extends StatelessWidget {
   const IndexView({super.key});
@@ -36,11 +37,11 @@ class IndexView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [Image.asset('assets/images/home_image.png')
             ,
-            Text('What do you want to do today?',style: Styles.textStyle20.copyWith(
+            Text(S.of(context).Whatdoyouwanttodotoday,style: Styles.textStyle20.copyWith(
               color: textTheme.bodyLarge!.color,
             ),)
             ,
-            Text('Tap + to add your tasks',style: Styles.textStyle16.copyWith(
+            Text(S.of(context).Taptoaddyourtasks,style: Styles.textStyle16.copyWith(
               color: textTheme.bodyMedium?.color?.withOpacity(0.7),
             ),)
             

@@ -489,7 +489,15 @@ class S {
     return Intl.message('Verify Code', name: 'verifycode', desc: '', args: []);
   }
 
-  // skipped getter for the 'havenotreceivedthecode?' key
+  /// `Have not received the code?`
+  String get havenotreceivedthecode {
+    return Intl.message(
+      'Have not received the code?',
+      name: 'havenotreceivedthecode',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Resend Code`
   String get resendcode {
@@ -511,13 +519,256 @@ class S {
     return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
   }
 
-  // skipped getter for the 'yourpasswordhasbeensuccessfullyreset.clickconfirmtosetanewpassword' key
+  /// `Your password has been successfully reset. Click confirm to set a new password`
+  String get yourpasswordhasbeensuccessfullyresetclickconfirmtosetanewpassword {
+    return Intl.message(
+      'Your password has been successfully reset. Click confirm to set a new password',
+      name: 'yourpasswordhasbeensuccessfullyresetclickconfirmtosetanewpassword',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Update Password`
   String get updatepassword {
     return Intl.message(
       'Update Password',
       name: 'updatepassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email Verification`
+  String get EmailVerification {
+    return Intl.message(
+      'Email Verification',
+      name: 'EmailVerification',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please verify your email address`
+  String get Pleaseverifyyouremailaddress {
+    return Intl.message(
+      'Please verify your email address',
+      name: 'Pleaseverifyyouremailaddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A verification link has been sent to your email`
+  String get Averificationlinkhasbeensenttoyouremail {
+    return Intl.message(
+      'A verification link has been sent to your email',
+      name: 'Averificationlinkhasbeensenttoyouremail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resend Email`
+  String get ResendEmail {
+    return Intl.message(
+      'Resend Email',
+      name: 'ResendEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Go to Login`
+  String get GotoLogin {
+    return Intl.message('Go to Login', name: 'GotoLogin', desc: '', args: []);
+  }
+
+  /// `Upload Profile Picture`
+  String get UploadProfilePicture {
+    return Intl.message(
+      'Upload Profile Picture',
+      name: 'UploadProfilePicture',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pick from Gallery`
+  String get PickfromGallery {
+    return Intl.message(
+      'Pick from Gallery',
+      name: 'PickfromGallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Index`
+  String get Index {
+    return Intl.message('Index', name: 'Index', desc: '', args: []);
+  }
+
+  /// `Calendar`
+  String get Calendar {
+    return Intl.message('Calendar', name: 'Calendar', desc: '', args: []);
+  }
+
+  /// `Focus`
+  String get Focus {
+    return Intl.message('Focus', name: 'Focus', desc: '', args: []);
+  }
+
+  /// `Profile`
+  String get Profile {
+    return Intl.message('Profile', name: 'Profile', desc: '', args: []);
+  }
+
+  /// `What do you want to do today?`
+  String get Whatdoyouwanttodotoday {
+    return Intl.message(
+      'What do you want to do today?',
+      name: 'Whatdoyouwanttodotoday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap + to add your tasks`
+  String get Taptoaddyourtasks {
+    return Intl.message(
+      'Tap + to add your tasks',
+      name: 'Taptoaddyourtasks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hi , `
+  String get Hi {
+    return Intl.message('Hi , ', name: 'Hi', desc: '', args: []);
+  }
+
+  /// `Tasks Left`
+  String get TasksLeft {
+    return Intl.message('Tasks Left', name: 'TasksLeft', desc: '', args: []);
+  }
+
+  /// `Tasks Done`
+  String get TasksDone {
+    return Intl.message('Tasks Done', name: 'TasksDone', desc: '', args: []);
+  }
+
+  /// `Settings`
+  String get Settings {
+    return Intl.message('Settings', name: 'Settings', desc: '', args: []);
+  }
+
+  /// `App Settings`
+  String get AppSettings {
+    return Intl.message(
+      'App Settings',
+      name: 'AppSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account`
+  String get Account {
+    return Intl.message('Account', name: 'Account', desc: '', args: []);
+  }
+
+  /// `Change account name`
+  String get Changeaccountname {
+    return Intl.message(
+      'Change account name',
+      name: 'Changeaccountname',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `'New Name`
+  String get NewName {
+    return Intl.message('\'New Name', name: 'NewName', desc: '', args: []);
+  }
+
+  /// `Save`
+  String get Save {
+    return Intl.message('Save', name: 'Save', desc: '', args: []);
+  }
+
+  /// `Cancel`
+  String get Cancel {
+    return Intl.message('Cancel', name: 'Cancel', desc: '', args: []);
+  }
+
+  /// `Change account password`
+  String get Changeaccountpassword {
+    return Intl.message(
+      'Change account password',
+      name: 'Changeaccountpassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change account Image`
+  String get ChangeaccountImage {
+    return Intl.message(
+      'Change account Image',
+      name: 'ChangeaccountImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log Out`
+  String get LogOut {
+    return Intl.message('Log Out', name: 'LogOut', desc: '', args: []);
+  }
+
+  /// `Are you sure you want to log out?`
+  String get Areyousureyouwanttologout {
+    return Intl.message(
+      'Are you sure you want to log out?',
+      name: 'Areyousureyouwanttologout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Focus Mode`
+  String get FocusMode {
+    return Intl.message('Focus Mode', name: 'FocusMode', desc: '', args: []);
+  }
+
+  /// `While your focus mode is on, all of your notifications will be off`
+  String get Whileyourfocusmodeisonallofyournotificationswillbeoff {
+    return Intl.message(
+      'While your focus mode is on, all of your notifications will be off',
+      name: 'Whileyourfocusmodeisonallofyournotificationswillbeoff',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pause`
+  String get Pause {
+    return Intl.message('Pause', name: 'Pause', desc: '', args: []);
+  }
+
+  /// `Start`
+  String get Start {
+    return Intl.message('Start', name: 'Start', desc: '', args: []);
+  }
+
+  /// `Applications`
+  String get Applications {
+    return Intl.message(
+      'Applications',
+      name: 'Applications',
       desc: '',
       args: [],
     );

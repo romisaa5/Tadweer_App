@@ -51,10 +51,51 @@
     "checkyouremail": "Check your email",
     "wehavesentyouanemailwithalinktoresetyourpassword": "We have sent you an email with a link to reset your password",
     "verifycode": "Verify Code",
-    "havenotreceivedthecode?": "Have not received the code?",
+    "havenotreceivedthecode": "Have not received the code?",
     "resendcode": "Resend Code",
     "passwordreset": "Password Reset",
     "confirm": "Confirm",
-    "yourpasswordhasbeensuccessfullyreset.clickconfirmtosetanewpassword": "Your password has been successfully reset. Click confirm to set a new password",
-    "updatepassword": "Update Password"
+    "yourpasswordhasbeensuccessfullyresetclickconfirmtosetanewpassword": "Your password has been successfully reset. Click confirm to set a new password",
+    "updatepassword": "Update Password",
+    "EmailVerification":"Email Verification",
+    "Pleaseverifyyouremailaddress":"Please verify your email address",
+    "Averificationlinkhasbeensenttoyouremail":"A verification link has been sent to your email",
+    "ResendEmail":"Resend Email",
+    "GotoLogin":"Go to Login",
+    "UploadProfilePicture":"Upload Profile Picture",
+    "PickfromGallery":"Pick from Gallery",
+    "Index": "Index",
+    "Calendar": "Calendar",
+    "Focus": "Focus",
+    "Profile": "Profile",
+    "Whatdoyouwanttodotoday":"What do you want to do today?",
+    "Taptoaddyourtasks":"Tap + to add your tasks",
+    "Hi":"Hi , ",
+    "TasksLeft":"Tasks Left",
+    "TasksDone":"Tasks Done",
+    "Settings": "Settings",
+    "AppSettings":"App Settings",
+    "Account":"Account",
+    "Changeaccountname":"Change account name",
+    "NewName":"'New Name",
+    "Save":"Save",
+    "Cancel":"Cancel",
+    "Changeaccountpassword":"Change account password",
+    "ChangeaccountImage":"Change account Image",
+    "LogOut":"Log Out",
+    "Areyousureyouwanttologout":"Are you sure you want to log out?",
+    "FocusMode":"Focus Mode",
+    "Whileyourfocusmodeisonallofyournotificationswillbeoff":"While your focus mode is on, all of your notifications will be off",
+    "Pause":"Pause",
+    "Start":"Start",
+    "Applications":"Applications"
+
+    
+
+
+
+
+
+
+
 }

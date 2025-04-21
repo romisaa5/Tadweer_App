@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/utils/app_router.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class EmailVerifiedView extends StatefulWidget {
   const EmailVerifiedView({super.key});
@@ -50,7 +51,7 @@ class _EmailVerifiedViewState extends State<EmailVerifiedView> {
           children: [
             SizedBox(height: 50.h),
             Text(
-              'Email Verification',
+              S.of(context).EmailVerification,
               style: Styles.textStyle24.copyWith(
                 color: textTheme.bodyLarge!.color,
               ),
@@ -59,9 +60,9 @@ class _EmailVerifiedViewState extends State<EmailVerifiedView> {
             const Icon(Icons.check_circle,
                 size: 100, color: ColorsManger.kPrimaryColor),
             SizedBox(height: 20.h),
-            const Text('Please verify your email address.',
+           Text( S.of(context).Pleaseverifyyouremailaddress,
                 style: TextStyle(fontSize: 16)),
-            const Text('A verification link has been sent to your email.',
+            Text(S.of(context).Averificationlinkhasbeensenttoyouremail,
                 style: TextStyle(fontSize: 16)),
             SizedBox(height: 20.h),
             Row(
@@ -84,7 +85,7 @@ class _EmailVerifiedViewState extends State<EmailVerifiedView> {
                           .sendEmailVerification();
                     },
                     child: Text(
-                      'Resend Email',
+                      S.of(context).ResendEmail,
                       style: Styles.textStyle14.copyWith(
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),
@@ -106,7 +107,7 @@ class _EmailVerifiedViewState extends State<EmailVerifiedView> {
                       GoRouter.of(context).push(AppRouter.loginView);
                     },
                     child: Text(
-                      'Go to Login',
+                      S.of(context).GotoLogin,
                       style: Styles.textStyle14.copyWith(
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),

@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class PasswordReset extends StatelessWidget {
   const PasswordReset({super.key});
@@ -29,7 +30,7 @@ class PasswordReset extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              "Password reset",
+              S.of(context).passwordreset,
               style: Styles.textStyle32.copyWith(
                 color: textTheme.bodyLarge!.color,
               ),
@@ -38,7 +39,7 @@ class PasswordReset extends StatelessWidget {
               height: 5.h,
             ),
             Text(
-              "Your password has been successfully reset. click confirm to set a new password",
+             S.of(context).yourpasswordhasbeensuccessfullyresetclickconfirmtosetanewpassword,
               style: Styles.textStyle14.copyWith(
                 color: textTheme.bodyMedium?.color?.withOpacity(0.7),
               ),
@@ -50,7 +51,7 @@ class PasswordReset extends StatelessWidget {
               onTap: () {
                 GoRouter.of(context).push(AppRouter.setnewpassword);
               },
-              text: "Confirm",
+              text: S.of(context).confirm,
               color: Color(0xff8875FF),
               width: MediaQuery.of(context).size.width,
             ),

@@ -6,6 +6,7 @@ import 'package:toda_app/Features/home/presentation/widgets/task_card.dart';
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:intl/intl.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class CalanderView extends StatefulWidget {
   const CalanderView({super.key});
@@ -28,7 +29,7 @@ class _CalanderViewState extends State<CalanderView> {
         automaticallyImplyLeading: false,
         backgroundColor: ColorsManger.kPrimaryColor,
         title: Text(
-          'Calender',
+          S.of(context).Calendar,
           style: Styles.textStyle24.copyWith(color: Colors.white),
         ),
         centerTitle: true,

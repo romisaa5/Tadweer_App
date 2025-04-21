@@ -7,6 +7,7 @@ import 'package:toda_app/core/themes/text_styles.dart';
 import 'dart:io';
 
 import 'package:toda_app/core/utils/app_router.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class UploadImageView extends StatefulWidget {
   @override
@@ -53,7 +54,7 @@ class _UploadImageViewState extends State<UploadImageView> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(height: 30.h,),
-              Text("Upload Profile Picture",style: Styles.textStyle24,),
+              Text(S.of(context).UploadProfilePicture,style: Styles.textStyle24,),
               SizedBox(height: 120.h,),
               _selectedImage != null
                   ? CircleAvatar(
@@ -75,7 +76,7 @@ class _UploadImageViewState extends State<UploadImageView> {
                 ),
                 onPressed: _pickImage,
                 icon: Icon(Icons.photo),
-                label: Text("Pick from Gallery"),
+                label: Text(S.of(context).PickfromGallery),
               ),
               SizedBox(height: 30),
               Row(
@@ -90,7 +91,7 @@ class _UploadImageViewState extends State<UploadImageView> {
                     ),
                     child: TextButton(
                       onPressed: _skipUpload,
-                      child: Text("Skip"),
+                      child: Text(S.of(context).skip),
                     ),
                   ),
                  
@@ -103,7 +104,7 @@ class _UploadImageViewState extends State<UploadImageView> {
                     ), 
                     child: TextButton(
                       onPressed: _selectedImage != null ? _goToNextPage : null,
-                      child: Text("Next",style: TextStyle(color: ColorsManger.bgcolorLight),),
+                      child: Text(S.of(context).next,style: TextStyle(color: ColorsManger.bgcolorLight),),
                     ),
                   ),
                 ],

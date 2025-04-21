@@ -5,6 +5,7 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:toda_app/Features/home/presentation/widgets/focus_stats_section.dart';
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 
 class FocusView extends StatefulWidget {
@@ -65,7 +66,7 @@ class _FocusViewState extends State<FocusView> {
               children: [
                 SizedBox(height: 10.h),
                 Text(
-                  'Focus Mode',
+                  S.of(context).FocusMode,
                   style: Styles.textStyle24.copyWith(
                     color: textTheme.bodyLarge!.color,
                   ),
@@ -85,7 +86,7 @@ class _FocusViewState extends State<FocusView> {
                 ),
                 SizedBox(height: 20.h),
                 Text(
-                  'While your focus mode is on, all of your notifications will be off',
+                 S.of(context).Whileyourfocusmodeisonallofyournotificationswillbeoff,
                   style: Styles.textStyle16.copyWith(
                     color: textTheme.bodyLarge!.color!.withOpacity(0.6),
                   ),
@@ -104,7 +105,7 @@ class _FocusViewState extends State<FocusView> {
                     padding: EdgeInsets.symmetric(horizontal: 50.w, vertical: 15.h),
                   ),
                   child: Text(
-                    isRunning ? 'Pause' : 'Start',
+                    isRunning ? S.of(context).Pause : S.of(context).Start,
                     style: Styles.textStyle16.copyWith(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,

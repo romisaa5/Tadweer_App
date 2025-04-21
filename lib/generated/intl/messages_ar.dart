@@ -22,15 +22,44 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "Account": MessageLookupByLibrary.simpleMessage("الحساب"),
     "AnerroroccurredPleasetryagain": MessageLookupByLibrary.simpleMessage(
       "حصل خطأ. حاول مرة تانية.",
     ),
+    "AppSettings": MessageLookupByLibrary.simpleMessage("إعدادات التطبيق"),
     "Arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+    "Areyousureyouwanttologout": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+    ),
+    "Averificationlinkhasbeensenttoyouremail":
+        MessageLookupByLibrary.simpleMessage(
+          "سوف يتم إرسال رابط التفعيل إلى بريدك الإلكتروني",
+        ),
+    "Calendar": MessageLookupByLibrary.simpleMessage("التقويم"),
+    "Cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "ChangeaccountImage": MessageLookupByLibrary.simpleMessage(
+      "تغيير صورة الحساب",
+    ),
+    "Changeaccountname": MessageLookupByLibrary.simpleMessage(
+      "تغيير اسم الحساب",
+    ),
+    "Changeaccountpassword": MessageLookupByLibrary.simpleMessage(
+      "تغيير كلمة مرور الحساب",
+    ),
+    "EmailVerification": MessageLookupByLibrary.simpleMessage(
+      "تأكيد البريد الإلكتروني",
+    ),
     "English": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
     "Enteravalidemail": MessageLookupByLibrary.simpleMessage(
       "أدخل بريدًا إلكترونيًا صالحًا",
     ),
     "Error": MessageLookupByLibrary.simpleMessage("خطأ"),
+    "Focus": MessageLookupByLibrary.simpleMessage("التركيز"),
+    "GotoLogin": MessageLookupByLibrary.simpleMessage("الذهاب لتسجيل الدخول"),
+    "Hi": MessageLookupByLibrary.simpleMessage("مرحبًا،"),
+    "Index": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "LogOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+    "NewName": MessageLookupByLibrary.simpleMessage("الاسم الجديد"),
     "Nouserfoundforthatemail": MessageLookupByLibrary.simpleMessage(
       "لا يوجد مستخدم موجود بهذا البريد الإلكتروني ",
     ),
@@ -44,11 +73,30 @@ class MessageLookup extends MessageLookupByLibrary {
     "Passwordsdonotmatch": MessageLookupByLibrary.simpleMessage(
       "كلمات السر ليست متطابقة",
     ),
+    "PickfromGallery": MessageLookupByLibrary.simpleMessage("اختيار من المعرض"),
     "Pleaseenteryourusername": MessageLookupByLibrary.simpleMessage(
       "من فضلك أدخل اسم المستخدم",
     ),
+    "Pleaseverifyyouremailaddress": MessageLookupByLibrary.simpleMessage(
+      "من فضلك فعّل بريدك الإلكتروني",
+    ),
+    "Profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+    "ResendEmail": MessageLookupByLibrary.simpleMessage("إعادة إرسال البريد"),
+    "Save": MessageLookupByLibrary.simpleMessage("حفظ"),
+    "Settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+    "Taptoaddyourtasks": MessageLookupByLibrary.simpleMessage(
+      "اضغط على علامة + لإضافة مهامك",
+    ),
+    "TasksDone": MessageLookupByLibrary.simpleMessage("المهام المنجزة"),
+    "TasksLeft": MessageLookupByLibrary.simpleMessage("المهام المتبقية"),
     "Thefieldisrequired": MessageLookupByLibrary.simpleMessage(
       "هذا الحقل مطلوب",
+    ),
+    "UploadProfilePicture": MessageLookupByLibrary.simpleMessage(
+      "تحميل صورة الملف الشخصي",
+    ),
+    "Whatdoyouwanttodotoday": MessageLookupByLibrary.simpleMessage(
+      "ما الذي ترغب في القيام به اليوم؟",
     ),
     "Wrongpasswordprovidedforthatuser": MessageLookupByLibrary.simpleMessage(
       "كلمة السر المدخلة غير صحيحة لهذا المستخدم",
@@ -72,10 +120,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "enteryouremailaddressandwewillsendyoualinktoresetyourpassword":
         MessageLookupByLibrary.simpleMessage(
-          "اكتب بريدك الإلكتروني واحنا هنبعدلك لينك علشان تعيد تعيين كلمة السر",
+          "من فضلك أدخل بريدك الإلكتروني وسنرسل لك رابطًا لإعادة تعيين كلمة المرور",
         ),
     "forgotpassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة السر؟ "),
     "getStarted": MessageLookupByLibrary.simpleMessage("ابدأ"),
+    "havenotreceivedthecode": MessageLookupByLibrary.simpleMessage(
+      "لم يصلك الكود؟",
+    ),
     "inUptodoyoucancreateyourpersonalizedroutinetostayproductive":
         MessageLookupByLibrary.simpleMessage(
           "في Uptodo تقدر تعمل روتين خاص بيك علشان تفضل منتج",
@@ -123,7 +174,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "verifycode": MessageLookupByLibrary.simpleMessage("تأكيد الكود"),
     "wehavesentyouanemailwithalinktoresetyourpassword":
         MessageLookupByLibrary.simpleMessage(
-          "بعتنالك إيميل فيه لينك علشان تعيد تعيين كلمة السر",
+          "تم إرسال بريد إلكتروني يحتوي على رابط لإعادة تعيين كلمة المرور. من فضلك راجع بريدك الإلكتروني واستكمل الخطوات ",
         ),
     "welcometoUpTodo": MessageLookupByLibrary.simpleMessage(
       "أهلا بيك في UpTodo",
@@ -135,6 +186,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "youcanorganizeyourdailytasksbyaddingyourtasksintoseparatecategories":
         MessageLookupByLibrary.simpleMessage(
           "تقدر ترتب المهام اليومية بتاعتك عن طريق تقسيمها لفئات",
+        ),
+    "yourpasswordhasbeensuccessfullyresetclickconfirmtosetanewpassword":
+        MessageLookupByLibrary.simpleMessage(
+          "كلمة السر اتغيرت بنجاح. دوس تأكيد علشان تسجل الجديدة",
         ),
   };
 }

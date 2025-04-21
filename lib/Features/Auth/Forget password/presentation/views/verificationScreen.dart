@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -41,14 +42,14 @@ class _VerificationScreenState extends State<VerificationScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Check your email",
+              S.of(context).checkyouremail,
               style: Styles.textStyle32.copyWith(
                 color: textTheme.bodyLarge!.color,
               ),
             ),
             SizedBox(height: 10),
             Text(
-              "We sent a reset link to contact@dscode...com\nEnter 5 digit code mentioned in the email",
+              S.of(context).wehavesentyouanemailwithalinktoresetyourpassword,
               style: Styles.textStyle14
                   .copyWith(color: textTheme.bodyMedium?.color?.withOpacity(0.7),),
             ),
@@ -94,17 +95,19 @@ class _VerificationScreenState extends State<VerificationScreen> {
               onTap: () {
                 GoRouter.of(context).push(AppRouter.passwordreset);
               },
-              text: "Verify Code",
+              text: S.of(context).verifycode,
               color: Color(0xff8875FF),
               width: MediaQuery.of(context).size.width,
             ),
             SizedBox(height: 10),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Text('Haven’t got the email yet? '),
+              Text(
+                S.of(context).havenotreceivedthecode
+              ),
               TextButton(
                 onPressed: () {},
                 child: Text(
-                  "Resend email",
+                  S.of(context).resendcode,
                   style: Styles.textStyle14.copyWith(color: Color(0xff8875FF)),
                 ),
               ),

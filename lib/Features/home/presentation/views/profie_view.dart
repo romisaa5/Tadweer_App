@@ -9,6 +9,7 @@ import 'package:toda_app/Features/home/presentation/widgets/profile_list_tile.da
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/utils/app_router.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class ProfieView extends StatefulWidget {
   const ProfieView({super.key});
@@ -38,7 +39,7 @@ class _ProfieViewState extends State<ProfieView> {
                 height: 20.h,
               ),
               Text(
-                'Profile',
+                S.of(context).Profile,
                 style:
                     Styles.textStyle24.copyWith(color: colorScheme.secondary),
               ),
@@ -60,8 +61,8 @@ class _ProfieViewState extends State<ProfieView> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  NumberOfTaskDoneOrLeft(text: '10 Tasks Left'),
-                  NumberOfTaskDoneOrLeft(text: '15 Tasks Done')
+                  NumberOfTaskDoneOrLeft(text: '10 ${S.of(context).TasksLeft}'),
+                  NumberOfTaskDoneOrLeft(text: '15 ${S.of(context).TasksDone}')
                 ],
               ),
               Divider(
@@ -74,13 +75,13 @@ class _ProfieViewState extends State<ProfieView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Settings',
+                    S.of(context).Settings,
                     style: Styles.textStyle16.copyWith(
                         color: colorScheme.secondary,
                         fontWeight: FontWeight.w600),
                   ),
                   ProfileListTile(
-                      title: 'App Settings',
+                      title: S.of(context).AppSettings,
                       onPressed: () {
                         GoRouter.of(context).push(AppRouter.appSetting);
                       },
@@ -92,18 +93,18 @@ class _ProfieViewState extends State<ProfieView> {
                     indent: 15.h,
                   ),
                   Text(
-                    'Account',
+               S.of(context).Account,
                     style: Styles.textStyle16.copyWith(
                         color: colorScheme.secondary,
                         fontWeight: FontWeight.w600),
                   ),
                   ProfileListTile(
-                    title: 'Change account name',
+                    title:  S.of(context).Changeaccountname,
                     onPressed: () {
                       showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                          title: Text('Change Account Name',
+                          title: Text(S.of(context).Changeaccountname,
                               style: Styles.textStyle16.copyWith(
                                 color: colorScheme.secondary,
                                 fontWeight: FontWeight.bold,
@@ -115,7 +116,7 @@ class _ProfieViewState extends State<ProfieView> {
                               });
                             },
                             decoration: InputDecoration(
-                                hintText: 'New Name',
+                                hintText: S.of(context).NewName,
                                 hintStyle: Styles.textStyle14.copyWith(
                                   color: colorScheme.secondary,
                                 ),
@@ -140,13 +141,13 @@ class _ProfieViewState extends State<ProfieView> {
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              child: Text('Save'),
+                              child: Text(S.of(context).Save),
                             ),
                             TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              child: Text('Cancel'),
+                              child: Text(S.of(context).Cancel),
                             ),
                           ],
                         ),
@@ -155,11 +156,11 @@ class _ProfieViewState extends State<ProfieView> {
                     icon: Icons.person_outlined,
                   ),
                   ProfileListTile(
-                      title: 'Change account password',
+                      title : S.of(context).Changeaccountpassword,
                       onPressed: () {},
                       icon: Icons.lock_outline),
                   ProfileListTile(
-                      title: 'Change account Image',
+                      title: S.of(context).ChangeaccountImage,
                       onPressed: () {},
                       icon: Icons.camera_alt_outlined),
                   Divider(
@@ -169,20 +170,20 @@ class _ProfieViewState extends State<ProfieView> {
                     indent: 15.h,
                   ),
                   ProfileListTile(
-                    title: 'Log Out',
+                    title: S.of(context).LogOut,
                     onPressed: () async {
                       final shouldLogout = await showDialog<bool>(
                         context: context,
                         builder: (context) => AlertDialog(
                           title: Text(
-                            'Log Out',
+                            S.of(context).LogOut,
                             style: Styles.textStyle16.copyWith(
                               color: ColorsManger.redColor,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           content: Text(
-                            'Are you sure you want to log out?',
+                            S.of(context).Areyousureyouwanttologout,
                             style: Styles.textStyle14.copyWith(
                               color:colorScheme.secondary
                             ),
@@ -190,11 +191,11 @@ class _ProfieViewState extends State<ProfieView> {
                           actions: [
                             TextButton(
                               onPressed: () => Navigator.of(context).pop(false),
-                              child: Text('Cancel'),
+                              child: Text(S.of(context).Cancel),
                             ),
                             TextButton(
                               onPressed: () => Navigator.of(context).pop(true),
-                              child: Text('Log Out'),
+                              child: Text(S.of(context).LogOut),
                             ),
                           ],
                         ),

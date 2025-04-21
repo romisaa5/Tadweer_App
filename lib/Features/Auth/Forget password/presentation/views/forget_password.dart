@@ -4,6 +4,7 @@ import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/core/widgets/custom_text_form_field.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
@@ -37,36 +38,36 @@ class _ForgetPasswordState extends State<ForgetPassword> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Forget Password',
+                  S.of(context).forgotpassword,
                   style: Styles.textStyle32.copyWith(
                     color: textTheme.bodyLarge!.color,
                   ),
                 ),
                 Text(
-                  'Please enter your email to reset the password',
+                  S.of(context).enteryouremailaddressandwewillsendyoualinktoresetyourpassword,
                   style: Styles.textStyle16.copyWith(
                     color: textTheme.bodyMedium?.color?.withOpacity(0.7),
                   ),
                 ),
                 Text(
-                  'Your Email ',
+                    S.of(context).email,
                   style: Styles.textStyle14,
                 ),
                 AppTextFormField(
-                  hintText: 'Email',
+                  hintText: S.of(context).email,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'The field is required';
+                      return S.of(context).Thefieldisrequired;
                     }
                     if (!RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+')
                         .hasMatch(value)) {
-                      return 'Enter a valid email';
+                      return S.of(context).Enteravalidemail;
                     }
                     return null;
                   },
                 ),
                 CustomButton(
-                  text: 'Reset Password',
+                  text: S.of(context).resetpassword,
                   color: Color(0xff8875FF),
                   width: MediaQuery.of(context).size.width,
                   onTap: () {

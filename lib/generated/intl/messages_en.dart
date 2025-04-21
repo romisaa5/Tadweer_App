@@ -22,15 +22,46 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "Account": MessageLookupByLibrary.simpleMessage("Account"),
     "AnerroroccurredPleasetryagain": MessageLookupByLibrary.simpleMessage(
       "An error occurred. Please try again.",
     ),
+    "AppSettings": MessageLookupByLibrary.simpleMessage("App Settings"),
+    "Applications": MessageLookupByLibrary.simpleMessage("Applications"),
     "Arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "Areyousureyouwanttologout": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to log out?",
+    ),
+    "Averificationlinkhasbeensenttoyouremail":
+        MessageLookupByLibrary.simpleMessage(
+          "A verification link has been sent to your email",
+        ),
+    "Calendar": MessageLookupByLibrary.simpleMessage("Calendar"),
+    "Cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "ChangeaccountImage": MessageLookupByLibrary.simpleMessage(
+      "Change account Image",
+    ),
+    "Changeaccountname": MessageLookupByLibrary.simpleMessage(
+      "Change account name",
+    ),
+    "Changeaccountpassword": MessageLookupByLibrary.simpleMessage(
+      "Change account password",
+    ),
+    "EmailVerification": MessageLookupByLibrary.simpleMessage(
+      "Email Verification",
+    ),
     "English": MessageLookupByLibrary.simpleMessage("English"),
     "Enteravalidemail": MessageLookupByLibrary.simpleMessage(
       "Enter a valid email",
     ),
     "Error": MessageLookupByLibrary.simpleMessage("Error"),
+    "Focus": MessageLookupByLibrary.simpleMessage("Focus"),
+    "FocusMode": MessageLookupByLibrary.simpleMessage("Focus Mode"),
+    "GotoLogin": MessageLookupByLibrary.simpleMessage("Go to Login"),
+    "Hi": MessageLookupByLibrary.simpleMessage("Hi , "),
+    "Index": MessageLookupByLibrary.simpleMessage("Index"),
+    "LogOut": MessageLookupByLibrary.simpleMessage("Log Out"),
+    "NewName": MessageLookupByLibrary.simpleMessage("\'New Name"),
     "Nouserfoundforthatemail": MessageLookupByLibrary.simpleMessage(
       "No user found for that email.",
     ),
@@ -44,12 +75,39 @@ class MessageLookup extends MessageLookupByLibrary {
     "Passwordsdonotmatch": MessageLookupByLibrary.simpleMessage(
       "Passwords do not match",
     ),
+    "Pause": MessageLookupByLibrary.simpleMessage("Pause"),
+    "PickfromGallery": MessageLookupByLibrary.simpleMessage(
+      "Pick from Gallery",
+    ),
     "Pleaseenteryourusername": MessageLookupByLibrary.simpleMessage(
       "Please enter your username",
     ),
+    "Pleaseverifyyouremailaddress": MessageLookupByLibrary.simpleMessage(
+      "Please verify your email address",
+    ),
+    "Profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "ResendEmail": MessageLookupByLibrary.simpleMessage("Resend Email"),
+    "Save": MessageLookupByLibrary.simpleMessage("Save"),
+    "Settings": MessageLookupByLibrary.simpleMessage("Settings"),
+    "Start": MessageLookupByLibrary.simpleMessage("Start"),
+    "Taptoaddyourtasks": MessageLookupByLibrary.simpleMessage(
+      "Tap + to add your tasks",
+    ),
+    "TasksDone": MessageLookupByLibrary.simpleMessage("Tasks Done"),
+    "TasksLeft": MessageLookupByLibrary.simpleMessage("Tasks Left"),
     "Thefieldisrequired": MessageLookupByLibrary.simpleMessage(
       "The field is required",
     ),
+    "UploadProfilePicture": MessageLookupByLibrary.simpleMessage(
+      "Upload Profile Picture",
+    ),
+    "Whatdoyouwanttodotoday": MessageLookupByLibrary.simpleMessage(
+      "What do you want to do today?",
+    ),
+    "Whileyourfocusmodeisonallofyournotificationswillbeoff":
+        MessageLookupByLibrary.simpleMessage(
+          "While your focus mode is on, all of your notifications will be off",
+        ),
     "Wrongpasswordprovidedforthatuser": MessageLookupByLibrary.simpleMessage(
       "Wrong password provided for that user.",
     ),
@@ -78,6 +136,9 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "forgotpassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
     "getStarted": MessageLookupByLibrary.simpleMessage("GET STARTED"),
+    "havenotreceivedthecode": MessageLookupByLibrary.simpleMessage(
+      "Have not received the code?",
+    ),
     "inUptodoyoucancreateyourpersonalizedroutinetostayproductive":
         MessageLookupByLibrary.simpleMessage(
           "In Uptodo  you can create your personalized routine to stay productive",
@@ -139,6 +200,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "youcanorganizeyourdailytasksbyaddingyourtasksintoseparatecategories":
         MessageLookupByLibrary.simpleMessage(
           "You can organize your daily tasks by adding your tasks into separate categories",
+        ),
+    "yourpasswordhasbeensuccessfullyresetclickconfirmtosetanewpassword":
+        MessageLookupByLibrary.simpleMessage(
+          "Your password has been successfully reset. Click confirm to set a new password",
         ),
   };
 }
