@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 class FocusChart extends StatelessWidget {
   const FocusChart({super.key});
@@ -20,7 +21,7 @@ class FocusChart extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Overview',
+              S.of(context).Overview,
               style: Styles.textStyle16.copyWith(
                   color: colorScheme.secondary, fontWeight: FontWeight.w600),
             ),
@@ -33,7 +34,7 @@ class FocusChart extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    'This Week',
+                    S.of(context).ThisWeek,
                     style: TextStyle(color: Colors.white70),
                   ),
                   Icon(Icons.keyboard_arrow_down, color: Colors.white70),
@@ -69,14 +70,14 @@ class FocusChart extends StatelessWidget {
                   sideTitles: SideTitles(
                     showTitles: true,
                     getTitlesWidget: (value, meta) {
-                      const days = [
-                        'SUN',
-                        'MON',
-                        'TUE',
-                        'WED',
-                        'THU',
-                        'FRI',
-                        'SAT'
+                      final days = [
+                        S.of(context).SUN,
+                        S.of(context).MON,
+                        S.of(context).TUE,
+                        S.of(context).WED,
+                        S.of(context).THU,
+                        S.of(context).FRI,
+                        S.of(context).SAT
                       ];
                       return Text(
                         days[value.toInt()],

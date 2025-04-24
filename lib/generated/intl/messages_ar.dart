@@ -23,10 +23,13 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Account": MessageLookupByLibrary.simpleMessage("الحساب"),
+    "AddNewTask": MessageLookupByLibrary.simpleMessage("إضافة مهمة جديدة"),
+    "AddTask": MessageLookupByLibrary.simpleMessage("إضافة مهمة"),
     "AnerroroccurredPleasetryagain": MessageLookupByLibrary.simpleMessage(
       "حصل خطأ. حاول مرة تانية.",
     ),
     "AppSettings": MessageLookupByLibrary.simpleMessage("إعدادات التطبيق"),
+    "Applications": MessageLookupByLibrary.simpleMessage("التطبيقات"),
     "Arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "Areyousureyouwanttologout": MessageLookupByLibrary.simpleMessage(
       "هل أنت متأكد أنك تريد تسجيل الخروج؟",
@@ -54,15 +57,19 @@ class MessageLookup extends MessageLookupByLibrary {
       "أدخل بريدًا إلكترونيًا صالحًا",
     ),
     "Error": MessageLookupByLibrary.simpleMessage("خطأ"),
+    "FRI": MessageLookupByLibrary.simpleMessage("الجمعة"),
     "Focus": MessageLookupByLibrary.simpleMessage("التركيز"),
+    "FocusMode": MessageLookupByLibrary.simpleMessage("وضع التركيز"),
     "GotoLogin": MessageLookupByLibrary.simpleMessage("الذهاب لتسجيل الدخول"),
     "Hi": MessageLookupByLibrary.simpleMessage("مرحبًا،"),
     "Index": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "LogOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+    "MON": MessageLookupByLibrary.simpleMessage("الاثنين"),
     "NewName": MessageLookupByLibrary.simpleMessage("الاسم الجديد"),
     "Nouserfoundforthatemail": MessageLookupByLibrary.simpleMessage(
       "لا يوجد مستخدم موجود بهذا البريد الإلكتروني ",
     ),
+    "Overview": MessageLookupByLibrary.simpleMessage("نظرة عامة"),
     "Passwordmustbeatleast8characters": MessageLookupByLibrary.simpleMessage(
       "كلمة السر لازم تكون 8 أحرف على الأقل",
     ),
@@ -73,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "Passwordsdonotmatch": MessageLookupByLibrary.simpleMessage(
       "كلمات السر ليست متطابقة",
     ),
+    "Pause": MessageLookupByLibrary.simpleMessage("إيقاف مؤقت"),
     "PickfromGallery": MessageLookupByLibrary.simpleMessage("اختيار من المعرض"),
     "Pleaseenteryourusername": MessageLookupByLibrary.simpleMessage(
       "من فضلك أدخل اسم المستخدم",
@@ -82,22 +90,35 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "Profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "ResendEmail": MessageLookupByLibrary.simpleMessage("إعادة إرسال البريد"),
+    "SAT": MessageLookupByLibrary.simpleMessage("السبت"),
+    "SUN": MessageLookupByLibrary.simpleMessage("الأحد"),
     "Save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "Settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+    "Start": MessageLookupByLibrary.simpleMessage("ابدأ"),
+    "THU": MessageLookupByLibrary.simpleMessage("الخميس"),
+    "TUE": MessageLookupByLibrary.simpleMessage("الثلاثاء"),
     "Taptoaddyourtasks": MessageLookupByLibrary.simpleMessage(
       "اضغط على علامة + لإضافة مهامك",
     ),
+    "TaskDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المهمة"),
+    "TaskName": MessageLookupByLibrary.simpleMessage("اسم المهمة"),
     "TasksDone": MessageLookupByLibrary.simpleMessage("المهام المنجزة"),
     "TasksLeft": MessageLookupByLibrary.simpleMessage("المهام المتبقية"),
     "Thefieldisrequired": MessageLookupByLibrary.simpleMessage(
       "هذا الحقل مطلوب",
     ),
+    "ThisWeek": MessageLookupByLibrary.simpleMessage("هذا الأسبوع"),
     "UploadProfilePicture": MessageLookupByLibrary.simpleMessage(
       "تحميل صورة الملف الشخصي",
     ),
+    "WED": MessageLookupByLibrary.simpleMessage("الأربعاء"),
     "Whatdoyouwanttodotoday": MessageLookupByLibrary.simpleMessage(
       "ما الذي ترغب في القيام به اليوم؟",
     ),
+    "Whileyourfocusmodeisonallofyournotificationswillbeoff":
+        MessageLookupByLibrary.simpleMessage(
+          "أثناء تشغيل وضع التركيز، سيتم إيقاف جميع الإشعارات",
+        ),
     "Wrongpasswordprovidedforthatuser": MessageLookupByLibrary.simpleMessage(
       "كلمة السر المدخلة غير صحيحة لهذا المستخدم",
     ),

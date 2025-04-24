@@ -39,6 +39,7 @@ class _LanguageThemeSelectionViewState
   }
 
   void saveSettings() async {
+      print("Save button pressed");
     await Provider.of<LanguageProvider>(context, listen: false)
         .setLocale(selectedLanguage);
 
@@ -46,10 +47,11 @@ class _LanguageThemeSelectionViewState
     await prefs.setBool('isDarkMode', isDarkMode);
     Provider.of<ThemeProvider>(context, listen: false).toggleTheme(isDarkMode);
 
-    (FirebaseAuth.instance.currentUser != null &&
-            FirebaseAuth.instance.currentUser!.emailVerified)
-        ? GoRouter.of(context).push(AppRouter.homeview)
-        : GoRouter.of(context).push(AppRouter.firstScreen);
+   (FirebaseAuth.instance.currentUser != null &&
+        FirebaseAuth.instance.currentUser!.emailVerified)
+    ? GoRouter.of(context).go(AppRouter.homeview)
+    : GoRouter.of(context).go(AppRouter.firstScreen);
+
   }
 
   @override

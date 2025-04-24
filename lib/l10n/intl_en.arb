@@ -88,7 +88,21 @@
     "Whileyourfocusmodeisonallofyournotificationswillbeoff":"While your focus mode is on, all of your notifications will be off",
     "Pause":"Pause",
     "Start":"Start",
-    "Applications":"Applications"
+    "Applications":"Applications",
+    "TaskName":"Task Name",
+    "TaskDetails":"Task Details",
+    "AddNewTask":"Add New Task",
+    "AddTask":"Add Task",
+    "Overview":"Overview",
+    "ThisWeek":"This Week",
+    "SUN":"SUN",
+    "MON":"MON",
+    "TUE":"TUE",
+    "WED":"WED",
+    "THU":"THU",
+    "FRI":"FRI",
+    "SAT":"SAT"
+
 
     
 

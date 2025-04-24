@@ -173,6 +173,7 @@ class _ProfieViewState extends State<ProfieView> {
                     title: S.of(context).LogOut,
                     onPressed: () async {
                       final shouldLogout = await showDialog<bool>(
+                        barrierColor: colorScheme.background,
                         context: context,
                         builder: (context) => AlertDialog(
                           title: Text(

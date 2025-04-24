@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Account": MessageLookupByLibrary.simpleMessage("Account"),
+    "AddNewTask": MessageLookupByLibrary.simpleMessage("Add New Task"),
+    "AddTask": MessageLookupByLibrary.simpleMessage("Add Task"),
     "AnerroroccurredPleasetryagain": MessageLookupByLibrary.simpleMessage(
       "An error occurred. Please try again.",
     ),
@@ -55,16 +57,19 @@ class MessageLookup extends MessageLookupByLibrary {
       "Enter a valid email",
     ),
     "Error": MessageLookupByLibrary.simpleMessage("Error"),
+    "FRI": MessageLookupByLibrary.simpleMessage("FRI"),
     "Focus": MessageLookupByLibrary.simpleMessage("Focus"),
     "FocusMode": MessageLookupByLibrary.simpleMessage("Focus Mode"),
     "GotoLogin": MessageLookupByLibrary.simpleMessage("Go to Login"),
     "Hi": MessageLookupByLibrary.simpleMessage("Hi , "),
     "Index": MessageLookupByLibrary.simpleMessage("Index"),
     "LogOut": MessageLookupByLibrary.simpleMessage("Log Out"),
+    "MON": MessageLookupByLibrary.simpleMessage("MON"),
     "NewName": MessageLookupByLibrary.simpleMessage("\'New Name"),
     "Nouserfoundforthatemail": MessageLookupByLibrary.simpleMessage(
       "No user found for that email.",
     ),
+    "Overview": MessageLookupByLibrary.simpleMessage("Overview"),
     "Passwordmustbeatleast8characters": MessageLookupByLibrary.simpleMessage(
       "Password must be at least 8 characters",
     ),
@@ -87,20 +92,28 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "Profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "ResendEmail": MessageLookupByLibrary.simpleMessage("Resend Email"),
+    "SAT": MessageLookupByLibrary.simpleMessage("SAT"),
+    "SUN": MessageLookupByLibrary.simpleMessage("SUN"),
     "Save": MessageLookupByLibrary.simpleMessage("Save"),
     "Settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "Start": MessageLookupByLibrary.simpleMessage("Start"),
+    "THU": MessageLookupByLibrary.simpleMessage("THU"),
+    "TUE": MessageLookupByLibrary.simpleMessage("TUE"),
     "Taptoaddyourtasks": MessageLookupByLibrary.simpleMessage(
       "Tap + to add your tasks",
     ),
+    "TaskDetails": MessageLookupByLibrary.simpleMessage("Task Details"),
+    "TaskName": MessageLookupByLibrary.simpleMessage("Task Name"),
     "TasksDone": MessageLookupByLibrary.simpleMessage("Tasks Done"),
     "TasksLeft": MessageLookupByLibrary.simpleMessage("Tasks Left"),
     "Thefieldisrequired": MessageLookupByLibrary.simpleMessage(
       "The field is required",
     ),
+    "ThisWeek": MessageLookupByLibrary.simpleMessage("This Week"),
     "UploadProfilePicture": MessageLookupByLibrary.simpleMessage(
       "Upload Profile Picture",
     ),
+    "WED": MessageLookupByLibrary.simpleMessage("WED"),
     "Whatdoyouwanttodotoday": MessageLookupByLibrary.simpleMessage(
       "What do you want to do today?",
     ),

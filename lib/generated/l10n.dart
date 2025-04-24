@@ -773,6 +773,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Task Name`
+  String get TaskName {
+    return Intl.message('Task Name', name: 'TaskName', desc: '', args: []);
+  }
+
+  /// `Task Details`
+  String get TaskDetails {
+    return Intl.message(
+      'Task Details',
+      name: 'TaskDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Task`
+  String get AddNewTask {
+    return Intl.message('Add New Task', name: 'AddNewTask', desc: '', args: []);
+  }
+
+  /// `Add Task`
+  String get AddTask {
+    return Intl.message('Add Task', name: 'AddTask', desc: '', args: []);
+  }
+
+  /// `Overview`
+  String get Overview {
+    return Intl.message('Overview', name: 'Overview', desc: '', args: []);
+  }
+
+  /// `This Week`
+  String get ThisWeek {
+    return Intl.message('This Week', name: 'ThisWeek', desc: '', args: []);
+  }
+
+  /// `SUN`
+  String get SUN {
+    return Intl.message('SUN', name: 'SUN', desc: '', args: []);
+  }
+
+  /// `MON`
+  String get MON {
+    return Intl.message('MON', name: 'MON', desc: '', args: []);
+  }
+
+  /// `TUE`
+  String get TUE {
+    return Intl.message('TUE', name: 'TUE', desc: '', args: []);
+  }
+
+  /// `WED`
+  String get WED {
+    return Intl.message('WED', name: 'WED', desc: '', args: []);
+  }
+
+  /// `THU`
+  String get THU {
+    return Intl.message('THU', name: 'THU', desc: '', args: []);
+  }
+
+  /// `FRI`
+  String get FRI {
+    return Intl.message('FRI', name: 'FRI', desc: '', args: []);
+  }
+
+  /// `SAT`
+  String get SAT {
+    return Intl.message('SAT', name: 'SAT', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

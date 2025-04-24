@@ -128,6 +128,7 @@ class _LoginViewState extends State<LoginView> {
                     color: ColorsManger.kPrimaryColor,
                   ),
                   controller: passwordController,
+                  maxLines: 1,
                 ),
                 TextButton(
                     onPressed: () {

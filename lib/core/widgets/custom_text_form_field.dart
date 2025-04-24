@@ -18,6 +18,7 @@ class AppTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
   final InputBorder? errorBorder;
+  final int ? maxLines;
 
   const AppTextFormField({
     super.key,
@@ -35,7 +36,7 @@ class AppTextFormField extends StatelessWidget {
     this.prefixIcon,
     this.focusNode,
     this.onChanged,
-    this.errorBorder,
+    this.errorBorder, this.maxLines,
   });
 
   @override
@@ -45,6 +46,7 @@ class AppTextFormField extends StatelessWidget {
 
 
     return TextFormField(
+      maxLines: maxLines,
       validator: validator,
       onChanged: onChanged,
       controller: controller,
