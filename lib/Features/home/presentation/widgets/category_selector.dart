@@ -64,65 +64,63 @@ class CategorySelector extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              S.of(context).SelectCatogry,
-              style: Styles.textStyle18.copyWith(
-                color: colorScheme.secondary
-              ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            S.of(context).SelectCatogry,
+            style: Styles.textStyle18.copyWith(
+              color: colorScheme.secondary
             ),
-            Divider(color: Colors.white54),
-            GridView.count(
-              shrinkWrap: true,
-              crossAxisCount: 3,
-              childAspectRatio: 1,
-              crossAxisSpacing: 12,
-              mainAxisSpacing: 12,
-              children: categories.map((cat) {
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context, cat['name']);
-                  },
-                  child: Container(
-                    height: 100,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      color: cat['color'],
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(cat['icon'], color: Colors.black),
-                        SizedBox(height: 8),
-                        Text(cat['name'], style: TextStyle(color: Colors.black)),
-                      ],
-                    ),
+          ),
+          Divider(color: Colors.grey[200]),
+          GridView.count(
+            shrinkWrap: true,
+            crossAxisCount: 3,
+            childAspectRatio: 1,
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 12,
+            children: categories.map((cat) {
+              return GestureDetector(
+                onTap: () {
+                  Navigator.pop(context, cat['name']);
+                },
+                child: Container(
+                  height: 100,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: cat['color'],
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                );
-              }).toList(),
-            ),
-            SizedBox(height: 20.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                CustomButton(
-                  text: S.of(context).Cancel,
-                  color: ColorsManger.kPrimaryColor,
-                  width: 250.w,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(cat['icon'], color: Colors.black),
+                      SizedBox(height: 8),
+                      Text(cat['name'], style: TextStyle(color: Colors.black)),
+                    ],
+                  ),
                 ),
-                CustomButton(
-                  text: S.of(context).Save,
-                  color: ColorsManger.bgcolorDark,
-                  width: 250.w,
-                ),
-              ],
-            ),
-          ],
-        ),
+              );
+            }).toList(),
+          ),
+          SizedBox(height: 20.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              CustomButton(
+                text: S.of(context).Cancel,
+                color: ColorsManger.kPrimaryColor,
+                width: 150.w
+              ),
+              CustomButton(
+                text: S.of(context).Save,
+                color: ColorsManger.bgcolorDark,
+                width: 150.w
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

@@ -34,54 +34,52 @@ class _AddTasksBottomSheetState extends State<AddTasksBottomSheet> {
       padding: EdgeInsets.all(16.0),
       child: Form(
         key: _formKey,
-        child: SingleChildScrollView(
-          child: Column(
-            spacing: 15.h,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                S.of(context).AddNewTask,
-                style: Styles.textStyle16.copyWith(
-                  color: colorScheme.secondary,
-                  fontWeight: FontWeight.w600,
-                ),
+        child: Column(
+          spacing: 15.h,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              S.of(context).AddNewTask,
+              style: Styles.textStyle16.copyWith(
+                color: colorScheme.secondary,
+                fontWeight: FontWeight.w600,
               ),
-              AppTextFormField(
-                hintText: S.of(context).TaskName,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return S.of(context).Thefieldisrequired;
+            ),
+            AppTextFormField(
+              hintText: S.of(context).TaskName,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return S.of(context).Thefieldisrequired;
+                }
+                return null;
+              },
+              controller: taskNamecontroller,
+            ),
+            AppTextFormField(
+              hintText: S.of(context).TaskDetails,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return S.of(context).Thefieldisrequired;
+                }
+                return null;
+              },
+              maxLines: 4,
+              controller: taskDetailscontroller,
+            ),
+            SelectDateandcategory(),
+            CustomButton(
+                onTap: () {
+                  if (_formKey.currentState!.validate()) {
+                    final String taskName = taskNamecontroller!.text;
+                    final String taskDetails = taskDetailscontroller!.text;
                   }
-                  return null;
+        
                 },
-                controller: taskNamecontroller,
-              ),
-              AppTextFormField(
-                hintText: S.of(context).TaskDetails,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return S.of(context).Thefieldisrequired;
-                  }
-                  return null;
-                },
-                maxLines: 4,
-                controller: taskDetailscontroller,
-              ),
-              SelectDateandcategory(),
-              CustomButton(
-                  onTap: () {
-                    if (_formKey.currentState!.validate()) {
-                      final String taskName = taskNamecontroller!.text;
-                      final String taskDetails = taskDetailscontroller!.text;
-                    }
-          
-                    Navigator.pop(context);
-                  },
-                  text: S.of(context).AddTask,
-                  color: ColorsManger.kPrimaryColor,
-                  width: MediaQuery.of(context).size.width)
-            ],
-          ),
+                text: S.of(context).AddTask,
+                color: ColorsManger.kPrimaryColor,
+                width: MediaQuery.of(context).size.width),
+                SizedBox(height: 10.h)
+          ],
         ),
       ),
     );

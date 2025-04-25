@@ -17,7 +17,13 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int currentIndex = 0;
-  List<Widget> tabs = [IndexView(), CalanderView(),Placeholder() ,FocusView(), ProfieView()];
+  List<Widget> tabs = [
+    IndexView(),
+    CalanderView(),
+    Placeholder(),
+    FocusView(),
+    ProfieView()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +35,7 @@ class _HomeViewState extends State<HomeView> {
         onPressed: () {
           showModalBottomSheet(
             context: context,
-            
+            isScrollControlled: true,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
                 top: Radius.circular(16.0),
@@ -37,7 +43,7 @@ class _HomeViewState extends State<HomeView> {
             ),
             builder: (context) {
               return AddTasksBottomSheet();
-        },
+            },
           );
         },
         shape: const StadiumBorder(),
