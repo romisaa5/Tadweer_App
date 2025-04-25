@@ -843,6 +843,81 @@ class S {
   String get SAT {
     return Intl.message('SAT', name: 'SAT', desc: '', args: []);
   }
+
+  /// `Select Date :`
+  String get SelectDate {
+    return Intl.message(
+      'Select Date :',
+      name: 'SelectDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Category :`
+  String get SelectCatogry {
+    return Intl.message(
+      'Select Category :',
+      name: 'SelectCatogry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Grocery`
+  String get categoryGrocery {
+    return Intl.message('Grocery', name: 'categoryGrocery', desc: '', args: []);
+  }
+
+  /// `Work`
+  String get categoryWork {
+    return Intl.message('Work', name: 'categoryWork', desc: '', args: []);
+  }
+
+  /// `Sport`
+  String get categorySport {
+    return Intl.message('Sport', name: 'categorySport', desc: '', args: []);
+  }
+
+  /// `Design`
+  String get categoryDesign {
+    return Intl.message('Design', name: 'categoryDesign', desc: '', args: []);
+  }
+
+  /// `University`
+  String get categoryUniversity {
+    return Intl.message(
+      'University',
+      name: 'categoryUniversity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Social`
+  String get categorySocial {
+    return Intl.message('Social', name: 'categorySocial', desc: '', args: []);
+  }
+
+  /// `Music`
+  String get categoryMusic {
+    return Intl.message('Music', name: 'categoryMusic', desc: '', args: []);
+  }
+
+  /// `Health`
+  String get categoryHealth {
+    return Intl.message('Health', name: 'categoryHealth', desc: '', args: []);
+  }
+
+  /// `Movie`
+  String get categoryMovie {
+    return Intl.message('Movie', name: 'categoryMovie', desc: '', args: []);
+  }
+
+  /// `Home`
+  String get categoryHome {
+    return Intl.message('Home', name: 'categoryHome', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

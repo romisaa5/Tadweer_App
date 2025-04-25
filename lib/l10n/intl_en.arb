@@ -101,15 +101,19 @@
     "WED":"WED",
     "THU":"THU",
     "FRI":"FRI",
-    "SAT":"SAT"
-
-
-    
-
-
-
-
-
+    "SAT":"SAT",
+    "SelectDate":"Select Date :",
+    "SelectCatogry":"Select Category :",
+    "categoryGrocery": "Grocery",
+    "categoryWork": "Work",
+    "categorySport": "Sport",
+    "categoryDesign": "Design",
+    "categoryUniversity": "University",
+    "categorySocial": "Social",
+    "categoryMusic": "Music",
+    "categoryHealth": "Health",
+    "categoryMovie": "Movie",
+    "categoryHome": "Home"
 
 
 }

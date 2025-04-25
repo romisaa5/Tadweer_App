@@ -101,5 +101,20 @@
   "WED": "الأربعاء",
   "THU": "الخميس",
   "FRI": "الجمعة",
-  "SAT": "السبت"
+  "SAT": "السبت",
+  "SelectDate": "اختر التاريخ:",
+  "SelectCatogry": "اختر الفئة:",
+  "categoryGrocery": "بقالة",
+  "categoryWork": "شغل",
+  "categorySport": "رياضة",
+  "categoryDesign": "تصميم",
+  "categoryUniversity": "جامعة",
+  "categorySocial": "اجتماعي",
+  "categoryMusic": "موسيقى",
+  "categoryHealth": "صحة",
+  "categoryMovie": "أفلام",
+  "categoryHome": "منزل"
+
+
+
 }
