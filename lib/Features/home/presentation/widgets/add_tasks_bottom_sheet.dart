@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toda_app/Features/home/logic/remot/firebase_services.dart';
+import 'package:toda_app/Features/home/models/task_model.dart';
 import 'package:toda_app/Features/home/presentation/widgets/select_date&category.dart';
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
@@ -15,14 +17,18 @@ class AddTasksBottomSheet extends StatefulWidget {
 }
 
 class _AddTasksBottomSheetState extends State<AddTasksBottomSheet> {
-  TextEditingController? taskDetailscontroller = TextEditingController();
-  TextEditingController? taskNamecontroller = TextEditingController();
+  final TextEditingController taskNamecontroller = TextEditingController();
+  final TextEditingController taskDetailscontroller = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  DateTime? selectedDate;
+  String selectedCategory = "";
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+
     return Container(
       decoration: BoxDecoration(
         color: colorScheme.background,
@@ -35,7 +41,6 @@ class _AddTasksBottomSheetState extends State<AddTasksBottomSheet> {
       child: Form(
         key: _formKey,
         child: Column(
-          spacing: 15.h,
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
@@ -45,6 +50,7 @@ class _AddTasksBottomSheetState extends State<AddTasksBottomSheet> {
                 fontWeight: FontWeight.w600,
               ),
             ),
+            SizedBox(height: 15.h),
             AppTextFormField(
               hintText: S.of(context).TaskName,
               validator: (value) {
@@ -55,6 +61,7 @@ class _AddTasksBottomSheetState extends State<AddTasksBottomSheet> {
               },
               controller: taskNamecontroller,
             ),
+            SizedBox(height: 15.h),
             AppTextFormField(
               hintText: S.of(context).TaskDetails,
               validator: (value) {
@@ -66,22 +73,47 @@ class _AddTasksBottomSheetState extends State<AddTasksBottomSheet> {
               maxLines: 4,
               controller: taskDetailscontroller,
             ),
-            SelectDateandcategory(),
+            SizedBox(height: 15.h),
+            SelectDateandcategory(
+              onDateSelected: (date) {
+                selectedDate = date;
+              },
+              onCategorySelected: (category) {
+                selectedCategory = category;
+              },
+            ),
+            SizedBox(height: 15.h),
             CustomButton(
-                onTap: () {
-                  if (_formKey.currentState!.validate()) {
-                    final String taskName = taskNamecontroller!.text;
-                    final String taskDetails = taskDetailscontroller!.text;
-                  }
-        
-                },
-                text: S.of(context).AddTask,
-                color: ColorsManger.kPrimaryColor,
-                width: MediaQuery.of(context).size.width),
-                SizedBox(height: 10.h)
+              onTap: () {
+                if (_formKey.currentState!.validate()) {
+                  addTask();
+                  Navigator.pop(context);
+                }
+              },
+              text: S.of(context).AddTask,
+              color: ColorsManger.kPrimaryColor,
+              width: MediaQuery.of(context).size.width,
+            ),
+            SizedBox(height: 10.h),
           ],
         ),
       ),
     );
+  }
+
+  void addTask() async {
+    try {
+      final newTask = TaskModel(
+        name: taskNamecontroller.text.trim(),
+        details: taskDetailscontroller.text.trim(),
+        date: selectedDate ?? DateTime.now(),
+        category: selectedCategory,
+      );
+
+      FirebaseServices.addTask(newTask);
+      print('task add======');
+    } on Exception catch (e) {
+      print(e);
+    }
   }
 }

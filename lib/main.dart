@@ -20,12 +20,14 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-      MultiProvider(
-    providers: [
-      ChangeNotifierProvider(create: (_) => ThemeProvider()),
-      ChangeNotifierProvider(create: (_) => LanguageProvider()), 
-    ],
-    child: const ToDoApp(),),);
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => LanguageProvider()),
+      ],
+      child: const ToDoApp(),
+    ),
+  );
 }
 
 class ToDoApp extends StatefulWidget {
