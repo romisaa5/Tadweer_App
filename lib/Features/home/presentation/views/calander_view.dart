@@ -1,7 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:toda_app/Features/home/logic/remot/firebase_services.dart';
 import 'package:toda_app/Features/home/models/task_model.dart';
 import 'package:toda_app/Features/home/presentation/widgets/custom_scaffold_bg.dart';
 import 'package:toda_app/Features/home/presentation/widgets/task_card.dart';
@@ -20,15 +20,12 @@ class CalanderView extends StatefulWidget {
 class _CalanderViewState extends State<CalanderView> {
   DateTime selectedDate = DateTime.now();
   EasyDatePickerController? controller = EasyDatePickerController();
-  List<TaskModel> tasks = List.generate(
-      10,
-      (index) => TaskModel(
-          name: 'name$index',
-          details: 'details $index   ',
-          date: DateTime.now(),
-          category: 'university'));
+  List<TaskModel> tasks = [];
   @override
   Widget build(BuildContext context) {
+    if (tasks.isEmpty) {
+      getAllTasks();
+    }
     final theme = Theme.of(context);
 
     final colorScheme = theme.colorScheme;
@@ -106,5 +103,11 @@ class _CalanderViewState extends State<CalanderView> {
         ],
       ),
     );
+  }
+
+  getAllTasks() async {
+    List<TaskModel> allTasks = await FirebaseServices.getTasks();
+    tasks = allTasks;
+    setState(() {});
   }
 }

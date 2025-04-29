@@ -49,7 +49,7 @@ class _SelectDateandcategoryState extends State<SelectDateandcategory> {
                 if (date != null) {
                   setState(() {
                     initialDate = date;
-                    widget.onDateSelected(initialDate); // نبعته للأب
+                    widget.onDateSelected(initialDate); 
                   });
                 }
               },
@@ -78,7 +78,7 @@ class _SelectDateandcategoryState extends State<SelectDateandcategory> {
                 if (result != null) {
                   setState(() {
                     selectedCategory = result;
-                    widget.onCategorySelected(selectedCategory); // نبعته للأب
+                    widget.onCategorySelected(selectedCategory); 
                   });
                 }
               },

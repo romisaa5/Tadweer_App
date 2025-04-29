@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:toda_app/Features/home/models/task_model.dart';
 
 class FirebaseServices {
@@ -17,5 +18,11 @@ class FirebaseServices {
   static Future<void> deletetask(String id) {
     CollectionReference<TaskModel> taskCollection = getTaskCollection();
     return taskCollection.doc(id).delete();
+  }
+
+ static Future<List<TaskModel>> getTasks() async {
+    CollectionReference<TaskModel> taskCollection = getTaskCollection();
+    QuerySnapshot<TaskModel> taskQuery = await taskCollection.get();
+    return taskQuery.docs.map((e) => e.data()).toList();
   }
 }

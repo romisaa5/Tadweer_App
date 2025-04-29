@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:toda_app/Features/Auth/Login/data/cubit/login_cubit.dart';
 import 'package:toda_app/Features/Auth/Register/data/cubit/register_cubit.dart';
+import 'package:toda_app/Features/home/logic/provider/task_provider.dart';
 import 'package:toda_app/core/helper/localizition_method.dart';
 import 'package:toda_app/core/themes/Theme_Provider.dart';
 import 'package:toda_app/core/themes/app_theme.dart';
@@ -24,6 +25,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => LanguageProvider()),
+        ChangeNotifierProvider(create: (_) => TaskProvider())
       ],
       child: const ToDoApp(),
     ),

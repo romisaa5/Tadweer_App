@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toda_app/Features/home/logic/remot/firebase_services.dart';
+import 'package:provider/provider.dart';
+import 'package:toda_app/Features/home/logic/provider/task_provider.dart';
 import 'package:toda_app/Features/home/models/task_model.dart';
 import 'package:toda_app/Features/home/presentation/widgets/select_date&category.dart';
 import 'package:toda_app/core/themes/colors.dart';
@@ -28,6 +29,7 @@ class _AddTasksBottomSheetState extends State<AddTasksBottomSheet> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    var provider = Provider.of<TaskProvider>(context,listen: false);
 
     return Container(
       decoration: BoxDecoration(
@@ -84,9 +86,15 @@ class _AddTasksBottomSheetState extends State<AddTasksBottomSheet> {
             ),
             SizedBox(height: 15.h),
             CustomButton(
-              onTap: () {
+              onTap: ()async{
                 if (_formKey.currentState!.validate()) {
-                  addTask();
+                  final newTask = TaskModel(
+                    name: taskNamecontroller.text.trim(),
+                    details: taskDetailscontroller.text.trim(),
+                    date: selectedDate ?? DateTime.now(),
+                    category: selectedCategory,
+                  );
+                await  provider.addTask(newTask);
                   Navigator.pop(context);
                 }
               },
@@ -99,21 +107,5 @@ class _AddTasksBottomSheetState extends State<AddTasksBottomSheet> {
         ),
       ),
     );
-  }
-
-  void addTask() async {
-    try {
-      final newTask = TaskModel(
-        name: taskNamecontroller.text.trim(),
-        details: taskDetailscontroller.text.trim(),
-        date: selectedDate ?? DateTime.now(),
-        category: selectedCategory,
-      );
-
-      FirebaseServices.addTask(newTask);
-      print('task add======');
-    } on Exception catch (e) {
-      print(e);
-    }
   }
 }
