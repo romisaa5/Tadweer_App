@@ -18,6 +18,7 @@ class TaskProvider with ChangeNotifier {
   Future<void> addTask(TaskModel newTask) async {
     try {
       await FirebaseServices.addTask(newTask);
+      notifyListeners();
     } on Exception catch (e) {
       print(e);
     }
@@ -26,5 +27,15 @@ class TaskProvider with ChangeNotifier {
   changeSelectedDate(DateTime newDate) {
     selectDate = newDate;
     notifyListeners();
+  }
+
+  Future<void> deleteTask(String taskId) async {
+    try {
+      await FirebaseServices.deleteTask(taskId);
+      tasks.removeWhere((task) => task.id == taskId);
+      notifyListeners();
+    } on Exception catch (e) {
+      print(e);
+    }
   }
 }

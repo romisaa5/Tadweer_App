@@ -1,8 +1,8 @@
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toda_app/Features/home/logic/remot/firebase_services.dart';
-import 'package:toda_app/Features/home/models/task_model.dart';
+import 'package:provider/provider.dart';
+import 'package:toda_app/Features/home/logic/provider/task_provider.dart';
 import 'package:toda_app/Features/home/presentation/widgets/custom_scaffold_bg.dart';
 import 'package:toda_app/Features/home/presentation/widgets/task_card.dart';
 import 'package:toda_app/core/themes/colors.dart';
@@ -16,18 +16,22 @@ class CalanderView extends StatefulWidget {
   @override
   State<CalanderView> createState() => _CalanderViewState();
 }
-
 class _CalanderViewState extends State<CalanderView> {
   DateTime selectedDate = DateTime.now();
   EasyDatePickerController? controller = EasyDatePickerController();
-  List<TaskModel> tasks = [];
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<TaskProvider>().getAllTasks();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    if (tasks.isEmpty) {
-      getAllTasks();
-    }
+    final tasks = context.watch<TaskProvider>().tasks;
     final theme = Theme.of(context);
-
     final colorScheme = theme.colorScheme;
 
     return CustomScaffoldBg(
@@ -103,11 +107,5 @@ class _CalanderViewState extends State<CalanderView> {
         ],
       ),
     );
-  }
-
-  getAllTasks() async {
-    List<TaskModel> allTasks = await FirebaseServices.getTasks();
-    tasks = allTasks;
-    setState(() {});
   }
 }
