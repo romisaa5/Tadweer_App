@@ -7,7 +7,6 @@ import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/generated/l10n.dart';
 
-
 class FocusView extends StatefulWidget {
   const FocusView({super.key});
 
@@ -16,14 +15,14 @@ class FocusView extends StatefulWidget {
 }
 
 class _FocusViewState extends State<FocusView> {
-  int totalSeconds = 30 * 60; 
+  int totalSeconds = 30 * 60;
   int remainingSeconds = 30 * 60;
   Timer? _timer;
   bool isRunning = false;
 
   void toggleTimer() {
     if (isRunning) {
-      _timer?.cancel(); 
+      _timer?.cancel();
     } else {
       _timer = Timer.periodic(Duration(seconds: 1), (timer) {
         if (remainingSeconds > 0) {
@@ -60,7 +59,7 @@ class _FocusViewState extends State<FocusView> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(right: 25.0,left: 25, top:  20),
+          padding: const EdgeInsets.only(right: 25.0, left: 25, top: 20),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -78,7 +77,8 @@ class _FocusViewState extends State<FocusView> {
                   percent: percent,
                   center: Text(
                     formatTime(remainingSeconds),
-                    style: TextStyle(color:colorScheme.secondary, fontSize: 32),
+                    style:
+                        TextStyle(color: colorScheme.secondary, fontSize: 32),
                   ),
                   progressColor: ColorsManger.kPrimaryColor,
                   backgroundColor: Colors.grey.shade800,
@@ -86,7 +86,9 @@ class _FocusViewState extends State<FocusView> {
                 ),
                 SizedBox(height: 20.h),
                 Text(
-                 S.of(context).Whileyourfocusmodeisonallofyournotificationswillbeoff,
+                  S
+                      .of(context)
+                      .Whileyourfocusmodeisonallofyournotificationswillbeoff,
                   style: Styles.textStyle16.copyWith(
                     color: textTheme.bodyLarge!.color!.withOpacity(0.6),
                   ),
@@ -96,13 +98,13 @@ class _FocusViewState extends State<FocusView> {
                 ElevatedButton(
                   onPressed: toggleTimer,
                   style: ElevatedButton.styleFrom(
-                    
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                     backgroundColor:
                         isRunning ? Colors.red : ColorsManger.kPrimaryColor,
-                    padding: EdgeInsets.symmetric(horizontal: 50.w, vertical: 15.h),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 50.w, vertical: 15.h),
                   ),
                   child: Text(
                     isRunning ? S.of(context).Pause : S.of(context).Start,
