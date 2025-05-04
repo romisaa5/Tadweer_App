@@ -40,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "Calendar": MessageLookupByLibrary.simpleMessage("التقويم"),
     "Cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "ChangeDate": MessageLookupByLibrary.simpleMessage("تغيير التاريخ"),
     "ChangeaccountImage": MessageLookupByLibrary.simpleMessage(
       "تغيير صورة الحساب",
     ),
@@ -49,6 +50,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "Changeaccountpassword": MessageLookupByLibrary.simpleMessage(
       "تغيير كلمة مرور الحساب",
     ),
+    "Details": MessageLookupByLibrary.simpleMessage("التفاصيل"),
+    "EditTask": MessageLookupByLibrary.simpleMessage("تعديل المهمة"),
     "EmailVerification": MessageLookupByLibrary.simpleMessage(
       "تأكيد البريد الإلكتروني",
     ),
@@ -93,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "SAT": MessageLookupByLibrary.simpleMessage("السبت"),
     "SUN": MessageLookupByLibrary.simpleMessage("الأحد"),
     "Save": MessageLookupByLibrary.simpleMessage("حفظ"),
+    "SaveChanges": MessageLookupByLibrary.simpleMessage("حفظ التغييرات"),
     "SelectCatogry": MessageLookupByLibrary.simpleMessage("اختر الفئة:"),
     "SelectDate": MessageLookupByLibrary.simpleMessage("اختر التاريخ:"),
     "Settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
@@ -128,6 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "هل لديك حساب بالفعل؟",
     ),
     "back": MessageLookupByLibrary.simpleMessage("السابق"),
+    "category": MessageLookupByLibrary.simpleMessage("الفئة"),
     "categoryDesign": MessageLookupByLibrary.simpleMessage("تصميم"),
     "categoryGrocery": MessageLookupByLibrary.simpleMessage("بقالة"),
     "categoryHealth": MessageLookupByLibrary.simpleMessage("صحة"),

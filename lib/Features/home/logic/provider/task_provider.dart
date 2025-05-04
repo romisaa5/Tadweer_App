@@ -38,4 +38,13 @@ class TaskProvider with ChangeNotifier {
       print(e);
     }
   }
+
+  Future<void> editTask(TaskModel updatedTask) async {
+    await FirebaseServices.updateTask(updatedTask);
+    int index = tasks.indexWhere((task) => task.id == updatedTask.id);
+    if (index != -1) {
+      tasks[index] = updatedTask;
+      notifyListeners();
+    }
+  }
 }

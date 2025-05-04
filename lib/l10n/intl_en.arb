@@ -113,7 +113,12 @@
     "categoryMusic": "Music",
     "categoryHealth": "Health",
     "categoryMovie": "Movie",
-    "categoryHome": "Home"
+    "categoryHome": "Home",
+    "SaveChanges":"Save Changes",
+    "ChangeDate":"Change Date",
+    "category":"Category",
+    "Details":"Details",
+    "EditTask":"Edit Task"
 
 
 }

@@ -40,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "Calendar": MessageLookupByLibrary.simpleMessage("Calendar"),
     "Cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "ChangeDate": MessageLookupByLibrary.simpleMessage("Change Date"),
     "ChangeaccountImage": MessageLookupByLibrary.simpleMessage(
       "Change account Image",
     ),
@@ -49,6 +50,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "Changeaccountpassword": MessageLookupByLibrary.simpleMessage(
       "Change account password",
     ),
+    "Details": MessageLookupByLibrary.simpleMessage("Details"),
+    "EditTask": MessageLookupByLibrary.simpleMessage("Edit Task"),
     "EmailVerification": MessageLookupByLibrary.simpleMessage(
       "Email Verification",
     ),
@@ -95,6 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "SAT": MessageLookupByLibrary.simpleMessage("SAT"),
     "SUN": MessageLookupByLibrary.simpleMessage("SUN"),
     "Save": MessageLookupByLibrary.simpleMessage("Save"),
+    "SaveChanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
     "SelectCatogry": MessageLookupByLibrary.simpleMessage("Select Category :"),
     "SelectDate": MessageLookupByLibrary.simpleMessage("Select Date :"),
     "Settings": MessageLookupByLibrary.simpleMessage("Settings"),
@@ -130,6 +134,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Already have an account?",
     ),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
+    "category": MessageLookupByLibrary.simpleMessage("Category"),
     "categoryDesign": MessageLookupByLibrary.simpleMessage("Design"),
     "categoryGrocery": MessageLookupByLibrary.simpleMessage("Grocery"),
     "categoryHealth": MessageLookupByLibrary.simpleMessage("Health"),

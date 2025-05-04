@@ -113,8 +113,12 @@
   "categoryMusic": "موسيقى",
   "categoryHealth": "صحة",
   "categoryMovie": "أفلام",
-  "categoryHome": "منزل"
-
+  "categoryHome": "منزل",
+  "SaveChanges" :"حفظ التغييرات",
+  "ChangeDate":"تغيير التاريخ",
+  "category":"الفئة",
+  "Details":"التفاصيل",
+  "EditTask":"تعديل المهمة"
 
 
 }

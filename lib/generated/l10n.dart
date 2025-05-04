@@ -918,6 +918,36 @@ class S {
   String get categoryHome {
     return Intl.message('Home', name: 'categoryHome', desc: '', args: []);
   }
+
+  /// `Save Changes`
+  String get SaveChanges {
+    return Intl.message(
+      'Save Changes',
+      name: 'SaveChanges',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Date`
+  String get ChangeDate {
+    return Intl.message('Change Date', name: 'ChangeDate', desc: '', args: []);
+  }
+
+  /// `Category`
+  String get category {
+    return Intl.message('Category', name: 'category', desc: '', args: []);
+  }
+
+  /// `Details`
+  String get Details {
+    return Intl.message('Details', name: 'Details', desc: '', args: []);
+  }
+
+  /// `Edit Task`
+  String get EditTask {
+    return Intl.message('Edit Task', name: 'EditTask', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
