@@ -28,6 +28,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "AnerroroccurredPleasetryagain": MessageLookupByLibrary.simpleMessage(
       "حصل خطأ. حاول مرة تانية.",
     ),
+    "ApasswordresetemailhasbeensentPleasecheckyourinboxorspamfolder":
+        MessageLookupByLibrary.simpleMessage(
+          "تم إرسال بريد إلكتروني لإعادة تعيين كلمة المرور. من فضلك افحص البريد الوارد أو مجلد الرسائل غير المرغوب فيها",
+        ),
     "AppSettings": MessageLookupByLibrary.simpleMessage("إعدادات التطبيق"),
     "Applications": MessageLookupByLibrary.simpleMessage("التطبيقات"),
     "Arabic": MessageLookupByLibrary.simpleMessage("العربية"),
@@ -114,6 +118,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "هذا الحقل مطلوب",
     ),
     "ThisWeek": MessageLookupByLibrary.simpleMessage("هذا الأسبوع"),
+    "ThisemailisnotregisteredwithusPleasemakesureitiscorrectorcreateanewaccount":
+        MessageLookupByLibrary.simpleMessage(
+          "هذا البريد الإلكتروني غير مسجل لدينا. من فضلك تأكد من صحته أو أنشئ حسابًا جديدًا",
+        ),
     "UploadProfilePicture": MessageLookupByLibrary.simpleMessage(
       "تحميل صورة الملف الشخصي",
     ),

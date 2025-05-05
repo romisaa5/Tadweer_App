@@ -93,13 +93,13 @@ class _ProfieViewState extends State<ProfieView> {
                     indent: 15.h,
                   ),
                   Text(
-               S.of(context).Account,
+                    S.of(context).Account,
                     style: Styles.textStyle16.copyWith(
                         color: colorScheme.secondary,
                         fontWeight: FontWeight.w600),
                   ),
                   ProfileListTile(
-                    title:  S.of(context).Changeaccountname,
+                    title: S.of(context).Changeaccountname,
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -156,7 +156,7 @@ class _ProfieViewState extends State<ProfieView> {
                     icon: Icons.person_outlined,
                   ),
                   ProfileListTile(
-                      title : S.of(context).Changeaccountpassword,
+                      title: S.of(context).Changeaccountpassword,
                       onPressed: () {},
                       icon: Icons.lock_outline),
                   ProfileListTile(
@@ -185,9 +185,8 @@ class _ProfieViewState extends State<ProfieView> {
                           ),
                           content: Text(
                             S.of(context).Areyousureyouwanttologout,
-                            style: Styles.textStyle14.copyWith(
-                              color:colorScheme.secondary
-                            ),
+                            style: Styles.textStyle14
+                                .copyWith(color: colorScheme.secondary),
                           ),
                           actions: [
                             TextButton(
@@ -201,15 +200,31 @@ class _ProfieViewState extends State<ProfieView> {
                           ],
                         ),
                       );
+
                       if (shouldLogout == true) {
-                        GoRouter.of(context)
-                            .pushReplacement(AppRouter.loginView);
+                        try {
+                          final user = FirebaseAuth.instance.currentUser;
+                          final providerId =
+                              user?.providerData.first.providerId;
+
+                          await FirebaseAuth.instance.signOut();
+
+                          if (providerId == 'google.com') {
+                            GoogleSignIn googleSignIn = GoogleSignIn();
+                            await googleSignIn.signOut(); // مش disconnect
+                          }
+
+                          if (providerId == 'facebook.com') {
+                            FacebookAuth facebookAuth = FacebookAuth.instance;
+                            await facebookAuth.logOut();
+                          }
+
+                          GoRouter.of(context)
+                              .pushReplacement(AppRouter.loginView);
+                        } catch (e) {
+                          print('Logout error: $e');
+                        }
                       }
-                      await FirebaseAuth.instance.signOut();
-                      GoogleSignIn googleSignIn = GoogleSignIn();
-                      await googleSignIn.disconnect();
-                      FacebookAuth facebookAuth = FacebookAuth.instance;
-                      await facebookAuth.logOut();
                     },
                     icon: Icons.logout,
                   ),

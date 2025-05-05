@@ -28,8 +28,8 @@ class _RegisterViewState extends State<RegisterView> {
   final passwordFocusNode = FocusNode();
   final confirmpasswordFocusNode = FocusNode();
   final _formKey = GlobalKey<FormState>();
-  bool isPasswordShown = false;
-  bool isConfirmPasswordShown = false;
+  bool isPasswordShown = true;
+  bool isConfirmPasswordShown = true;
   String? email;
   String? password;
   String? confirmPassword;
@@ -63,6 +63,7 @@ class _RegisterViewState extends State<RegisterView> {
                     style: Styles.textStyle14,
                   ),
                   AppTextFormField(
+                    maxLines: 1,
                     onChanged: (userName) {
                       setState(() {
                         this.userName = userName;
@@ -85,6 +86,7 @@ class _RegisterViewState extends State<RegisterView> {
                     style: Styles.textStyle14,
                   ),
                   AppTextFormField(
+                    maxLines: 1,
                     onChanged: (data) {
                       setState(() {
                         email = data;
@@ -114,6 +116,7 @@ class _RegisterViewState extends State<RegisterView> {
                     style: Styles.textStyle14,
                   ),
                   AppTextFormField(
+                    maxLines: 1,
                     isObscureText: isPasswordShown,
                     onChanged: (data) {
                       setState(() {
@@ -162,10 +165,11 @@ class _RegisterViewState extends State<RegisterView> {
                     controller: passwordController,
                   ),
                   Text(
-                   S.of(context).confirmpassword,
+                    S.of(context).confirmpassword,
                     style: Styles.textStyle14,
                   ),
                   AppTextFormField(
+                    maxLines: 1,
                     isObscureText: isConfirmPasswordShown,
                     onChanged: (data) {
                       setState(() {
@@ -176,7 +180,6 @@ class _RegisterViewState extends State<RegisterView> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return S.of(context).Thefieldisrequired;
-      
                       }
                       if (value != password) {
                         return S.of(context).Passwordsdonotmatch;
@@ -243,12 +246,13 @@ class _RegisterViewState extends State<RegisterView> {
 
                             String errorMessage =
                                 getFirebaseErrorMessage(e.code);
-                            showAwesomeDialog(errorMessage, S.of(context).Error, context);
+                            showAwesomeDialog(
+                                errorMessage, S.of(context).Error, context);
                           } catch (e) {
                             if (!mounted) return;
 
                             showAwesomeDialog(
-                               S.of(context).Error,
+                                S.of(context).Error,
                                 S.of(context).AnerroroccurredPleasetryagain,
                                 context);
                           }

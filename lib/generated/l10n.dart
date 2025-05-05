@@ -948,6 +948,28 @@ class S {
   String get EditTask {
     return Intl.message('Edit Task', name: 'EditTask', desc: '', args: []);
   }
+
+  /// `A password reset email has been sent. Please check your inbox or spam folder`
+  String get ApasswordresetemailhasbeensentPleasecheckyourinboxorspamfolder {
+    return Intl.message(
+      'A password reset email has been sent. Please check your inbox or spam folder',
+      name: 'ApasswordresetemailhasbeensentPleasecheckyourinboxorspamfolder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This email is not registered with us. Please make sure it is correct or create a new account`
+  String
+  get ThisemailisnotregisteredwithusPleasemakesureitiscorrectorcreateanewaccount {
+    return Intl.message(
+      'This email is not registered with us. Please make sure it is correct or create a new account',
+      name:
+          'ThisemailisnotregisteredwithusPleasemakesureitiscorrectorcreateanewaccount',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

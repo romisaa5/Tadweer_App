@@ -1,17 +1,19 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:toda_app/core/themes/colors.dart';
 
-void showAwesomeDialog(String desc, String title, BuildContext context) {
+void showAwesomeDialog(String desc, String title, BuildContext context,
+    {DialogType? dialogType, void Function()? btnOkOnPress}) {
   AwesomeDialog(
     context: context,
-    dialogType: DialogType.error,
+    dialogType: dialogType ?? DialogType.error,
     animType: AnimType.rightSlide,
     title: title,
     desc: desc,
     btnOkText: 'OK',
+    btnOkColor: ColorsManger.kPrimaryColor,
     showCloseIcon: false,
-    btnOkOnPress: () {
-    },
+    btnOkOnPress: btnOkOnPress ?? () {},
   ).show();
 }
 

@@ -18,6 +18,7 @@ class TaskProvider with ChangeNotifier {
   Future<void> addTask(TaskModel newTask) async {
     try {
       await FirebaseServices.addTask(newTask);
+      tasks.add(newTask);
       notifyListeners();
     } on Exception catch (e) {
       print(e);

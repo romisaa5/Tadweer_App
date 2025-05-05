@@ -118,7 +118,8 @@
     "ChangeDate":"Change Date",
     "category":"Category",
     "Details":"Details",
-    "EditTask":"Edit Task"
-
+    "EditTask":"Edit Task",
+    "ApasswordresetemailhasbeensentPleasecheckyourinboxorspamfolder":"A password reset email has been sent. Please check your inbox or spam folder",
+    "ThisemailisnotregisteredwithusPleasemakesureitiscorrectorcreateanewaccount":"This email is not registered with us. Please make sure it is correct or create a new account"
 
 }

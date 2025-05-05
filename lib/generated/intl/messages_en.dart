@@ -28,6 +28,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "AnerroroccurredPleasetryagain": MessageLookupByLibrary.simpleMessage(
       "An error occurred. Please try again.",
     ),
+    "ApasswordresetemailhasbeensentPleasecheckyourinboxorspamfolder":
+        MessageLookupByLibrary.simpleMessage(
+          "A password reset email has been sent. Please check your inbox or spam folder",
+        ),
     "AppSettings": MessageLookupByLibrary.simpleMessage("App Settings"),
     "Applications": MessageLookupByLibrary.simpleMessage("Applications"),
     "Arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
@@ -116,6 +120,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "The field is required",
     ),
     "ThisWeek": MessageLookupByLibrary.simpleMessage("This Week"),
+    "ThisemailisnotregisteredwithusPleasemakesureitiscorrectorcreateanewaccount":
+        MessageLookupByLibrary.simpleMessage(
+          "This email is not registered with us. Please make sure it is correct or create a new account",
+        ),
     "UploadProfilePicture": MessageLookupByLibrary.simpleMessage(
       "Upload Profile Picture",
     ),

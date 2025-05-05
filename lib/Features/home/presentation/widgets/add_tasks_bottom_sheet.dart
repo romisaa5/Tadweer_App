@@ -29,7 +29,7 @@ class _AddTasksBottomSheetState extends State<AddTasksBottomSheet> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    var provider = Provider.of<TaskProvider>(context,listen: false);
+    var provider = Provider.of<TaskProvider>(context, listen: true);
 
     return Container(
       decoration: BoxDecoration(
@@ -86,7 +86,7 @@ class _AddTasksBottomSheetState extends State<AddTasksBottomSheet> {
             ),
             SizedBox(height: 15.h),
             CustomButton(
-              onTap: ()async{
+              onTap: () async {
                 if (_formKey.currentState!.validate()) {
                   final newTask = TaskModel(
                     name: taskNamecontroller.text.trim(),
@@ -94,7 +94,7 @@ class _AddTasksBottomSheetState extends State<AddTasksBottomSheet> {
                     date: selectedDate ?? DateTime.now(),
                     category: selectedCategory,
                   );
-                await  provider.addTask(newTask);
+                  await provider.addTask(newTask);
                   Navigator.pop(context);
                 }
               },
