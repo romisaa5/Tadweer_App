@@ -70,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "GotoLogin": MessageLookupByLibrary.simpleMessage("الذهاب لتسجيل الدخول"),
     "Hi": MessageLookupByLibrary.simpleMessage("مرحبًا،"),
     "Index": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "Loading": MessageLookupByLibrary.simpleMessage("يتم الإضافة ......"),
     "LogOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "MON": MessageLookupByLibrary.simpleMessage("الاثنين"),
     "NewName": MessageLookupByLibrary.simpleMessage("الاسم الجديد"),

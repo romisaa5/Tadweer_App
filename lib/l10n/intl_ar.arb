@@ -120,6 +120,7 @@
   "Details":"التفاصيل",
   "EditTask":"تعديل المهمة",
   "ApasswordresetemailhasbeensentPleasecheckyourinboxorspamfolder":"تم إرسال بريد إلكتروني لإعادة تعيين كلمة المرور. من فضلك افحص البريد الوارد أو مجلد الرسائل غير المرغوب فيها",
-  "ThisemailisnotregisteredwithusPleasemakesureitiscorrectorcreateanewaccount":"هذا البريد الإلكتروني غير مسجل لدينا. من فضلك تأكد من صحته أو أنشئ حسابًا جديدًا"
+  "ThisemailisnotregisteredwithusPleasemakesureitiscorrectorcreateanewaccount":"هذا البريد الإلكتروني غير مسجل لدينا. من فضلك تأكد من صحته أو أنشئ حسابًا جديدًا",
+  "Loading":"يتم الإضافة ......"
 
 }

@@ -16,15 +16,15 @@ class CalanderView extends StatefulWidget {
   @override
   State<CalanderView> createState() => _CalanderViewState();
 }
+
 class _CalanderViewState extends State<CalanderView> {
-  DateTime selectedDate = DateTime.now();
   EasyDatePickerController? controller = EasyDatePickerController();
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<TaskProvider>().getAllTasks();
+      context.read<TaskProvider>().getTasksByDate();
     });
   }
 
@@ -33,6 +33,7 @@ class _CalanderViewState extends State<CalanderView> {
     final tasks = context.watch<TaskProvider>().tasks;
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    var provider = Provider.of<TaskProvider>(context);
 
     return CustomScaffoldBg(
       appBar: AppBar(
@@ -51,7 +52,7 @@ class _CalanderViewState extends State<CalanderView> {
             firstDate: DateTime(2025, 1, 1),
             currentDate: DateTime.now(),
             lastDate: DateTime(2030, 3, 18),
-            focusedDate: selectedDate,
+            focusedDate: provider.selectDate,
             itemExtent: 70.0.h,
             itemBuilder:
                 (context, date, isSelected, isDisabled, isToday, onTap) {
@@ -88,10 +89,8 @@ class _CalanderViewState extends State<CalanderView> {
                 ),
               );
             },
-            onDateChange: (date) {
-              setState(() {
-                selectedDate = date;
-              });
+            onDateChange: (newDate) {
+              provider.changeSelectedDate(newDate);
             },
           ),
           SizedBox(

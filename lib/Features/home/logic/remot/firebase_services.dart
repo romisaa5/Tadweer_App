@@ -35,4 +35,12 @@ class FirebaseServices {
         .doc(task.id)
         .update(task.toJson());
   }
+
+  static getTasksByDate(DateTime selectedDate) async {
+    CollectionReference<TaskModel> taskCollection = getTaskCollection();
+    QuerySnapshot<TaskModel> taskQuery = await taskCollection
+        .where('date', isEqualTo: Timestamp.fromDate(selectedDate))
+        .get();
+    return taskQuery.docs.map((e) => e.data()).toList();
+  }
 }

@@ -22,8 +22,10 @@ class _AddTasksBottomSheetState extends State<AddTasksBottomSheet> {
   final TextEditingController taskDetailscontroller = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-  DateTime? selectedDate;
+  DateTime? selectedDate =
+      DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
   String selectedCategory = "";
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +80,7 @@ class _AddTasksBottomSheetState extends State<AddTasksBottomSheet> {
             SizedBox(height: 15.h),
             SelectDateandcategory(
               onDateSelected: (date) {
-                selectedDate = date;
+                selectedDate = DateTime(date.year, date.month, date.day);
               },
               onCategorySelected: (category) {
                 selectedCategory = category;
@@ -86,19 +88,27 @@ class _AddTasksBottomSheetState extends State<AddTasksBottomSheet> {
             ),
             SizedBox(height: 15.h),
             CustomButton(
-              onTap: () async {
-                if (_formKey.currentState!.validate()) {
-                  final newTask = TaskModel(
-                    name: taskNamecontroller.text.trim(),
-                    details: taskDetailscontroller.text.trim(),
-                    date: selectedDate ?? DateTime.now(),
-                    category: selectedCategory,
-                  );
-                  await provider.addTask(newTask);
-                  Navigator.pop(context);
-                }
-              },
-              text: S.of(context).AddTask,
+              onTap: isLoading
+                  ? null
+                  : () async {
+                      if (_formKey.currentState!.validate()) {
+                        final newTask = TaskModel(
+                          name: taskNamecontroller.text.trim(),
+                          details: taskDetailscontroller.text.trim(),
+                          date: selectedDate ?? DateTime.now(),
+                          category: selectedCategory,
+                        );
+                        setState(() {
+                          isLoading = true;
+                        });
+                        await provider.addTask(newTask);
+                        Navigator.pop(context);
+                        setState(() {
+                          isLoading = false;
+                        });
+                      }
+                    },
+              text: isLoading ? S.of(context).Loading : S.of(context).AddTask,
               color: ColorsManger.kPrimaryColor,
               width: MediaQuery.of(context).size.width,
             ),

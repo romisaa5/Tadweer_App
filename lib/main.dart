@@ -52,7 +52,7 @@ class _ToDoAppState extends State<ToDoApp> {
     super.initState();
 
     final taskProvider = Provider.of<TaskProvider>(context, listen: false);
-    taskProvider.getAllTasks();
+    taskProvider.getTasksByDate();
   }
 
   @override

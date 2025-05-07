@@ -70,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "GotoLogin": MessageLookupByLibrary.simpleMessage("Go to Login"),
     "Hi": MessageLookupByLibrary.simpleMessage("Hi , "),
     "Index": MessageLookupByLibrary.simpleMessage("Index"),
+    "Loading": MessageLookupByLibrary.simpleMessage("Loading........."),
     "LogOut": MessageLookupByLibrary.simpleMessage("Log Out"),
     "MON": MessageLookupByLibrary.simpleMessage("MON"),
     "NewName": MessageLookupByLibrary.simpleMessage("\'New Name"),
