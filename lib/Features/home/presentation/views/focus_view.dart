@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:toda_app/Features/home/presentation/widgets/focus_stats_section.dart';
@@ -19,11 +20,21 @@ class _FocusViewState extends State<FocusView> {
   int remainingSeconds = 30 * 60;
   Timer? _timer;
   bool isRunning = false;
+  static const platform = MethodChannel('focus_mode');
+
+  Future<void> enableDND() async {
+    try {
+      await platform.invokeMethod('enableDND');
+    } catch (e) {
+      print("Failed to enable DND: \$e");
+    }
+  }
 
   void toggleTimer() {
     if (isRunning) {
       _timer?.cancel();
     } else {
+      enableDND();
       _timer = Timer.periodic(Duration(seconds: 1), (timer) {
         if (remainingSeconds > 0) {
           setState(() {
