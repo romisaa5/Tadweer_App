@@ -73,7 +73,11 @@ class _SelectDateandcategoryState extends State<SelectDateandcategory> {
                     borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                   ),
                   backgroundColor: colorScheme.background,
-                  builder: (context) => CategorySelector(),
+                  builder: (context) => CategorySelector(
+                    onCategorySelected: (category) {
+                      Navigator.pop(context, category);
+                    },
+                  ),
                 );
                 if (result != null) {
                   setState(() {

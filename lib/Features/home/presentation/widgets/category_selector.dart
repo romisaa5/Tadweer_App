@@ -6,8 +6,9 @@ import 'package:toda_app/core/widgets/custom_button.dart';
 import 'package:toda_app/generated/l10n.dart';
 
 class CategorySelector extends StatelessWidget {
-  const CategorySelector({super.key});
+  const CategorySelector({super.key, required this.onCategorySelected});
 
+  final Function(String) onCategorySelected;
   @override
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> categories = [
@@ -56,7 +57,6 @@ class CategorySelector extends StatelessWidget {
         'icon': Icons.movie,
         'color': Colors.lightBlue,
       },
-  
     ];
 
     final theme = Theme.of(context);
@@ -69,11 +69,10 @@ class CategorySelector extends StatelessWidget {
         children: [
           Text(
             S.of(context).SelectCatogry,
-            style: Styles.textStyle18.copyWith(
-              color: colorScheme.secondary
-            ),
+            style: Styles.textStyle18.copyWith(color: colorScheme.secondary),
           ),
           Divider(color: Colors.grey[200]),
+          SizedBox(height: 20.h),
           GridView.count(
             shrinkWrap: true,
             crossAxisCount: 3,
@@ -83,7 +82,7 @@ class CategorySelector extends StatelessWidget {
             children: categories.map((cat) {
               return GestureDetector(
                 onTap: () {
-                  Navigator.pop(context, cat['name']);
+                  onCategorySelected(cat['name']);
                 },
                 child: Container(
                   height: 100,
@@ -109,14 +108,12 @@ class CategorySelector extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               CustomButton(
+                onTap: () {
+                  Navigator.pop(context);
+                },
                 text: S.of(context).Cancel,
                 color: ColorsManger.kPrimaryColor,
-                width: 150.w
-              ),
-              CustomButton(
-                text: S.of(context).Save,
-                color: ColorsManger.bgcolorDark,
-                width: 150.w
+                width: MediaQuery.of(context).size.width * .5,
               ),
             ],
           ),

@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:toda_app/Features/home/models/task_model.dart';
 import 'package:toda_app/Features/home/logic/provider/task_provider.dart';
+import 'package:toda_app/Features/home/presentation/widgets/category_selector.dart';
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/utils/app_router.dart';
@@ -124,10 +125,30 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
                 return null;
               },
               controller: categoryController,
-              suffixIcon: Icon(
-                Icons.category,
-                color: ColorsManger.kPrimaryColor,
+              suffixIcon: IconButton(
+                onPressed: () {
+                  showModalBottomSheet(
+                    isScrollControlled: true,
+                    context: context,
+                    builder: (context) {
+                      return CategorySelector(
+                        onCategorySelected: (category) {
+                          setState(() {
+                            categoryController.text = category;
+                          });
+                          Navigator.pop(context);
+                        },
+
+                      );
+                    },
+                  );
+                },
+                icon: Icon(
+                  Icons.category,
+                  color: ColorsManger.kPrimaryColor,
+                ),
               ),
+            
             ),
             const SizedBox(height: 20),
             Row(
