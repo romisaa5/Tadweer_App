@@ -47,6 +47,7 @@ class AppTheme {
       ),
     ),
     bottomSheetTheme: BottomSheetThemeData(
+      surfaceTintColor: ColorsManger.bgcolorDark,
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -117,6 +118,7 @@ class AppTheme {
         ),
       ),
       bottomSheetTheme: BottomSheetThemeData(
+        surfaceTintColor: ColorsManger.bgcolorLight,
         backgroundColor: ColorsManger.bgcolorDark,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),

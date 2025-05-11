@@ -76,7 +76,7 @@ class _FocusStatsSectionState extends State<FocusStatsSection> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 40.h),
-        FocusChart(),
+        // FocusChart(),
         SizedBox(height: 30.h),
         Text(
           S.of(context).Applications,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:toda_app/Features/home/logic/provider/task_provider.dart';
 import 'package:toda_app/Features/home/presentation/views/calander_view.dart';
 import 'package:toda_app/Features/home/presentation/views/focus_view.dart';
 import 'package:toda_app/Features/home/presentation/views/index_view.dart';
@@ -17,13 +19,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int currentIndex = 0;
-  List<Widget> tabs = [
-    IndexView(),
-    CalanderView(),
-    Placeholder(),
-    FocusView(),
-    ProfieView()
-  ];
+  List<Widget> tabs = [IndexView(), CalanderView(), FocusView(), ProfileView()];
 
   @override
   Widget build(BuildContext context) {
@@ -31,21 +27,29 @@ class _HomeViewState extends State<HomeView> {
       body: tabs[currentIndex],
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: ColorsManger.kPrimaryColor,
-        onPressed: () {
-          showModalBottomSheet(
-            context: context,
-            isScrollControlled: true,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(
-                top: Radius.circular(16.0),
-              ),
-            ),
-            builder: (context) {
-              return AddTasksBottomSheet();
-            },
-          );
-        },
+        backgroundColor: Provider.of<TaskProvider>(context)
+                .selectDate
+                .isBefore(DateTime.now().subtract(Duration(days: 1)))
+            ? Colors.grey
+            : ColorsManger.kPrimaryColor,
+        onPressed: Provider.of<TaskProvider>(context)
+                .selectDate
+                .isBefore(DateTime.now().subtract(Duration(days: 1)))
+            ? null
+            : () {
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(16.0),
+                    ),
+                  ),
+                  builder: (context) {
+                    return AddTasksBottomSheet();
+                  },
+                );
+              },
         shape: const StadiumBorder(),
         child: const Icon(
           Icons.add,
@@ -83,10 +87,6 @@ class _HomeViewState extends State<HomeView> {
                 size: 24,
               ),
               label: S.of(context).Calendar,
-            ),
-            BottomNavigationBarItem(
-              icon: SizedBox(width: 8.w),
-              label: "",
             ),
             BottomNavigationBarItem(
               icon: Icon(

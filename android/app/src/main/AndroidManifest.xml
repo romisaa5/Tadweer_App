@@ -10,6 +10,10 @@
     android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
 
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:label="toda_app"
         android:name="${applicationName}"

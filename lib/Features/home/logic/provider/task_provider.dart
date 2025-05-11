@@ -27,9 +27,12 @@ class TaskProvider with ChangeNotifier {
 
   Future<void> addTask(TaskModel newTask) async {
     try {
-      await FirebaseServices.addTask(newTask);
-      tasks.add(newTask);
-      changeSelectedDate(selectDate);
+      await FirebaseServices.addTask(newTask).timeout(Duration(seconds: 2),
+          onTimeout: () async {
+        tasks.add(newTask);
+        await getTasksByDate();
+      });
+
       notifyListeners();
     } on Exception catch (e) {
       Fluttertoast.showToast(

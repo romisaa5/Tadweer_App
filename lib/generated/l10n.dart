@@ -980,6 +980,91 @@ class S {
       args: [],
     );
   }
+
+  /// `No Tasks for This day!`
+  String get NotasksforThisday {
+    return Intl.message(
+      'No Tasks for This day!',
+      name: 'NotasksforThisday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Let’s add some Tasks and stay productive`
+  String get LetsaddsomeTasksandstayproductive {
+    return Intl.message(
+      'Let’s add some Tasks and stay productive',
+      name: 'LetsaddsomeTasksandstayproductive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Take a photo`
+  String get Takeaphoto {
+    return Intl.message('Take a photo', name: 'Takeaphoto', desc: '', args: []);
+  }
+
+  /// `Choose from Gallery`
+  String get ChoosefromGallery {
+    return Intl.message(
+      'Choose from Gallery',
+      name: 'ChoosefromGallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remove Profile Picture`
+  String get RemoveProfilePicture {
+    return Intl.message(
+      'Remove Profile Picture',
+      name: 'RemoveProfilePicture',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gallery permission denied`
+  String get Gallerypermissiondenied {
+    return Intl.message(
+      'Gallery permission denied',
+      name: 'Gallerypermissiondenied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No image selected`
+  String get Noimageselected {
+    return Intl.message(
+      'No image selected',
+      name: 'Noimageselected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Image not found`
+  String get Imagenotfound {
+    return Intl.message(
+      'Image not found',
+      name: 'Imagenotfound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Camera permission denied`
+  String get Camerapermissiondenied {
+    return Intl.message(
+      'Camera permission denied',
+      name: 'Camerapermissiondenied',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

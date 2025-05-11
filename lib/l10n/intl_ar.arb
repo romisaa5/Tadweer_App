@@ -121,6 +121,15 @@
   "EditTask":"تعديل المهمة",
   "ApasswordresetemailhasbeensentPleasecheckyourinboxorspamfolder":"تم إرسال بريد إلكتروني لإعادة تعيين كلمة المرور. من فضلك افحص البريد الوارد أو مجلد الرسائل غير المرغوب فيها",
   "ThisemailisnotregisteredwithusPleasemakesureitiscorrectorcreateanewaccount":"هذا البريد الإلكتروني غير مسجل لدينا. من فضلك تأكد من صحته أو أنشئ حسابًا جديدًا",
-  "Loading":"يتم الإضافة ......"
+  "Loading":"يتم الإضافة ......",
+  "NotasksforThisday": "لا توجد مهام لهذا اليوم!",
+  "LetsaddsomeTasksandstayproductive": "دعنا نضيف بعض المهام ونبقى منتجين",
+  "Takeaphoto": "التقاط صورة بالكاميرا",
+  "ChoosefromGallery": "اختيار صورة من المعرض",
+  "RemoveProfilePicture": "إزالة الصورة الشخصية",
+  "Gallerypermissiondenied": "تم رفض إذن الوصول إلى المعرض",
+  "Noimageselected": "لم يتم اختيار صورة",
+  "Imagenotfound": "تعذّر العثور على الصورة",
+  "Camerapermissiondenied": "تم رفض إذن الوصول إلى الكاميرا"
 
 }

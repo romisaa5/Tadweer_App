@@ -97,11 +97,41 @@ class _CalanderViewState extends State<CalanderView> {
             height: 20.h,
           ),
           Expanded(
-            child: ListView.builder(
-                itemCount: tasks.length,
-                itemBuilder: (_, index) {
-                  return TaskCard(taskModel: tasks[index]);
-                }),
+            child: tasks.isEmpty
+                ? Column(
+                    spacing: 5.h,
+                    children: [
+                      SizedBox(
+                        height: 40.h,
+                      ),
+                      Image.asset(
+                        'assets/images/checklist.png',
+                        height: 80.h,
+                        width: 70,
+                        fit: BoxFit.fill,
+                      ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      Text(
+                        S.of(context).NotasksforThisday,
+                        style: Styles.textStyle18.copyWith(
+                          color: colorScheme.secondary,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      Text(
+                        S.of(context).LetsaddsomeTasksandstayproductive,
+                        style: Styles.textStyle16.copyWith(color: Colors.grey),
+                      ),
+                    ],
+                  )
+                : ListView.builder(
+                    itemCount: tasks.length,
+                    itemBuilder: (_, index) {
+                      return TaskCard(taskModel: tasks[index]);
+                    },
+                  ),
           ),
         ],
       ),

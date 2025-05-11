@@ -43,6 +43,9 @@ class MessageLookup extends MessageLookupByLibrary {
           "سوف يتم إرسال رابط التفعيل إلى بريدك الإلكتروني",
         ),
     "Calendar": MessageLookupByLibrary.simpleMessage("التقويم"),
+    "Camerapermissiondenied": MessageLookupByLibrary.simpleMessage(
+      "تم رفض إذن الوصول إلى الكاميرا",
+    ),
     "Cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
     "ChangeDate": MessageLookupByLibrary.simpleMessage("تغيير التاريخ"),
     "ChangeaccountImage": MessageLookupByLibrary.simpleMessage(
@@ -53,6 +56,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "Changeaccountpassword": MessageLookupByLibrary.simpleMessage(
       "تغيير كلمة مرور الحساب",
+    ),
+    "ChoosefromGallery": MessageLookupByLibrary.simpleMessage(
+      "اختيار صورة من المعرض",
     ),
     "Details": MessageLookupByLibrary.simpleMessage("التفاصيل"),
     "EditTask": MessageLookupByLibrary.simpleMessage("تعديل المهمة"),
@@ -67,13 +73,28 @@ class MessageLookup extends MessageLookupByLibrary {
     "FRI": MessageLookupByLibrary.simpleMessage("الجمعة"),
     "Focus": MessageLookupByLibrary.simpleMessage("التركيز"),
     "FocusMode": MessageLookupByLibrary.simpleMessage("وضع التركيز"),
+    "Gallerypermissiondenied": MessageLookupByLibrary.simpleMessage(
+      "تم رفض إذن الوصول إلى المعرض",
+    ),
     "GotoLogin": MessageLookupByLibrary.simpleMessage("الذهاب لتسجيل الدخول"),
     "Hi": MessageLookupByLibrary.simpleMessage("مرحبًا،"),
+    "Imagenotfound": MessageLookupByLibrary.simpleMessage(
+      "تعذّر العثور على الصورة",
+    ),
     "Index": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "LetsaddsomeTasksandstayproductive": MessageLookupByLibrary.simpleMessage(
+      "دعنا نضيف بعض المهام ونبقى منتجين",
+    ),
     "Loading": MessageLookupByLibrary.simpleMessage("يتم الإضافة ......"),
     "LogOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "MON": MessageLookupByLibrary.simpleMessage("الاثنين"),
     "NewName": MessageLookupByLibrary.simpleMessage("الاسم الجديد"),
+    "Noimageselected": MessageLookupByLibrary.simpleMessage(
+      "لم يتم اختيار صورة",
+    ),
+    "NotasksforThisday": MessageLookupByLibrary.simpleMessage(
+      "لا توجد مهام لهذا اليوم!",
+    ),
     "Nouserfoundforthatemail": MessageLookupByLibrary.simpleMessage(
       "لا يوجد مستخدم موجود بهذا البريد الإلكتروني ",
     ),
@@ -97,6 +118,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "من فضلك فعّل بريدك الإلكتروني",
     ),
     "Profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+    "RemoveProfilePicture": MessageLookupByLibrary.simpleMessage(
+      "إزالة الصورة الشخصية",
+    ),
     "ResendEmail": MessageLookupByLibrary.simpleMessage("إعادة إرسال البريد"),
     "SAT": MessageLookupByLibrary.simpleMessage("السبت"),
     "SUN": MessageLookupByLibrary.simpleMessage("الأحد"),
@@ -108,6 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "Start": MessageLookupByLibrary.simpleMessage("ابدأ"),
     "THU": MessageLookupByLibrary.simpleMessage("الخميس"),
     "TUE": MessageLookupByLibrary.simpleMessage("الثلاثاء"),
+    "Takeaphoto": MessageLookupByLibrary.simpleMessage("التقاط صورة بالكاميرا"),
     "Taptoaddyourtasks": MessageLookupByLibrary.simpleMessage(
       "اضغط على علامة + لإضافة مهامك",
     ),

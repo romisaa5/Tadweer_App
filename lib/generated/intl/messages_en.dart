@@ -43,6 +43,9 @@ class MessageLookup extends MessageLookupByLibrary {
           "A verification link has been sent to your email",
         ),
     "Calendar": MessageLookupByLibrary.simpleMessage("Calendar"),
+    "Camerapermissiondenied": MessageLookupByLibrary.simpleMessage(
+      "Camera permission denied",
+    ),
     "Cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "ChangeDate": MessageLookupByLibrary.simpleMessage("Change Date"),
     "ChangeaccountImage": MessageLookupByLibrary.simpleMessage(
@@ -53,6 +56,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "Changeaccountpassword": MessageLookupByLibrary.simpleMessage(
       "Change account password",
+    ),
+    "ChoosefromGallery": MessageLookupByLibrary.simpleMessage(
+      "Choose from Gallery",
     ),
     "Details": MessageLookupByLibrary.simpleMessage("Details"),
     "EditTask": MessageLookupByLibrary.simpleMessage("Edit Task"),
@@ -67,13 +73,26 @@ class MessageLookup extends MessageLookupByLibrary {
     "FRI": MessageLookupByLibrary.simpleMessage("FRI"),
     "Focus": MessageLookupByLibrary.simpleMessage("Focus"),
     "FocusMode": MessageLookupByLibrary.simpleMessage("Focus Mode"),
+    "Gallerypermissiondenied": MessageLookupByLibrary.simpleMessage(
+      "Gallery permission denied",
+    ),
     "GotoLogin": MessageLookupByLibrary.simpleMessage("Go to Login"),
     "Hi": MessageLookupByLibrary.simpleMessage("Hi , "),
+    "Imagenotfound": MessageLookupByLibrary.simpleMessage("Image not found"),
     "Index": MessageLookupByLibrary.simpleMessage("Index"),
+    "LetsaddsomeTasksandstayproductive": MessageLookupByLibrary.simpleMessage(
+      "Let’s add some Tasks and stay productive",
+    ),
     "Loading": MessageLookupByLibrary.simpleMessage("Loading........."),
     "LogOut": MessageLookupByLibrary.simpleMessage("Log Out"),
     "MON": MessageLookupByLibrary.simpleMessage("MON"),
     "NewName": MessageLookupByLibrary.simpleMessage("\'New Name"),
+    "Noimageselected": MessageLookupByLibrary.simpleMessage(
+      "No image selected",
+    ),
+    "NotasksforThisday": MessageLookupByLibrary.simpleMessage(
+      "No Tasks for This day!",
+    ),
     "Nouserfoundforthatemail": MessageLookupByLibrary.simpleMessage(
       "No user found for that email.",
     ),
@@ -99,6 +118,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Please verify your email address",
     ),
     "Profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "RemoveProfilePicture": MessageLookupByLibrary.simpleMessage(
+      "Remove Profile Picture",
+    ),
     "ResendEmail": MessageLookupByLibrary.simpleMessage("Resend Email"),
     "SAT": MessageLookupByLibrary.simpleMessage("SAT"),
     "SUN": MessageLookupByLibrary.simpleMessage("SUN"),
@@ -110,6 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "Start": MessageLookupByLibrary.simpleMessage("Start"),
     "THU": MessageLookupByLibrary.simpleMessage("THU"),
     "TUE": MessageLookupByLibrary.simpleMessage("TUE"),
+    "Takeaphoto": MessageLookupByLibrary.simpleMessage("Take a photo"),
     "Taptoaddyourtasks": MessageLookupByLibrary.simpleMessage(
       "Tap + to add your tasks",
     ),
