@@ -17,6 +17,7 @@ class TaskCard extends StatelessWidget {
     DateFormat formattedDate = DateFormat('dd-MM-yyyy');
 
     return Dismissible(
+      
       key: Key(taskModel.id),
       direction: DismissDirection.endToStart,
       background: Container(
@@ -124,7 +125,7 @@ class TaskCard extends StatelessWidget {
                       SizedBox(height: 20.h),
                       Row(
                         children: [
-                          Icon(Icons.alarm, size: 18),
+                          Icon(Icons.alarm, size: 18.sp),
                           SizedBox(width: 5.w),
                           Text(
                             formattedDate.format(taskModel.date),

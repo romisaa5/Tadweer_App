@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:toda_app/Features/Auth/widgets/custom_devider.dart';
 import 'package:toda_app/core/helper/login_methods.dart';
 import 'package:toda_app/core/helper/show_error.dart';
+import 'package:toda_app/core/helper/validation_methods.dart';
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
@@ -62,13 +63,7 @@ class _LoginViewState extends State<LoginView> {
                   },
                   hintText: S.of(context).email,
                   validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return S.of(context).Thefieldisrequired;
-                    }
-                    if (!RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+')
-                        .hasMatch(value)) {
-                      return S.of(context).Enteravalidemail;
-                    }
+                    ValidationMethods.validateEmail(value);
                     return null;
                   },
                   prefixIcon: Icon(
@@ -91,18 +86,7 @@ class _LoginViewState extends State<LoginView> {
                   },
                   hintText: S.of(context).password,
                   validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return S.of(context).Thefieldisrequired;
-                    }
-                    if (value.length < 8) {
-                      return S.of(context).Passwordmustbeatleast8characters;
-                    }
-                    if (!RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$')
-                        .hasMatch(value)) {
-                      return S
-                          .of(context)
-                          .Passwordmustcontainatleastoneletterandonenumber;
-                    }
+                    ValidationMethods.validatePassword(value);
                     return null;
                   },
                   suffixIcon: isshown
@@ -113,7 +97,8 @@ class _LoginViewState extends State<LoginView> {
                             });
                           },
                           icon: Icon(Icons.visibility,
-                              color: colorScheme.secondary))
+                              color: colorScheme.secondary),
+                        )
                       : IconButton(
                           onPressed: () {
                             setState(() {
@@ -144,6 +129,7 @@ class _LoginViewState extends State<LoginView> {
                     )),
                 CustomButton(
                     onTap: () async {
+                     
                       if (_formkey.currentState!.validate()) {
                         try {
                           UserCredential user = await FirebaseAuth.instance
@@ -151,23 +137,27 @@ class _LoginViewState extends State<LoginView> {
                             email: email!.trim(),
                             password: password!.trim(),
                           );
+                          
                           GoRouter.of(context)
                               .pushReplacement(AppRouter.homeview);
                         } on FirebaseAuthException catch (ex) {
                           if (ex.code == 'user-not-found') {
-                            showAwesomeDialog(S.of(context).Nouserfoundforthatemail,
-                                S.of(context).Error, context);
+                            showAwesomeDialog(
+                                S.of(context).Nouserfoundforthatemail,
+                                S.of(context).Error,
+                                context);
                           } else if (ex.code == 'wrong-password') {
                             showAwesomeDialog(
                                 S.of(context).Wrongpasswordprovidedforthatuser,
-                                S.of(context).Error, context);
-                           
-                            
+                                S.of(context).Error,
+                                context);
                           } else {
+                           
                             showAwesomeDialog(
-                                S.of(context).AnerroroccurredPleasetryagain,
-                                S.of(context).Error, context);
                              
+                                S.of(context).AnerroroccurredPleasetryagain,
+                                S.of(context).Error,
+                                context);
                           }
                         }
                       }

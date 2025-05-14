@@ -55,8 +55,8 @@ class TaskProvider with ChangeNotifier {
   Future<void> deleteTask(String taskId) async {
     try {
       await FirebaseServices.deleteTask(taskId);
-      tasks.removeWhere((task) => task.id == taskId);
-      notifyListeners();
+
+      await getTasksByDate();
     } on Exception catch (e) {
       Fluttertoast.showToast(
           msg: e.toString(),

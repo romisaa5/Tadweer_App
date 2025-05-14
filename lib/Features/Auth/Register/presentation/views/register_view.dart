@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toda_app/Features/Auth/widgets/custom_devider.dart';
 import 'package:toda_app/core/helper/show_error.dart';
+import 'package:toda_app/core/helper/validation_methods.dart';
 import 'package:toda_app/core/themes/colors.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
@@ -53,10 +54,12 @@ class _RegisterViewState extends State<RegisterView> {
                   SizedBox(
                     height: 50.h,
                   ),
-                  Text(S.of(context).register,
-                      style: Styles.textStyle32.copyWith(
-                        color: textTheme.bodyLarge!.color,
-                      )),
+                  Text(
+                    S.of(context).register,
+                    style: Styles.textStyle32.copyWith(
+                      color: textTheme.bodyLarge!.color,
+                    ),
+                  ),
                   SizedBox(height: 5.h),
                   Text(
                     S.of(context).username,
@@ -71,9 +74,7 @@ class _RegisterViewState extends State<RegisterView> {
                     },
                     hintText: S.of(context).username,
                     validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return S.of(context).Pleaseenteryourusername;
-                      }
+                      ValidationMethods.validateUsername(value);
                       return null;
                     },
                     prefixIcon: Icon(
@@ -94,13 +95,7 @@ class _RegisterViewState extends State<RegisterView> {
                     },
                     hintText: S.of(context).email,
                     validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'The field is required';
-                      }
-                      if (!RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+')
-                          .hasMatch(value)) {
-                        return S.of(context).Enteravalidemail;
-                      }
+                      ValidationMethods.validateEmail(value);
                       return null;
                     },
                     prefixIcon: Icon(
@@ -125,18 +120,7 @@ class _RegisterViewState extends State<RegisterView> {
                     },
                     hintText: S.of(context).password,
                     validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return S.of(context).Thefieldisrequired;
-                      }
-                      if (value.length < 8) {
-                        return S.of(context).Passwordmustbeatleast8characters;
-                      }
-                      if (!RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$')
-                          .hasMatch(value)) {
-                        return S
-                            .of(context)
-                            .Passwordmustcontainatleastoneletterandonenumber;
-                      }
+                      ValidationMethods.validatePassword(value);
                       return null;
                     },
                     suffixIcon: isPasswordShown
@@ -147,7 +131,8 @@ class _RegisterViewState extends State<RegisterView> {
                               });
                             },
                             icon: Icon(Icons.visibility,
-                                color: colorScheme.secondary))
+                                color: colorScheme.secondary),
+                          )
                         : IconButton(
                             onPressed: () {
                               setState(() {
@@ -155,7 +140,8 @@ class _RegisterViewState extends State<RegisterView> {
                               });
                             },
                             icon: Icon(Icons.visibility_off,
-                                color: colorScheme.secondary)),
+                                color: colorScheme.secondary),
+                          ),
                     prefixIcon: Icon(
                       Icons.lock_outlined,
                       size: 20.sp,
@@ -178,21 +164,7 @@ class _RegisterViewState extends State<RegisterView> {
                     },
                     hintText: S.of(context).confirmpassword,
                     validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return S.of(context).Thefieldisrequired;
-                      }
-                      if (value != password) {
-                        return S.of(context).Passwordsdonotmatch;
-                      }
-                      if (value.length < 8) {
-                        return S.of(context).Passwordmustbeatleast8characters;
-                      }
-                      if (!RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$')
-                          .hasMatch(value)) {
-                        return S
-                            .of(context)
-                            .Passwordmustcontainatleastoneletterandonenumber;
-                      }
+                      ValidationMethods.validateConfirmPassword(value);
                       return null;
                     },
                     prefixIcon: Icon(
@@ -219,7 +191,8 @@ class _RegisterViewState extends State<RegisterView> {
                               });
                             },
                             icon: Icon(Icons.visibility_off,
-                                color: colorScheme.secondary)),
+                                color: colorScheme.secondary),
+                          ),
                   ),
                   SizedBox(
                     height: 10.h,

@@ -53,7 +53,7 @@ class _CalanderViewState extends State<CalanderView> {
             currentDate: DateTime.now(),
             lastDate: DateTime(2030, 3, 18),
             focusedDate: provider.selectDate,
-            itemExtent: 70.0.h,
+            itemExtent: 70.0.sp,
             itemBuilder:
                 (context, date, isSelected, isDisabled, isToday, onTap) {
               return InkResponse(
@@ -76,14 +76,18 @@ class _CalanderViewState extends State<CalanderView> {
                           style: TextStyle(
                             color: isSelected ? Colors.white : Colors.black,
                           )),
-                      Text(date.day.toString(),
-                          style: TextStyle(
-                            color: isSelected ? Colors.white : Colors.black,
-                          )),
-                      Text(DateFormat.E().format(date),
-                          style: TextStyle(
-                            color: isSelected ? Colors.white : Colors.black,
-                          )),
+                      Text(
+                        date.day.toString(),
+                        style: TextStyle(
+                          color: isSelected ? Colors.white : Colors.black,
+                        ),
+                      ),
+                      Text(
+                        DateFormat.E().format(date),
+                        style: TextStyle(
+                          color: isSelected ? Colors.white : Colors.black,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -107,7 +111,7 @@ class _CalanderViewState extends State<CalanderView> {
                       Image.asset(
                         'assets/images/checklist.png',
                         height: 80.h,
-                        width: 70,
+                        width: 70.w,
                         fit: BoxFit.fill,
                       ),
                       SizedBox(

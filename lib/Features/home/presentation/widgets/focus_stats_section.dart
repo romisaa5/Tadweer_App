@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toda_app/Features/home/presentation/widgets/focus_chart.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/generated/l10n.dart';
 import 'package:app_usage/app_usage.dart';
