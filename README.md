@@ -69,7 +69,9 @@ Because every day brings new challenges — and **Tadweer** gives you the space 
   <img src="assets/README assets/focus_screen.PNG" width="200px" height="400px" />
   <img src="assets/README assets/profile_screen.PNG" width="200px" height="400px" />
 </p>
+
 ---
+
 ## 📦 Installation
 
 1. Clone the repository:
