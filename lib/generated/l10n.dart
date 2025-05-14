@@ -197,10 +197,10 @@ class S {
     return Intl.message('GET STARTED', name: 'getStarted', desc: '', args: []);
   }
 
-  /// `Welcome to UpTodo`
+  /// `Welcome to Tadweer`
   String get welcometoUpTodo {
     return Intl.message(
-      'Welcome to UpTodo',
+      'Welcome to Tadweer',
       name: 'welcometoUpTodo',
       desc: '',
       args: [],
@@ -1064,6 +1064,16 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `Tadweer        `
+  String get AppName {
+    return Intl.message('Tadweer        ', name: 'AppName', desc: '', args: []);
+  }
+
+  /// `LOGIN`
+  String get LOGIN {
+    return Intl.message('LOGIN', name: 'LOGIN', desc: '', args: []);
   }
 }
 

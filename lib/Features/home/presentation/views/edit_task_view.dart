@@ -138,7 +138,6 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
                           });
                           Navigator.pop(context);
                         },
-
                       );
                     },
                   );
@@ -148,7 +147,6 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
                   color: ColorsManger.kPrimaryColor,
                 ),
               ),
-            
             ),
             const SizedBox(height: 20),
             Row(
@@ -175,9 +173,9 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
                   category: categoryController.text,
                   date: selectedDate,
                 );
-
+                final navigator = Navigator.pop(context);
                 await provider.editTask(updatedTask);
-                Navigator.pop(context);
+                navigator;
               },
               text: S.of(context).SaveChanges,
             ),

@@ -17,7 +17,7 @@
   "next": "التالي",
   "back": "السابق",
   "getStarted": "ابدأ",
-  "welcometoUpTodo": "أهلا بيك في UpTodo",
+  "welcometoUpTodo": " ( أهلا بيك في ( تدوير",
   "pleaselogintoyouraccountorcreatenewaccounttocontinue": " سجل دخولك أو اعمل حساب جديد للأستمرار",
   "login": "تسجيل الدخول",
   "createaccount": "إنشاء حساب",
@@ -130,6 +130,7 @@
   "Gallerypermissiondenied": "تم رفض إذن الوصول إلى المعرض",
   "Noimageselected": "لم يتم اختيار صورة",
   "Imagenotfound": "تعذّر العثور على الصورة",
-  "Camerapermissiondenied": "تم رفض إذن الوصول إلى الكاميرا"
-
+  "Camerapermissiondenied": "تم رفض إذن الوصول إلى الكاميرا",
+  "AppName": "تدوير          ",
+  "LOGIN": "تسجيل الدخول"
 }

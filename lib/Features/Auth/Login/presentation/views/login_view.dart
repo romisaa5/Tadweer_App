@@ -170,7 +170,7 @@ class _LoginViewState extends State<LoginView> {
                 SizedBox(height: 10.h),
                 CustomButtonSignupLogin(
                     onTap: () async {
-                      LoginMethods.signInWithGoogle(context);
+                      // LoginMethods.signInWithGoogle(context);
                     },
                     image: 'assets/images/google_icon.png',
                     text: S.of(context).loginwithGoogle,
@@ -178,7 +178,7 @@ class _LoginViewState extends State<LoginView> {
                     width: MediaQuery.of(context).size.width),
                 CustomButtonSignupLogin(
                     onTap: () async {
-                      LoginMethods.signInWithFacebook(context);
+                      // LoginMethods.signInWithFacebook(context);
                     },
                     image: 'assets/images/facebook_icon.png',
                     text: S.of(context).loginwithFacebook,

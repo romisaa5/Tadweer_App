@@ -39,19 +39,19 @@ class _LanguageThemeSelectionViewState
   }
 
   void saveSettings() async {
-      print("Save button pressed");
+    print("Save button pressed");
     await Provider.of<LanguageProvider>(context, listen: false)
         .setLocale(selectedLanguage);
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool('isDarkMode', isDarkMode);
     Provider.of<ThemeProvider>(context, listen: false).toggleTheme(isDarkMode);
+    if (!mounted) return;
 
-   (FirebaseAuth.instance.currentUser != null &&
-        FirebaseAuth.instance.currentUser!.emailVerified)
-    ? GoRouter.of(context).go(AppRouter.homeview)
-    : GoRouter.of(context).go(AppRouter.firstScreen);
-
+    (FirebaseAuth.instance.currentUser != null &&
+            FirebaseAuth.instance.currentUser!.emailVerified)
+        ? GoRouter.of(context).go(AppRouter.homeview)
+        : GoRouter.of(context).go(AppRouter.firstScreen);
   }
 
   @override
@@ -63,6 +63,7 @@ class _LanguageThemeSelectionViewState
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          spacing: 10.h,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 30.h),
@@ -76,21 +77,33 @@ class _LanguageThemeSelectionViewState
                 ),
               ),
             ),
-            Center(
-              child: Image.asset(
-                'assets/images/splash12.png',
-                width: 200.w,
-                height: 200.h,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/images/splash12.png',
+                  width: 100.w,
+                  height: 100.h,
+                ),
+                Text(
+                  S.of(context).AppName,
+                  style: Styles.textStyle20.copyWith(
+                    color: isDarkMode
+                        ? colorScheme.onBackground
+                        : ColorsManger.bgcolorDark,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 30.h),
+     
             Text(S.of(context).selectLanguage,
                 style: Styles.textStyle16.copyWith(
                     color: isDarkMode
                         ? colorScheme.onBackground
                         : ColorsManger.bgcolorDark,
                     fontWeight: FontWeight.bold)),
-            SizedBox(height: 20.h),
+       
             ListTile(
               title: Text(
                 S.of(context).English,
@@ -145,7 +158,7 @@ class _LanguageThemeSelectionViewState
                         ? colorScheme.onBackground
                         : ColorsManger.bgcolorDark,
                     fontWeight: FontWeight.bold)),
-            SizedBox(height: 20.h),
+     
             SwitchListTile(
               title: Text(
                 S.of(context).darkmode,
@@ -159,7 +172,7 @@ class _LanguageThemeSelectionViewState
                 setState(() {
                   isDarkMode = val;
                 });
-        
+
                 Provider.of<ThemeProvider>(context, listen: false)
                     .toggleTheme(isDarkMode);
               },

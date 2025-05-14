@@ -26,7 +26,8 @@ class _FocusViewState extends State<FocusView> {
     try {
       await platform.invokeMethod('enableDND');
     } catch (e) {
-      print("Failed to enable DND: \$e");
+
+
     }
   }
 

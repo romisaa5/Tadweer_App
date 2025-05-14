@@ -12,10 +12,10 @@ import 'package:toda_app/generated/l10n.dart';
 class UploadImageView extends StatefulWidget {
   const UploadImageView({super.key});
   @override
-  _UploadImageViewState createState() => _UploadImageViewState();
+  UploadImageViewState createState() => UploadImageViewState();
 }
 
-class _UploadImageViewState extends State<UploadImageView> {
+class UploadImageViewState extends State<UploadImageView> {
   File? _selectedImage;
 
   void _goToNextPage() {

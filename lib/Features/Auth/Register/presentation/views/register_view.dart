@@ -182,7 +182,8 @@ class _RegisterViewState extends State<RegisterView> {
                               });
                             },
                             icon: Icon(Icons.visibility,
-                                color: colorScheme.secondary))
+                                color: colorScheme.secondary),
+                          )
                         : IconButton(
                             onPressed: () {
                               setState(() {
@@ -202,6 +203,7 @@ class _RegisterViewState extends State<RegisterView> {
                       color: ColorsManger.kPrimaryColor,
                       width: MediaQuery.of(context).size.width,
                       onTap: () async {
+                        final text = S.of(context);
                         if (_formKey.currentState!.validate()) {
                           try {
                             await FirebaseAuth.instance
@@ -210,24 +212,16 @@ class _RegisterViewState extends State<RegisterView> {
                               password: password!.trim(),
                             );
 
-                            if (!mounted) return;
-
                             GoRouter.of(context)
                                 .pushReplacement(AppRouter.emailVerifiedView);
                           } on FirebaseAuthException catch (e) {
-                            if (!mounted) return;
-
                             String errorMessage =
                                 getFirebaseErrorMessage(e.code);
                             showAwesomeDialog(
-                                errorMessage, S.of(context).Error, context);
+                                errorMessage, text.Error, context);
                           } catch (e) {
-                            if (!mounted) return;
-
-                            showAwesomeDialog(
-                                S.of(context).Error,
-                                S.of(context).AnerroroccurredPleasetryagain,
-                                context);
+                            showAwesomeDialog(text.Error,
+                                text.AnerroroccurredPleasetryagain, context);
                           }
                         }
                       }),

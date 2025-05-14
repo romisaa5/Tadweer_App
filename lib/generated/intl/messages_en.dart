@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "A password reset email has been sent. Please check your inbox or spam folder",
         ),
+    "AppName": MessageLookupByLibrary.simpleMessage("Tadweer        "),
     "AppSettings": MessageLookupByLibrary.simpleMessage("App Settings"),
     "Applications": MessageLookupByLibrary.simpleMessage("Applications"),
     "Arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
@@ -80,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "Hi": MessageLookupByLibrary.simpleMessage("Hi , "),
     "Imagenotfound": MessageLookupByLibrary.simpleMessage("Image not found"),
     "Index": MessageLookupByLibrary.simpleMessage("Index"),
+    "LOGIN": MessageLookupByLibrary.simpleMessage("LOGIN"),
     "LetsaddsomeTasksandstayproductive": MessageLookupByLibrary.simpleMessage(
       "Let’s add some Tasks and stay productive",
     ),
@@ -253,7 +255,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "We have sent you an email with a link to reset your password",
         ),
     "welcometoUpTodo": MessageLookupByLibrary.simpleMessage(
-      "Welcome to UpTodo",
+      "Welcome to Tadweer",
     ),
     "youcaneasilymanageallofyourdailytasksinDoMeforfree":
         MessageLookupByLibrary.simpleMessage(

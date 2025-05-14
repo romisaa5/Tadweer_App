@@ -11,7 +11,7 @@ import 'package:toda_app/Features/Auth/Register/presentation/views/up_load_image
 import 'package:toda_app/Features/home/models/task_model.dart';
 import 'package:toda_app/Features/home/presentation/home_view.dart';
 import 'package:toda_app/Features/home/presentation/views/edit_task_view.dart';
-import 'package:toda_app/Features/onboarding/presentation/views/Language_Theme_Selection_view.dart';
+import 'package:toda_app/Features/onboarding/presentation/views/language_theme_selection_view.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/first_screen.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/second_screen.dart';
 import 'package:toda_app/Features/onboarding/presentation/views/third_screen.dart';

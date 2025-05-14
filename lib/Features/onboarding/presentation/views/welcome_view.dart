@@ -35,7 +35,7 @@ class WelcomeView extends StatelessWidget {
               onTap: () {
                 GoRouter.of(context).pushReplacement(AppRouter.loginView);
               },
-              text: S.of(context).login,
+              text: S.of(context).LOGIN,
               color: theme.colorScheme.primary,
               width: MediaQuery.of(context).size.width,
             ),

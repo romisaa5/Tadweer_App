@@ -17,7 +17,7 @@
     "next": "Next",
     "back": "Back",
     "getStarted": "GET STARTED",
-    "welcometoUpTodo": "Welcome to UpTodo",
+    "welcometoUpTodo": "Welcome to Tadweer",
     "pleaselogintoyouraccountorcreatenewaccounttocontinue": "Please login to your account or create new account to continue",
     "login": "Login",
     "createaccount": "CREATE ACCOUNT",
@@ -130,7 +130,9 @@
     "Gallerypermissiondenied":"Gallery permission denied",
     "Noimageselected": "No image selected",
     "Imagenotfound": "Image not found",
-    "Camerapermissiondenied": "Camera permission denied"
+    "Camerapermissiondenied": "Camera permission denied",
+    "AppName":"Tadweer        ",
+    "LOGIN":"LOGIN"
 
 
 }

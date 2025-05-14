@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "تم إرسال بريد إلكتروني لإعادة تعيين كلمة المرور. من فضلك افحص البريد الوارد أو مجلد الرسائل غير المرغوب فيها",
         ),
+    "AppName": MessageLookupByLibrary.simpleMessage("تدوير          "),
     "AppSettings": MessageLookupByLibrary.simpleMessage("إعدادات التطبيق"),
     "Applications": MessageLookupByLibrary.simpleMessage("التطبيقات"),
     "Arabic": MessageLookupByLibrary.simpleMessage("العربية"),
@@ -82,6 +83,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تعذّر العثور على الصورة",
     ),
     "Index": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "LOGIN": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "LetsaddsomeTasksandstayproductive": MessageLookupByLibrary.simpleMessage(
       "دعنا نضيف بعض المهام ونبقى منتجين",
     ),
@@ -249,7 +251,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "تم إرسال بريد إلكتروني يحتوي على رابط لإعادة تعيين كلمة المرور. من فضلك راجع بريدك الإلكتروني واستكمل الخطوات ",
         ),
     "welcometoUpTodo": MessageLookupByLibrary.simpleMessage(
-      "أهلا بيك في UpTodo",
+      " ( أهلا بيك في ( تدوير",
     ),
     "youcaneasilymanageallofyourdailytasksinDoMeforfree":
         MessageLookupByLibrary.simpleMessage(

@@ -149,7 +149,8 @@ class _ProfileViewState extends State<ProfileView> {
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8.r),
                                 borderSide: BorderSide(
-                                  color: colorScheme.secondary.withOpacity(.7),
+                                  color: colorScheme.secondary
+                                      .withValues(alpha: .7),
                                   width: 1.5,
                                 ),
                               ),
@@ -251,8 +252,9 @@ class _ProfileViewState extends State<ProfileView> {
                               .pushReplacement(AppRouter.loginView);
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                                content: Text(
-                                    'You have been logged out successfully.')),
+                              content: Text(
+                                  'You have been logged out successfully.'),
+                            ),
                           );
                         } catch (e) {
                           print('Logout error: $e');
