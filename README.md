@@ -1,16 +1,45 @@
-# toda_app
+# 📱 Tadweer - To Do App
 
-A new Flutter project.
+**Tadweer** is a creative and efficient To-Do app built with Flutter, designed to help you manage your daily tasks with clarity and ease.
 
-## Getting Started
+The name *"Tadweer"* (تدوير) means *"cycle"* or *"rotation"* in Arabic — because productivity is a continuous loop, and Tadweer helps you keep it going.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## ✨ Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 📝 Add, update,Edit and delete tasks  
+- ✅ Mark tasks as completed or pending  
+- 🔐 User authentication with Firebase  
+- ☁️ Cloud task storage using Firestore  
+- 🔄 State management using both Provider and Cubit  
+- 🎨 Clean, responsive, and minimal UI
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🚀 Why Tadweer?
+
+Because every day brings new challenges — and **Tadweer** gives you the space to manage your life one task at a time.
+
+> *Tadweer — keeping your day in motion.*
+
+---
+
+## 🛠️ Tech Stack
+
+- **Flutter** & **Dart**  
+- **Firebase Authentication** – secure login/signup  
+- **Cloud Firestore** – cloud database for user tasks  
+- **SharedPreferences** 
+- **State Management:**  
+  - `Provider` 
+  - `Cubit` 
+
+---
+
+## 📦 Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/romisaa5/Tadweer_App.git
+   cd Tadweer_App
