@@ -65,6 +65,7 @@ Because every day brings new challenges — and **Tadweer** gives you the space 
   <img src="assets/README assets/select_date.PNG"width="200px" height="360px" />
 </p>
 <p align="center">
+  <img src="assets/README assets/edit_delete.PNG" width="200px" height="360px" />
   <img src="assets/README assets/select_catogry.PNG" width="200px" height="360px" />
   <img src="assets/README assets/focus_screen.PNG" width="200px" height="360px" />
   <img src="assets/README assets/profile_screen.PNG" width="200px" height="360px" />
