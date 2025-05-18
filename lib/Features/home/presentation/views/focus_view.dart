@@ -25,10 +25,7 @@ class _FocusViewState extends State<FocusView> {
   Future<void> enableDND() async {
     try {
       await platform.invokeMethod('enableDND');
-    } catch (e) {
-
-
-    }
+    } catch (e) {}
   }
 
   void toggleTimer() {

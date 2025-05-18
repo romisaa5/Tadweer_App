@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toda_app/core/helper/show_error.dart';
+import 'package:toda_app/core/helper/validation_methods.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/widgets/custom_button.dart';
@@ -50,7 +51,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       .of(context)
                       .enteryouremailaddressandwewillsendyoualinktoresetyourpassword,
                   style: Styles.textStyle16.copyWith(
-                    color: textTheme.bodyMedium?.color?.withOpacity(0.7),
+                    color: textTheme.bodyMedium?.color?.withValues(alpha:  0.7),
                   ),
                 ),
                 Text(
@@ -61,13 +62,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   controller: emailController,
                   hintText: S.of(context).email,
                   validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return S.of(context).Thefieldisrequired;
-                    }
-                    if (!RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+')
-                        .hasMatch(value)) {
-                      return S.of(context).Enteravalidemail;
-                    }
+                    ValidationMethods.validateEmail(value);
                     return null;
                   },
                 ),

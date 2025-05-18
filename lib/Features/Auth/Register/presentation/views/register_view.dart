@@ -38,7 +38,6 @@ class _RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     final textTheme = theme.textTheme;
     final colorScheme = theme.colorScheme;
     return Scaffold(
@@ -218,7 +217,7 @@ class _RegisterViewState extends State<RegisterView> {
                             String errorMessage =
                                 getFirebaseErrorMessage(e.code);
                             showAwesomeDialog(
-                                errorMessage, text.Error, context);
+                                errorMessage, text.Error,context);
                           } catch (e) {
                             showAwesomeDialog(text.Error,
                                 text.AnerroroccurredPleasetryagain, context);

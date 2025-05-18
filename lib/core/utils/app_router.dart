@@ -1,8 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
-import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/password_reset.dart';
-import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/set_new_password.dart';
-import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/verificationScreen.dart';
 import 'package:toda_app/Features/Auth/Forget%20password/presentation/views/forget_password.dart';
 import 'package:toda_app/Features/Auth/Login/presentation/views/login_view.dart';
 import 'package:toda_app/Features/Auth/Register/presentation/views/email_verified_view.dart';
@@ -28,9 +25,6 @@ abstract class AppRouter {
   static final emailVerifiedView = '/emailverifiedview';
   static final upLoadimage = '/uploadimage';
   static final forgetpasssword = '/forgetpassword';
-  static final verificationScreen = '/verificationScreen';
-  static final passwordreset = '/passwordreset';
-  static final setnewpassword = '/setnewpassword';
   static final String homeview = '/homeview';
   static const String appSetting = '/appSetting';
   static const String taskediting = '/taskediting';
@@ -77,18 +71,6 @@ abstract class AppRouter {
       GoRoute(
         path: forgetpasssword,
         builder: (context, state) => ForgetPassword(),
-      ),
-      GoRoute(
-        path: verificationScreen,
-        builder: (context, state) => VerificationScreen(),
-      ),
-      GoRoute(
-        path: passwordreset,
-        builder: (context, state) => PasswordReset(),
-      ),
-      GoRoute(
-        path: setnewpassword,
-        builder: (context, state) => SetNewPassword(),
       ),
       GoRoute(
         path: appSetting,
