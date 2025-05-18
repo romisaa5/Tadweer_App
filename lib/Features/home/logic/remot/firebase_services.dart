@@ -14,7 +14,7 @@ class FirebaseServices {
     return docReference.set(task);
   }
 
-  static Future<void> deletetask(String id) {
+  static Future<void> deleteTask(String id) {
     CollectionReference<TaskModel> taskCollection = getTaskCollection();
     return taskCollection.doc(id).delete();
   }
@@ -23,10 +23,6 @@ class FirebaseServices {
     CollectionReference<TaskModel> taskCollection = getTaskCollection();
     QuerySnapshot<TaskModel> taskQuery = await taskCollection.get();
     return taskQuery.docs.map((e) => e.data()).toList();
-  }
-
-  static Future<void> deleteTask(String taskId) async {
-    await FirebaseFirestore.instance.collection('tasks').doc(taskId).delete();
   }
 
   static Future<void> updateTask(TaskModel task) async {

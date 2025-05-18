@@ -36,6 +36,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "AppSettings": MessageLookupByLibrary.simpleMessage("App Settings"),
     "Applications": MessageLookupByLibrary.simpleMessage("Applications"),
     "Arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "Areyousureyouwanttodeletethistask": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to delete this task?",
+    ),
     "Areyousureyouwanttologout": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to log out?",
     ),
@@ -61,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "ChoosefromGallery": MessageLookupByLibrary.simpleMessage(
       "Choose from Gallery",
     ),
+    "Delete": MessageLookupByLibrary.simpleMessage("Delete"),
     "Details": MessageLookupByLibrary.simpleMessage("Details"),
     "EditTask": MessageLookupByLibrary.simpleMessage("Edit Task"),
     "EmailVerification": MessageLookupByLibrary.simpleMessage(
@@ -190,6 +194,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Create your account",
     ),
     "darkmode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
+    "deleteTask": MessageLookupByLibrary.simpleMessage("Delete Task"),
     "donthaveanaccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),

@@ -70,11 +70,19 @@ class TaskProvider with ChangeNotifier {
   }
 
   Future<void> editTask(TaskModel updatedTask) async {
-    await FirebaseServices.updateTask(updatedTask);
-    int index = tasks.indexWhere((task) => task.id == updatedTask.id);
-    if (index != -1) {
-      tasks[index] = updatedTask;
-      notifyListeners();
+    try {
+      await FirebaseServices.updateTask(updatedTask);
+      await getTasksByDate();
+    } catch (e) {
+      Fluttertoast.showToast(
+        msg: e.toString(),
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
     }
   }
 }

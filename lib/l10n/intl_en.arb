@@ -132,7 +132,11 @@
     "Imagenotfound": "Image not found",
     "Camerapermissiondenied": "Camera permission denied",
     "AppName":"Tadweer        ",
-    "LOGIN":"LOGIN"
+    "LOGIN":"LOGIN",
+    "deleteTask":"Delete Task",
+    "Areyousureyouwanttodeletethistask":"Are you sure you want to delete this task?",
+    "Delete":"Delete"
+    
 
 
 }

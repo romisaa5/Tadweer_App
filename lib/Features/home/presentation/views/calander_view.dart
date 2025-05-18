@@ -33,7 +33,7 @@ class _CalanderViewState extends State<CalanderView> {
     final tasks = context.watch<TaskProvider>().tasks;
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    var provider = Provider.of<TaskProvider>(context);
+    var provider = Provider.of<TaskProvider>(context, listen: false);
 
     return CustomScaffoldBg(
       appBar: AppBar(
@@ -111,7 +111,7 @@ class _CalanderViewState extends State<CalanderView> {
                       Image.asset(
                         'assets/images/checklist.png',
                         height: 80.h,
-                        width: 70.w,
+                        width: 80.w,
                         fit: BoxFit.fill,
                       ),
                       SizedBox(
@@ -132,7 +132,8 @@ class _CalanderViewState extends State<CalanderView> {
                   )
                 : ListView.builder(
                     itemCount: tasks.length,
-                    itemBuilder: (_, index) {
+                    itemBuilder: (context, index) {
+                      provider.getTasksByDate();
                       return TaskCard(taskModel: tasks[index]);
                     },
                   ),

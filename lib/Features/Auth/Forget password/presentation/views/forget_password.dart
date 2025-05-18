@@ -51,7 +51,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       .of(context)
                       .enteryouremailaddressandwewillsendyoualinktoresetyourpassword,
                   style: Styles.textStyle16.copyWith(
-                    color: textTheme.bodyMedium?.color?.withValues(alpha:  0.7),
+                    color: textTheme.bodyMedium?.color?.withValues(alpha: 0.7),
                   ),
                 ),
                 Text(

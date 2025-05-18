@@ -1075,6 +1075,26 @@ class S {
   String get LOGIN {
     return Intl.message('LOGIN', name: 'LOGIN', desc: '', args: []);
   }
+
+  /// `Delete Task`
+  String get deleteTask {
+    return Intl.message('Delete Task', name: 'deleteTask', desc: '', args: []);
+  }
+
+  /// `Are you sure you want to delete this task?`
+  String get Areyousureyouwanttodeletethistask {
+    return Intl.message(
+      'Are you sure you want to delete this task?',
+      name: 'Areyousureyouwanttodeletethistask',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get Delete {
+    return Intl.message('Delete', name: 'Delete', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
