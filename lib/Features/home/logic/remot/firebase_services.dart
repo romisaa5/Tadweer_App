@@ -39,4 +39,13 @@ class FirebaseServices {
         .get();
     return taskQuery.docs.map((e) => e.data()).toList();
   }
+
+  static Future<List<TaskModel>> getAllTasks() async {
+    final querySnapshot =
+        await FirebaseFirestore.instance.collection('tasks').get();
+
+    return querySnapshot.docs
+        .map((doc) => TaskModel.fromJson(doc.data()))
+        .toList();
+  }
 }

@@ -7,6 +7,15 @@ class TaskProvider with ChangeNotifier {
   List<TaskModel> tasks = [];
   DateTime selectDate = DateTime.now();
 
+  Future<void> getAllTasks() async {
+  try {
+    List<TaskModel> allTasks = await FirebaseServices.getAllTasks();  
+    tasks = allTasks;
+    notifyListeners();
+  } catch (e) {
+    Fluttertoast.showToast(msg: e.toString());
+  }
+}
   Future<void> getTasksByDate() async {
     try {
       List<TaskModel> allTasks = await FirebaseServices.getTasksByDate(
@@ -23,6 +32,19 @@ class TaskProvider with ChangeNotifier {
           textColor: Colors.white,
           fontSize: 16.0);
     }
+  }
+
+  Future<void> markAsDone(String id) async {
+    final taskIndex = tasks.indexWhere((task) => task.id == id);
+    if (taskIndex != -1) {
+      tasks[taskIndex].isDone = true;
+      await FirebaseServices.updateTask(tasks[taskIndex]);
+      notifyListeners();
+    }
+  }
+
+  TaskModel getTaskById(String id) {
+    return tasks.firstWhere((task) => task.id == id);
   }
 
   Future<void> addTask(TaskModel newTask) async {

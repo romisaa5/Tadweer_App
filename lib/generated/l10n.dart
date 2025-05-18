@@ -1095,6 +1095,11 @@ class S {
   String get Delete {
     return Intl.message('Delete', name: 'Delete', desc: '', args: []);
   }
+
+  /// `Task Status`
+  String get TaskStatus {
+    return Intl.message('Task Status', name: 'TaskStatus', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

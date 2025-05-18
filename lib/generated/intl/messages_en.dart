@@ -144,6 +144,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "TaskDetails": MessageLookupByLibrary.simpleMessage("Task Details"),
     "TaskName": MessageLookupByLibrary.simpleMessage("Task Name"),
+    "TaskStatus": MessageLookupByLibrary.simpleMessage("Task Status"),
     "TasksDone": MessageLookupByLibrary.simpleMessage("Tasks Done"),
     "TasksLeft": MessageLookupByLibrary.simpleMessage("Tasks Left"),
     "Thefieldisrequired": MessageLookupByLibrary.simpleMessage(

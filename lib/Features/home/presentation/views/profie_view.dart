@@ -5,7 +5,9 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toda_app/Features/home/logic/provider/task_provider.dart';
 import 'package:toda_app/Features/home/presentation/widgets/number_of_task_done_or_left.dart';
 import 'package:toda_app/Features/home/presentation/widgets/profile_list_tile.dart';
 import 'package:toda_app/core/helper/profile_image_picker.dart';
@@ -28,6 +30,7 @@ class _ProfileViewState extends State<ProfileView> {
   @override
   void initState() {
     super.initState();
+    Provider.of<TaskProvider>(context, listen: false).getAllTasks();
     _loadImagePath();
   }
 
@@ -45,7 +48,9 @@ class _ProfileViewState extends State<ProfileView> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-
+    final tasks = Provider.of<TaskProvider>(context).tasks;
+    final doneTasks = tasks.where((task) => task.isDone).length;
+    final notDoneTasks = tasks.where((task) => !task.isDone).length;
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.only(left: 16.0.w, right: 16.w, top: 16.h),
@@ -80,8 +85,10 @@ class _ProfileViewState extends State<ProfileView> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  NumberOfTaskDoneOrLeft(text: '10 ${S.of(context).TasksLeft}'),
-                  NumberOfTaskDoneOrLeft(text: '15 ${S.of(context).TasksDone}')
+                  NumberOfTaskDoneOrLeft(
+                      text: '$notDoneTasks ${S.of(context).TasksLeft}'),
+                  NumberOfTaskDoneOrLeft(
+                      text: '$doneTasks ${S.of(context).TasksDone}'),
                 ],
               ),
               Divider(

@@ -36,37 +36,35 @@ class TaskCard extends StatelessWidget {
             SlidableAction(
               onPressed: (BuildContext context) {
                 showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: Text(S.of(context).deleteTask),
-                      content:
-                          Text(S.of(context).Areyousureyouwanttodeletethistask),
-                      actions: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text(S.of(context).Cancel),
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            Provider.of<TaskProvider>(context, listen: false)
-                                .deleteTask(taskModel.id);
-
-                            Navigator.pop(context);
-                          },
-                          child: Text(S.of(context).Delete),
-                        ),
-                      ],
-                    );
-                  },
-                );
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text(S.of(context).deleteTask),
+                        content: Text(
+                            S.of(context).Areyousureyouwanttodeletethistask),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(S.of(context).Cancel),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Provider.of<TaskProvider>(context, listen: false)
+                                  .deleteTask(taskModel.id);
+                              Navigator.pop(context);
+                            },
+                            child: Text(S.of(context).Delete),
+                          ),
+                        ],
+                      );
+                    });
               },
               backgroundColor: Color(0xFFFE4A49),
               foregroundColor: Colors.white,
               icon: Icons.delete,
-              label: 'Delete',
+              label: S.of(context).Delete,
               borderRadius: BorderRadius.horizontal(
                 left: Radius.circular(12.r),
               ),
@@ -125,15 +123,42 @@ class TaskCard extends StatelessWidget {
                 Spacer(),
                 Column(
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: ColorsManger.kPrimaryColor,
-                        borderRadius: BorderRadius.circular(8.r),
-                      ),
-                      height: 35.h,
-                      width: 60.w,
-                      child:
-                          Icon(Icons.check, color: Colors.white, size: 24.sp),
+                    GestureDetector(
+                      onTap: () {
+                        Provider.of<TaskProvider>(context, listen: false)
+                            .markAsDone(taskModel.id);
+                      },
+                      child: taskModel.isDone
+                          ? Container(
+                              height: 35.h,
+                              width: 60.w,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.circular(8.r),
+                              ),
+                              child: Text(
+                                'Done',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            )
+                          : GestureDetector(
+                              onTap: () {
+                                Provider.of<TaskProvider>(context,
+                                        listen: false)
+                                    .markAsDone(taskModel.id);
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: ColorsManger.kPrimaryColor,
+                                  borderRadius: BorderRadius.circular(8.r),
+                                ),
+                                height: 35.h,
+                                width: 60.w,
+                                child: Icon(Icons.check,
+                                    color: Colors.white, size: 24.sp),
+                              ),
+                            ),
                     ),
                     SizedBox(height: 20.h),
                     Row(

@@ -1,6 +1,8 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:toda_app/core/themes/colors.dart';
+import 'package:toda_app/core/themes/text_styles.dart';
+import 'package:toda_app/generated/l10n.dart';
 
 void showAwesomeDialog(String desc, String title, BuildContext context,
     {DialogType? dialogType, void Function()? btnOkOnPress}) {
@@ -15,6 +17,52 @@ void showAwesomeDialog(String desc, String title, BuildContext context,
     showCloseIcon: false,
     btnOkOnPress: btnOkOnPress ?? () {},
   ).show();
+}
+
+void showError(
+    {required Color backgroundColor,
+    required String errorMessage,
+    required BuildContext context,
+    required String title,
+    void Function()? onPressedok,
+    required String textOk}) {
+  showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: backgroundColor,
+          title: Text(title),
+          content: Text(errorMessage,
+              style: Styles.textStyle16.copyWith(
+                color: Colors.grey,
+                fontWeight: FontWeight.w500,
+              )),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                S.of(context).Cancel,
+                style: Styles.textStyle16.copyWith(
+                  color: ColorsManger.kPrimaryColor,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: onPressedok,
+              child: Text(
+                textOk,
+                style: Styles.textStyle16.copyWith(
+                  color: ColorsManger.kPrimaryColor,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+          ],
+        );
+      });
 }
 
 String getFirebaseErrorMessage(String errorCode) {

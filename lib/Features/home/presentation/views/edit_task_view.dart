@@ -26,6 +26,7 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
   late TextEditingController detailsController;
   late TextEditingController categoryController;
   late DateTime selectedDate;
+  late bool isDone;
 
   @override
   void initState() {
@@ -34,6 +35,7 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
     detailsController = TextEditingController(text: widget.task.details);
     categoryController = TextEditingController(text: widget.task.category);
     selectedDate = widget.task.date;
+    isDone = widget.task.isDone;
   }
 
   @override
@@ -161,6 +163,28 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
                 ),
               ],
             ),
+            Row(
+              children: [
+                Text(
+                  S.of(context).TaskStatus,
+                  style:
+                      Styles.textStyle16.copyWith(color: colorScheme.secondary),
+                ),
+                const Spacer(),
+                Switch(
+                  value: isDone,
+                  activeColor: ColorsManger.kPrimaryColor,
+                  inactiveThumbColor: colorScheme.secondary,
+                  inactiveTrackColor: Colors.grey,
+                  
+                  onChanged: (value) {
+                    setState(() {
+                      isDone = value;
+                    });
+                  },
+                ),
+              ],
+            ),
             Spacer(),
             CustomButton(
               width: double.infinity,
@@ -172,6 +196,7 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
                   details: detailsController.text,
                   category: categoryController.text,
                   date: selectedDate,
+                  isDone: isDone,
                 );
                 final navigator = Navigator.pop(context);
                 await provider.editTask(updatedTask);

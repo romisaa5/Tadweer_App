@@ -135,7 +135,8 @@
     "LOGIN":"LOGIN",
     "deleteTask":"Delete Task",
     "Areyousureyouwanttodeletethistask":"Are you sure you want to delete this task?",
-    "Delete":"Delete"
+    "Delete":"Delete",
+    "TaskStatus":"Task Status"
     
 
 
