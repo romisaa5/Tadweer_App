@@ -36,6 +36,41 @@ Because every day brings new challenges — and **Tadweer** gives you the space 
   - `Cubit` 
 
 ---
+## 📸 Screenshots
+
+> The app is currently displayed in **dark mode** and supports the **English language** only.
+
+<p align="center">
+  <img src="assets/README assets/Splash_Screen.PNG" width="200px" height="360px" />
+  <img src="assets/README assets/select_langauge_theme_screen.PNG" width="200px" height="360px" />
+  <img src="assets/README assets/onboard1.png" width="200px" height="360px" />
+  <img src="assets/README assets/onboard2.png"width="200px" height="360px" />
+</p>
+<p align="center">
+  <img src="assets/README assets/onboard3.PNG" width="200px" height="360px" />
+  <img src="assets/README assets/login_screen.PNG" width="200px" height="360px" />
+  <img src="assets/README assets/forget_password.PNG" width="200px" height="360px" />
+  <img src="assets/README assets/register_screen.PNG"width="200px" height="360px" />
+</p>
+<p align="center">
+  <img src="assets/README assets/email_verficition.PNG" width="200px" height="360px" />
+  <img src="assets/README assets/upload_profile_picture.PNG" width="200px" height="360px" />
+  <img src="assets/README assets/choose_upload_image.PNG" width="200px" height="360px" />
+  <img src="assets/README assets/index_screen.PNG"width="200px" height="360px" />
+</p>
+<p align="center">
+  <img src="assets/README assets/No_tasks.PNG" width="200px" height="360px" />
+  <img src="assets/README assets/add_task.PNG" width="200px" height="360px" />
+  <img src="assets/README assets/add_task_done.PNG" width="200px" height="360px" />
+  <img src="assets/README assets/select_date.PNG"width="200px" height="360px" />
+</p>
+<p align="center">
+  <img src="assets/README assets/select_catogry.PNG" width="200px" height="360px" />
+  <img src="assets/README assets/focus_screen.PNG" width="200px" height="360px" />
+  <img src="assets/README assets/profile_screen.PNG" width="200px" height="360px" />
+</p>
+
+---
 
 ## 📦 Installation
 
