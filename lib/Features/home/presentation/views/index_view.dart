@@ -1,8 +1,11 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toda_app/Features/Auth/Register/models/user_model.dart';
 import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/generated/l10n.dart';
 
@@ -15,11 +18,25 @@ class IndexView extends StatefulWidget {
 
 class _IndexViewState extends State<IndexView> {
   File? _profileImage;
-
+  UserModel? currentUser;
   @override
   void initState() {
     super.initState();
+
     _loadProfileImage();
+    fetchCurrentUserData();
+  }
+
+  Future<void> fetchCurrentUserData() async {
+    final uid = FirebaseAuth.instance.currentUser?.uid;
+    if (uid == null) return;
+    final doc =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+    if (doc.exists && mounted) {
+      setState(() {
+        currentUser = UserModel.fromJson(doc.data()!);
+      });
+    }
   }
 
   Future<void> _loadProfileImage() async {
@@ -43,7 +60,7 @@ class _IndexViewState extends State<IndexView> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: Text(
-            'Hi, Romisaa',
+            '${S.of(context).Hi} ${currentUser?.firstName ?? ''}',
             style: Styles.textStyle18.copyWith(
               color: textTheme.bodyLarge!.color,
             ),
@@ -95,4 +112,3 @@ class _IndexViewState extends State<IndexView> {
     );
   }
 }
-

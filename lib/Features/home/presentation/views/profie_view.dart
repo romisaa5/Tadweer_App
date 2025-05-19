@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -24,7 +25,10 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileViewState extends State<ProfileView> {
-  String accountName = 'Romisaa Fadel';
+  String firstName = '';
+  String lastName = '';
+  String get accountName => '$firstName $lastName';
+
   File? _imageFile;
 
   @override
@@ -32,6 +36,23 @@ class _ProfileViewState extends State<ProfileView> {
     super.initState();
     Provider.of<TaskProvider>(context, listen: false).getAllTasks();
     _loadImagePath();
+    _loadUserName();
+  }
+
+  Future<void> _loadUserName() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      final doc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .get();
+      if (doc.exists) {
+        setState(() {
+          firstName = doc.data()?['firstName'] ?? '';
+          lastName = doc.data()?['lastName'] ?? '';
+        });
+      }
+    }
   }
 
   Future<void> _loadImagePath() async {
@@ -126,65 +147,12 @@ class _ProfileViewState extends State<ProfileView> {
                   ),
                   ProfileListTile(
                     title: S.of(context).Changeaccountname,
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                          title: Text(S.of(context).Changeaccountname,
-                              style: Styles.textStyle16.copyWith(
-                                color: colorScheme.secondary,
-                                fontWeight: FontWeight.bold,
-                              )),
-                          content: TextField(
-                            onChanged: (value) {
-                              setState(() {
-                                accountName = value;
-                              });
-                            },
-                            decoration: InputDecoration(
-                              hintText: S.of(context).NewName,
-                              hintStyle: Styles.textStyle14.copyWith(
-                                color: colorScheme.secondary,
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8.r),
-                                borderSide: BorderSide(
-                                  color: colorScheme.primary,
-                                  width: 1.5,
-                                ),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8.r),
-                                borderSide: BorderSide(
-                                  color: colorScheme.secondary
-                                      .withValues(alpha: .7),
-                                  width: 1.5,
-                                ),
-                              ),
-                            ),
-                          ),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Text(S.of(context).Save),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Text(S.of(context).Cancel),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
+                    onPressed: showChangeNameDialog,
                     icon: Icons.person_outlined,
                   ),
                   ProfileListTile(
                       title: S.of(context).Changeaccountpassword,
-                      onPressed: () {},
+                      onPressed: showChangePasswordDialog,
                       icon: Icons.lock_outline),
                   ProfileListTile(
                     title: S.of(context).ChangeaccountImage,
@@ -209,7 +177,6 @@ class _ProfileViewState extends State<ProfileView> {
                     title: S.of(context).LogOut,
                     onPressed: () async {
                       final shouldLogout = await showDialog<bool>(
-                        barrierColor: colorScheme.background,
                         context: context,
                         builder: (context) => AlertDialog(
                           title: Text(
@@ -264,7 +231,6 @@ class _ProfileViewState extends State<ProfileView> {
                             ),
                           );
                         } catch (e) {
-                          print('Logout error: $e');
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                                 content: Text(
@@ -280,6 +246,160 @@ class _ProfileViewState extends State<ProfileView> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  void showChangeNameDialog() {
+    final firstNameController = TextEditingController(text: firstName);
+    final lastNameController = TextEditingController(text: lastName);
+
+    showDialog(
+      context: context,
+      builder: (BuildContext dialogContext) => AlertDialog(
+        title: Text(S.of(context).Changeaccountname,
+            style: Styles.textStyle16.copyWith(
+              color: Theme.of(context).colorScheme.secondary,
+              fontWeight: FontWeight.bold,
+            )),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: firstNameController,
+              decoration: InputDecoration(
+                labelText: S.of(context).FirstName,
+              ),
+            ),
+            SizedBox(height: 8.h),
+            TextField(
+              controller: lastNameController,
+              decoration: InputDecoration(
+                labelText: S.of(context).LastName,
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+            },
+            child: Text(S.of(context).Cancel),
+          ),
+          TextButton(
+            onPressed: () async {
+              final newFirstName = firstNameController.text.trim();
+              final newLastName = lastNameController.text.trim();
+
+              if (newFirstName.isNotEmpty && newLastName.isNotEmpty) {
+                if (!mounted) return;
+                setState(() {
+                  firstName = newFirstName;
+                  lastName = newLastName;
+                });
+
+                Navigator.of(dialogContext).pop();
+                final user = FirebaseAuth.instance.currentUser;
+                if (user != null) {
+                  await FirebaseFirestore.instance
+                      .collection('users')
+                      .doc(user.uid)
+                      .update({
+                    'firstName': newFirstName,
+                    'lastName': newLastName,
+                  });
+                }
+              }
+            },
+            child: Text(S.of(context).Save),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void showChangePasswordDialog() {
+    final oldPasswordController = TextEditingController();
+    final newPasswordController = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Change Password'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: oldPasswordController,
+              decoration: InputDecoration(
+                  labelText: 'Current Password',
+                  labelStyle: Styles.textStyle12.copyWith(
+                    color: Theme.of(context).colorScheme.secondary,
+                  )),
+              obscureText: true,
+            ),
+            SizedBox(height: 10),
+            TextField(
+              controller: newPasswordController,
+              decoration: InputDecoration(
+                  labelText: 'New Password',
+                  labelStyle: Styles.textStyle12.copyWith(
+                    color: Theme.of(context).colorScheme.secondary,
+                  )),
+              obscureText: true,
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () async {
+              final user = FirebaseAuth.instance.currentUser;
+              final email = user?.email;
+              final oldPassword = oldPasswordController.text.trim();
+              final newPassword = newPasswordController.text.trim();
+
+              if (email != null &&
+                  oldPassword.isNotEmpty &&
+                  newPassword.length >= 8) {
+                try {
+                  final cred = EmailAuthProvider.credential(
+                    email: email,
+                    password: oldPassword,
+                  );
+
+                  await user!.reauthenticateWithCredential(cred);
+
+                  await user.updatePassword(newPassword);
+
+                  Navigator.of(context).pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Password changed successfully')),
+                  );
+                } on FirebaseAuthException catch (e) {
+                  print('Firebase error: ${e.code}');
+                  String message = 'Failed to change password';
+                  if (e.code == 'wrong-password') {
+                    message = 'Current password is incorrect';
+                  }
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(message)),
+                  );
+                } catch (e) {
+                  print('Unexpected error: $e');
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Unexpected error occurred')),
+                  );
+                }
+              }
+            },
+            child: Text('Save'),
+          ),
+        ],
       ),
     );
   }

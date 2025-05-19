@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "Error": MessageLookupByLibrary.simpleMessage("Error"),
     "FRI": MessageLookupByLibrary.simpleMessage("FRI"),
+    "FirstName": MessageLookupByLibrary.simpleMessage("First Name"),
     "Focus": MessageLookupByLibrary.simpleMessage("Focus"),
     "FocusMode": MessageLookupByLibrary.simpleMessage("Focus Mode"),
     "Gallerypermissiondenied": MessageLookupByLibrary.simpleMessage(
@@ -86,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "Imagenotfound": MessageLookupByLibrary.simpleMessage("Image not found"),
     "Index": MessageLookupByLibrary.simpleMessage("Index"),
     "LOGIN": MessageLookupByLibrary.simpleMessage("LOGIN"),
+    "LastName": MessageLookupByLibrary.simpleMessage("Last Name"),
     "LetsaddsomeTasksandstayproductive": MessageLookupByLibrary.simpleMessage(
       "Let’s add some Tasks and stay productive",
     ),

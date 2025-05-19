@@ -1100,6 +1100,16 @@ class S {
   String get TaskStatus {
     return Intl.message('Task Status', name: 'TaskStatus', desc: '', args: []);
   }
+
+  /// `First Name`
+  String get FirstName {
+    return Intl.message('First Name', name: 'FirstName', desc: '', args: []);
+  }
+
+  /// `Last Name`
+  String get LastName {
+    return Intl.message('Last Name', name: 'LastName', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

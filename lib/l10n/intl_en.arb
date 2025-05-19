@@ -136,7 +136,10 @@
     "deleteTask":"Delete Task",
     "Areyousureyouwanttodeletethistask":"Are you sure you want to delete this task?",
     "Delete":"Delete",
-    "TaskStatus":"Task Status"
+    "TaskStatus":"Task Status",
+    "FirstName":"First Name",
+    "LastName":"Last Name"
+
     
 
 

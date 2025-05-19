@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toda_app/Features/Auth/widgets/custom_devider.dart';
-import 'package:toda_app/core/helper/login_methods.dart';
 import 'package:toda_app/core/helper/show_error.dart';
 import 'package:toda_app/core/helper/validation_methods.dart';
 import 'package:toda_app/core/themes/colors.dart';

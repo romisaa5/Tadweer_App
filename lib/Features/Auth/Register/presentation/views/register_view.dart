@@ -1,7 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toda_app/Features/Auth/widgets/custom_devider.dart';
 import 'package:toda_app/core/helper/show_error.dart';
@@ -22,6 +22,9 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
+  final TextEditingController userNameController = TextEditingController();
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
@@ -59,27 +62,60 @@ class _RegisterViewState extends State<RegisterView> {
                       color: textTheme.bodyLarge!.color,
                     ),
                   ),
-                  SizedBox(height: 5.h),
-                  Text(
-                    S.of(context).username,
-                    style: Styles.textStyle14,
-                  ),
-                  AppTextFormField(
-                    maxLines: 1,
-                    onChanged: (userName) {
-                      setState(() {
-                        this.userName = userName;
-                      });
-                    },
-                    hintText: S.of(context).username,
-                    validator: (value) {
-                      ValidationMethods.validateUsername(value);
-                      return null;
-                    },
-                    prefixIcon: Icon(
-                      FontAwesomeIcons.user,
-                      color: Color(0xff8875FF),
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        spacing: 8.h,
+                        children: [
+                          Text('First Name', style: Styles.textStyle14),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.43,
+                            height: 50.h,
+                            child: AppTextFormField(
+                              controller: firstNameController,
+                              onChanged: (firstName) {
+                                setState(() {
+                                  firstName = firstName;
+                                });
+                              },
+                              hintText: 'First Name',
+                              validator: (value) {
+                                ValidationMethods.validateUsername(value);
+                                return null;
+                              },
+                              maxLines: 1,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        spacing: 10.h,
+                        children: [
+                          Text('Last Name', style: Styles.textStyle14),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.43,
+                            height: 50.h,
+                            child: AppTextFormField(
+                              controller: lastNameController,
+                              hintText: 'Last Name',
+                              validator: (value) {
+                                ValidationMethods.validateUsername(value);
+                                return null;
+                              },
+                              maxLines: 1,
+                              onChanged: (lastName) {
+                                setState(() {
+                                  lastName = lastName;
+                                });
+                              },
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
                   ),
                   Text(
                     S.of(context).email,
@@ -210,14 +246,32 @@ class _RegisterViewState extends State<RegisterView> {
                               email: email!.trim(),
                               password: password!.trim(),
                             );
-
+                            try {
+                              final uid =
+                                  FirebaseAuth.instance.currentUser!.uid;
+                              GoRouter.of(context)
+                                  .go(AppRouter.emailVerifiedView);
+                              await FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(uid)
+                                  .set({
+                                'uid': uid,
+                                'firstName': firstNameController.text.trim(),
+                                'lastName': lastNameController.text.trim(),
+                                'email': emailController.text.trim(),
+                              });
+                            } catch (e) {
+                              showAwesomeDialog('Firestore Error: $e',
+                                  S.of(context).Error, context);
+                            }
+                            if (!mounted) return;
                             GoRouter.of(context)
-                                .pushReplacement(AppRouter.emailVerifiedView);
+                                .push(AppRouter.emailVerifiedView);
                           } on FirebaseAuthException catch (e) {
                             String errorMessage =
                                 getFirebaseErrorMessage(e.code);
                             showAwesomeDialog(
-                                errorMessage, text.Error,context);
+                                errorMessage, text.Error, context);
                           } catch (e) {
                             showAwesomeDialog(text.Error,
                                 text.AnerroroccurredPleasetryagain, context);
