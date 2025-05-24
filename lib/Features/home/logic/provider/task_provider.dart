@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:toda_app/Features/home/logic/remot/firebase_services.dart';
@@ -6,16 +8,37 @@ import 'package:toda_app/Features/home/models/task_model.dart';
 class TaskProvider with ChangeNotifier {
   List<TaskModel> tasks = [];
   DateTime selectDate = DateTime.now();
+  String accountName = '';
+  String get accountname => accountName;
+
+  void setAccountName(String firstName, String lastName) {
+    accountName = '$firstName $lastName';
+    notifyListeners();
+  }
 
   Future<void> getAllTasks() async {
-  try {
-    List<TaskModel> allTasks = await FirebaseServices.getAllTasks();  
-    tasks = allTasks;
-    notifyListeners();
-  } catch (e) {
-    Fluttertoast.showToast(msg: e.toString());
+    try {
+      List<TaskModel> allTasks = await FirebaseServices.getAllTasks();
+      tasks = allTasks;
+      final userId = FirebaseAuth.instance.currentUser?.uid;
+      if (userId != null) {
+        final userDoc = await FirebaseFirestore.instance
+            .collection('users')
+            .doc(userId)
+            .get();
+        final data = userDoc.data();
+        if (data != null) {
+          final firstName = data['firstName'] ?? '';
+          final lastName = data['lastName'] ?? '';
+          setAccountName(firstName, lastName);
+        }
+      }
+      notifyListeners();
+    } catch (e) {
+      Fluttertoast.showToast(msg: e.toString());
+    }
   }
-}
+
   Future<void> getTasksByDate() async {
     try {
       List<TaskModel> allTasks = await FirebaseServices.getTasksByDate(
