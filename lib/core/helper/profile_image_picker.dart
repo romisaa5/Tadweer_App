@@ -33,7 +33,10 @@ Future<void> pickAndSaveImage({
             ListTile(
               leading: Icon(
                 Icons.camera_alt,
-                color: Theme.of(context).colorScheme.secondary.withOpacity(0.8),
+                color: Theme.of(context)
+                    .colorScheme
+                    .secondary
+                    .withValues(alpha: 0.8),
               ),
               title: Text(
                 S.of(context).Takeaphoto,
@@ -60,7 +63,8 @@ Future<void> pickAndSaveImage({
                   }
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(S.of(context).Camerapermissiondenied)),
+                    SnackBar(
+                        content: Text(S.of(context).Camerapermissiondenied)),
                   );
                 }
               },

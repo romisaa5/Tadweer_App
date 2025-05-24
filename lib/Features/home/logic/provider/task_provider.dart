@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toda_app/Features/home/logic/remot/firebase_services.dart';
 import 'package:toda_app/Features/home/models/task_model.dart';
 
@@ -10,6 +13,22 @@ class TaskProvider with ChangeNotifier {
   DateTime selectDate = DateTime.now();
   String accountName = '';
   String get accountname => accountName;
+  String? _accountImagePath;
+  String? get accountImagePath => _accountImagePath;
+
+  void setAccountImagePath(String? path) {
+    _accountImagePath = path;
+    notifyListeners();
+  }
+
+  Future<void> loadAccountImage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final path = prefs.getString('profile_image_path');
+    if (path != null && File(path).existsSync()) {
+      _accountImagePath = path;
+      notifyListeners();
+    }
+  }
 
   void setAccountName(String firstName, String lastName) {
     accountName = '$firstName $lastName';
