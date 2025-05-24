@@ -49,7 +49,7 @@ class _SelectDateandcategoryState extends State<SelectDateandcategory> {
                 if (date != null) {
                   setState(() {
                     initialDate = date;
-                    widget.onDateSelected(initialDate); 
+                    widget.onDateSelected(initialDate);
                   });
                 }
               },
@@ -67,12 +67,13 @@ class _SelectDateandcategoryState extends State<SelectDateandcategory> {
             TextButton(
               onPressed: () async {
                 final result = await showModalBottomSheet(
+                  backgroundColor: colorScheme.surface,
                   isScrollControlled: true,
                   context: context,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(20)),
                   ),
-                  backgroundColor: colorScheme.background,
                   builder: (context) => CategorySelector(
                     onCategorySelected: (category) {
                       Navigator.pop(context, category);
@@ -82,7 +83,7 @@ class _SelectDateandcategoryState extends State<SelectDateandcategory> {
                 if (result != null) {
                   setState(() {
                     selectedCategory = result;
-                    widget.onCategorySelected(selectedCategory); 
+                    widget.onCategorySelected(selectedCategory);
                   });
                 }
               },

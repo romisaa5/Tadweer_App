@@ -14,14 +14,9 @@ import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/generated/l10n.dart';
 
-class ProfileView extends StatefulWidget {
+class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
 
-  @override
-  State<ProfileView> createState() => _ProfileViewState();
-}
-
-class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
     final accountName = Provider.of<TaskProvider>(context).accountname;

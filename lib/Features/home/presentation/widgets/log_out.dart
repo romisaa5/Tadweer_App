@@ -9,14 +9,9 @@ import 'package:toda_app/core/themes/text_styles.dart';
 import 'package:toda_app/core/utils/app_router.dart';
 import 'package:toda_app/generated/l10n.dart';
 
-class LogOut extends StatefulWidget {
+class LogOut extends StatelessWidget {
   const LogOut({super.key});
 
-  @override
-  State<LogOut> createState() => _LogOutState();
-}
-
-class _LogOutState extends State<LogOut> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
