@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toda_app/Features/home/logic/provider/task_provider.dart';
 import 'package:toda_app/Features/home/presentation/widgets/change_acount_name.dart';
+import 'package:toda_app/Features/home/presentation/widgets/change_acount_password.dart';
 import 'package:toda_app/Features/home/presentation/widgets/number_of_task_done_or_left.dart';
 import 'package:toda_app/Features/home/presentation/widgets/profile_list_tile.dart';
 import 'package:toda_app/core/helper/profile_image_picker.dart';
@@ -126,10 +127,7 @@ class _ProfileViewState extends State<ProfileView> {
                     ),
                   ),
                   ChangeAcountName(),
-                  ProfileListTile(
-                      title: S.of(context).Changeaccountpassword,
-                      onPressed: showChangePasswordDialog,
-                      icon: Icons.lock_outline),
+                  ChangeAcountPassword(),
                   ProfileListTile(
                     title: S.of(context).ChangeaccountImage,
                     onPressed: () async {
@@ -222,91 +220,6 @@ class _ProfileViewState extends State<ProfileView> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  void showChangePasswordDialog() {
-    final oldPasswordController = TextEditingController();
-    final newPasswordController = TextEditingController();
-
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text('Change Password'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextField(
-              controller: oldPasswordController,
-              decoration: InputDecoration(
-                  labelText: 'Current Password',
-                  labelStyle: Styles.textStyle12.copyWith(
-                    color: Theme.of(context).colorScheme.secondary,
-                  )),
-              obscureText: true,
-            ),
-            SizedBox(height: 10),
-            TextField(
-              controller: newPasswordController,
-              decoration: InputDecoration(
-                  labelText: 'New Password',
-                  labelStyle: Styles.textStyle12.copyWith(
-                    color: Theme.of(context).colorScheme.secondary,
-                  )),
-              obscureText: true,
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () async {
-              final user = FirebaseAuth.instance.currentUser;
-              final email = user?.email;
-              final oldPassword = oldPasswordController.text.trim();
-              final newPassword = newPasswordController.text.trim();
-
-              if (email != null &&
-                  oldPassword.isNotEmpty &&
-                  newPassword.length >= 8) {
-                try {
-                  final cred = EmailAuthProvider.credential(
-                    email: email,
-                    password: oldPassword,
-                  );
-
-                  await user!.reauthenticateWithCredential(cred);
-
-                  await user.updatePassword(newPassword);
-
-                  Navigator.of(context).pop();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Password changed successfully')),
-                  );
-                } on FirebaseAuthException catch (e) {
-                  print('Firebase error: ${e.code}');
-                  String message = 'Failed to change password';
-                  if (e.code == 'wrong-password') {
-                    message = 'Current password is incorrect';
-                  }
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(message)),
-                  );
-                } catch (e) {
-                  print('Unexpected error: $e');
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Unexpected error occurred')),
-                  );
-                }
-              }
-            },
-            child: Text('Save'),
-          ),
-        ],
       ),
     );
   }
